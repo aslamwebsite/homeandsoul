@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 
 const Container = forwardRef((props, ref) => {
   return (
-    <section ref={ref} className={`col-12 float-start ${props._parentClass}`}>
+    <section ref={ref} className={`${props._parentClass}`}>
       <div className="container">
         <div className='row'>
           {props.children}

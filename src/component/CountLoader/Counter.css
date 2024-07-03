@@ -9,10 +9,11 @@
 .numbercolumn {
     font-family: 'Old Standard TT';
     color: #fff;
-    border-top: solid 1px #ededed;
+    border-top: 1px solid #727272;
 }
 .countercount .plussign {
-    font-size: xx-large;
+    font-size: 50px;
+    padding: 0 10px;
 }
 .countercount {
     font-size: 70px;

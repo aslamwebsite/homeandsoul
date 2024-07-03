@@ -6,7 +6,7 @@
   --bigFont: 90px;
   --bigLineheight:90px;
   --letter-spacing: 0.5px;
-  --creativeslide-height: 88vh;
+  --creativeslide-height: 80vh;
   --heading-font-family: 'Bw Vivant Med';
   --heading-font-size: 2.8125vw;
   --heading-line-height: 3.3333vw;
@@ -138,10 +138,10 @@ a{
 .layerafter:after {
   content: '';
   width: 100%;
-  height: 200px;
+  height: 35vh;
   background: #f7f7f8;
   position: absolute;
-  bottom: -10%;
+  bottom: -20%;
   z-index: 1;
 }
 .prologo {
@@ -1116,6 +1116,7 @@ input[type='radio']:checked+label>em {
   transform: translateX(-50%);
   transition: ease all 0.5s;
 }
+
 .btn-11 {
   width: -moz-fit-content;
   width: fit-content;
@@ -1123,6 +1124,7 @@ input[type='radio']:checked+label>em {
   display: flex;
   align-items: center;
   position: relative;
+  font-size: 16px;
 }
 .wrap .btn-11:hover:before {
   width: 100%;
@@ -1193,6 +1195,9 @@ input[type='radio']:checked+label>em {
   display: flex;
   opacity: 0.1;
 }
+.header {
+  transition: all .5s ease;
+}
 .header.sticky {
   box-shadow: 0 3px 3px rgba(0, 0, 0, .12);
   width: 100%;
@@ -1200,6 +1205,7 @@ input[type='radio']:checked+label>em {
   background-color: #fff;
 }
 .sticky {
+  -webkit-animation: smoothScroll 1s forwards;
   animation: smoothScroll 1s forwards;
   left: 0;
   position: fixed;
@@ -1207,18 +1213,19 @@ input[type='radio']:checked+label>em {
 }
 
 .header.sticky .logo {
-  max-width: 100px;
+  width: 100px;
 }
 .logo img {
   width: 100%;
 }
+
 @keyframes smoothScroll {
   0% {
-      transform: translateY(-40px)
+    transform: translateY(-40px);
   }
 
-  to {
-      transform: translateY(0)
+  100% {
+    transform: translateY(0px);
   }
 }
 @media (max-width: 1780px) {
