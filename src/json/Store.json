@@ -1,0 +1,40 @@
+{
+  "states": [
+    { "key": "wb", "value": "wb", "text": "West Bengal" },
+    { "key": "go", "value": "go", "text": "Goa" }
+  ],
+  "cities": {
+    "wb": [
+      { "key": "kd", "value": "kd", "text": "Kolkata" },
+      { "key": "ho", "value": "ho", "text": "Hoogly" },
+      { "key": "me", "value": "me", "text": "Medinipur" }
+    ],
+    "go": [
+      { "key": "na", "value": "na", "text": "North Goa" }
+    ]
+  },
+  "storeData": {
+    "ho": {
+      "name": "Chandannagar",
+      "address": "Reliance Mart, Ground Floor<br/>74, G.T. Road, Bagbazar<br/>Court More, Chandannagar<br/>Hooghly - 712136"
+    },
+    "me": {
+      "name": "Kolaghat",
+      "address": "NH-6, Inside Express Food<br/>Plaza, Kolaghat - 721134"
+    },
+    "na": {
+      "name": "Porvorim",
+      "address": "Reva Star, Shop No-3 - 1813/4<br/>Opp HSE School, Alto<br/> Porvorim, Bardez - 403521"
+    }
+  },
+  "locations": [
+    { "name": "Alambazar", "address": "62 Deshbandhu Road <br>Near Kalitala Math <br>Kolkata - 700035 ", "key": "kd" },
+    { "name": "Ballygunge", "address": "13 Pramathes Barua Road<br> Ground Floor, Beside<br>Automobile Club<br>Kolkata - 700019", "key": "kd" },
+    { "name": "Barasat", "address": "82/2/1, K.N.C Road<br>Anima apartment, Barasat<br> Kolkata - 700124 ", "key": "kd" },
+    { "name": "Camac Street", "address": "18, Camac Stret, Opposite<br> Joyalukkas Jewellry Shop<br>Kolkata - 700017", "key": "kd" },
+    { "name": "Kidderpore", "address": "Reliance Samart Baazar<br> Ground Floor, 74, Diamond<br>Harbour Road, Ward No-77<br>Kolkata - 700023</p>", "key": "kd" },
+    { "name": "Lake Town", "address": "P-74, Lake Town <br>Block B, Opp. Central Bank<br>of India, Kolkata - 700127", "key": "kd" },
+    { "name": "Madhyamgram", "address": "74/4/2, Jessore Road (South)<br>Nabatirtha. Hridaypur<br>Opposite Star Mall<br>Kolkata - 700127", "key": "kd" },
+    { "name": "Rajpur Sonarpur", "address": "Role Model, Shop No.5, Uttar <br> Kumrakhali, Ward No. 27<br> Rapur Sonarpur<br>Kolkata - 700103", "key": "kd" }
+  ]
+}

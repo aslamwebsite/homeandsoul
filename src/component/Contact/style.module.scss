@@ -1,0 +1,167 @@
+.contact{
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .body{
+        width: 100%;
+        .title{
+            span{
+                width:50px;
+                height: 50px;
+                display: inline-block;
+                .imageContainer{
+                    width: 100px;
+                    height: 100px;
+                    position: relative;
+                    border-radius: 50%;
+                    overflow: hidden;
+
+                    img{
+                        object-fit: cover;
+                    }
+                }
+                h2{
+                    margin-left: 0.3em;
+                }
+            }
+            .buttonContainer{
+                position: absolute;
+                left: calc(100% - 400px); 
+                top: calc(100% - 75px);
+            }
+           
+            
+        }
+        .collg4{
+            width: 30%;
+            margin: 0 1.5%;
+        }
+        .footerbox{
+            margin: 15px 0;
+            position: relative;
+            width: 24%;
+        }
+        .nav{
+            display: flex;
+            justify-content: space-between;
+            margin: 100px 0 50px 0;
+            p, a{
+                text-decoration: none;
+                span{
+                    margin-right: 10px;
+                }
+            }
+            ul{
+                padding: 0;
+                list-style: none;
+                span{
+                    align-items: center;
+                    border: 1px solid #fff;
+                    border-radius: 100%;
+                    display: flex;
+                    height: 30px;
+                    justify-content: center;
+                    width: 30px;
+                    svg{
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
+            }
+        }
+        .info{
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-top: solid 1px #c7c7c7;
+            div{
+                display: flex;
+                gap: 10px;
+                align-items: flex-end;
+                p, a{
+                    margin: 0px;
+                    cursor: pointer;
+                    letter-spacing: 0.5px;
+                    font-size: 13px;
+                    text-decoration: none;
+                }
+                span{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                }
+                h3{
+                    color: grey;
+                    cursor: default;
+                    font-weight: 300;
+                    font-size: 1em;
+                }
+            }
+            
+        }
+    }
+    
+}
+@media (max-width: 1366px) {
+    .contact{
+        .body{
+            padding-top: 150px;
+            .info{
+                margin-top: 150px;
+            }
+        }
+    }   
+}
+@media (max-width: 1280px) {
+.contact{
+    .body{
+        .nav{
+            ul{
+                span{
+                    width: 22px;
+                    height: 22px;
+                }
+            }
+        }
+        .title{
+            .button{
+                width: 180px;
+                height: 180px;
+            }
+        }
+    }
+}
+}
+@media (max-width: 990px) {
+    .contact{
+        .body{
+            .nav{
+                flex-wrap: wrap;
+            }
+        }
+    }   
+}
+@media (max-width: 680px) {
+    .contact{
+        padding-top: 50px;
+        .body{  
+            .title{
+                padding-bottom: 100px;
+            } 
+            .info{
+                padding-top: 10px;
+                flex-wrap: wrap;
+                text-align: center;
+                div, p, span{
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+    }   
+}

@@ -1,0 +1,267 @@
+@font-face {
+    font-family: 'Bw Vivant ExtLt';
+    src: url('BwVivant-Thin.woff2') format('woff2'),
+        url('BwVivant-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('BaiJamjuree-Bold.woff2') format('woff2'),
+        url('BaiJamjuree-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'bw-vivant-light';
+    src: url('394db509f3175886b6adbe80f975df65.woff2') format('woff2'),
+        url('394db509f3175886b6adbe80f975df65.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bw Vivant Med';
+    src: url('BwVivant-Medium.woff2') format('woff2'),
+        url('BwVivant-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'bw-vivant';
+    src: url('bwvivantblack-bwvivantblack.woff2') format('woff2'),
+        url('bwvivantblack-bwvivantblack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('BaiJamjuree-BoldItalic.woff2') format('woff2'),
+        url('BaiJamjuree-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('BaiJamjuree-ExtraLight.woff2') format('woff2'),
+        url('BaiJamjuree-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Authentic';
+    src: url('Authentic-Signature.eot');
+    src: url('Authentic-Signature.eot?#iefix') format('embedded-opentype'),
+        url('Authentic-Signature.woff2') format('woff2'),
+        url('Authentic-Signature.woff') format('woff'),
+        url('Authentic-Signature.ttf') format('truetype'),
+        url('Authentic-Signature.svg#Authentic-Signature') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+@font-face {
+    font-family: 'Bw Vivant Thin Skinny';
+    src: url('BwVivant-Skinny.woff2') format('woff2'),
+        url('BwVivant-Skinny.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('BaiJamjuree-Medium.woff2') format('woff2'),
+        url('BaiJamjuree-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('BaiJamjuree-MediumItalic.woff2') format('woff2'),
+        url('BaiJamjuree-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('BaiJamjuree-Italic.woff2') format('woff2'),
+        url('BaiJamjuree-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('BaiJamjuree-LightItalic.woff2') format('woff2'),
+        url('BaiJamjuree-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('BaiJamjuree-ExtraLightItalic.woff2') format('woff2'),
+        url('BaiJamjuree-ExtraLightItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('BaiJamjuree-Light.woff2') format('woff2'),
+        url('BaiJamjuree-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('BaiJamjuree-SemiBoldItalic.woff2') format('woff2'),
+        url('BaiJamjuree-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'bw-vivant';
+    src: url('BwVivant-bwvivantblack.woff2') format('woff2'),
+        url('BwVivant-bwvivantblack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('BaiJamjuree-SemiBold.woff2') format('woff2'),
+        url('BaiJamjuree-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('BaiJamjuree-Regular.woff2') format('woff2'),
+        url('BaiJamjuree-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: '';
+    src: url('b89d581472bc1bedd04cf1415f98771b.woff2') format('woff2'),
+        url('b89d581472bc1bedd04cf1415f98771b.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'bw-vivant';
+    src: url('bwvivantblack-bwvivantblack.woff2') format('woff2'),
+        url('bwvivantblack-bwvivantblack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bw Vivant Med';
+    src: url('BwVivant-Medium.woff2') format('woff2'),
+        url('BwVivant-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bw Vivant Thin Skinny';
+    src: url('BwVivant-Skinny.woff2') format('woff2'),
+        url('BwVivant-Skinny.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bw Vivant ExtLt';
+    src: url('BwVivant-Thin.woff2') format('woff2'),
+        url('BwVivant-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'bw-vivant';
+    src: url('BwVivant-bwvivantblack.woff2') format('woff2'),
+        url('BwVivant-bwvivantblack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'bw-vivant';
+    src: url('Unnamed-bwvivantregular.woff2') format('woff2'),
+        url('Unnamed-bwvivantregular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Old Standard TT';
+    src: url('OldStandardTT-Italic.woff2') format('woff2'),
+        url('OldStandardTT-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Old Standard TT';
+    src: url('OldStandardTT-Bold.woff2') format('woff2'),
+        url('OldStandardTT-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Old Standard TT';
+    src: url('OldStandardTT-Regular.woff2') format('woff2'),
+        url('OldStandardTT-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

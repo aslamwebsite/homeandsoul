@@ -1,0 +1,90 @@
+.projects {
+    display: flex;
+    align-items: end;
+    margin-bottom: 80px;
+}
+
+.projectSlider {
+    width: 70%;
+}
+
+.projectinfo {
+    width: 20%;
+}
+
+.protitle {
+    width: 10%;
+    font-size: 70px;
+    rotate: 180deg;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    margin-bottom: 100px;
+}
+
+.projectSlider .swiper-container {
+    width: 85%;
+    margin: auto;
+}
+
+.protitle h4 {
+    font-size: 63px;
+    white-space: nowrap;
+    font-weight: normal;
+    color: hsl(0deg 0% 0% / 20%);
+    margin: 0;
+    line-height: 70px;
+    letter-spacing: 5px;
+}
+
+.proinfochild h4 {
+    margin: 0;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 2px;
+}
+
+.proinfochild ul {
+    padding: 0;
+    list-style: none;
+    margin-bottom: 100px;
+}
+
+.proinfochild ul li {
+    padding: 10px 0;
+    position: relative;
+}
+
+.proinfochild ul li:before {
+    content: '';
+    width: 40px;
+    height: 2px;
+    background: #000;
+    position: absolute;
+    bottom: 0;
+}
+
+.proinfochild ul li:last-child {
+    padding-bottom: 0;
+}
+
+.proinfochild ul li:last-child:before {
+    background: transparent;
+}
+
+.projects:last-child {
+    margin-bottom: 0;
+}
+
+.projects:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.projectLogo {
+    width: 200px;
+    float: right;
+    margin-right: 10%;
+}
+
+.projects:nth-child(odd) .protitle {
+    rotate: 360deg;
+}

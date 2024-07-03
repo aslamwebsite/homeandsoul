@@ -1,0 +1,19 @@
+.paragraph{
+  display: flex;
+  font-size: 47px;
+  line-height: 1;
+  padding: 0;
+  font-family: 'Old Standard TT';
+  margin: 0;
+  flex-wrap: wrap;
+  width: 94%;
+    .word{
+      position: relative;
+      margin-right: 12px;
+      margin-top: 12px;
+      .shadow{
+        position: absolute;
+        opacity: 20%;
+      }
+    } 
+  }
