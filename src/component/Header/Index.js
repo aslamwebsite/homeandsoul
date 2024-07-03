@@ -60,13 +60,11 @@ const Index = () => {
                                             <div className={styles.indicator}></div>
                                         </div>
                                     </Magnetic>
-                                    <Magnetic>
                                         <div className={styles.headerButtonContainer}>
                                             <div onClick={() => setIsActive(!isActive)} className={`${styles.button}`}>
                                                 <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
                                             </div>
                                         </div>
-                                    </Magnetic>
                                 </div>
                               
                             </div>

@@ -3,22 +3,27 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
 import styles from './style.module.scss';
 import { motion } from 'framer-motion';
-import Prologo from '../../images/page-three.webp';
 import banner01 from '../../images/banner-01.webp';
 import banner02 from '../../images/banner-02.webp';
 import banner03 from '../../images/banner-03.webp';
+import logo01 from '../../images/page-three.webp'
+import logo02 from '../../images/premiere.webp'
+import logo03 from '../../images/boulevard-walk.webp'
 
 const slideData = [
   {
     image: banner01,
+    prologo: logo01,
     title: "READY SET <span>Slay</span>",
   },
   {
-    image: banner02,
+    image: banner02,    
+    prologo: logo02,
     title: "TO LIVE THE EXCEPTIONAL LOOK NO <span>Further</span>",
   },
   {
-    image: banner03,
+    image: banner03,    
+    prologo: logo03,
     title: "THE CITY WALK OF GREATER NOIDA WEST READY <span>Shine</span>",
   },
 ];
@@ -34,7 +39,7 @@ const Index = () => {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(toggleZoomClass, 6000);
+    const intervalId = setInterval(toggleZoomClass, 5000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -101,8 +106,8 @@ const Index = () => {
                       className='desktop-show'
                     />
                   </div>
-                    <div className="prologo">
-                      <img src={Prologo} alt='Prologo'/>
+                    <div className="prologo flex-center">
+                      <img src={slide.prologo} alt='Prologo'/>
                     </div>
                     </div>
                     <div className={`creativeslide`}>

@@ -150,12 +150,14 @@
         &::after {
             transform: rotate(45deg);
             top: -1px;
+            background-color: #fff;
             width: 60%;
         }
 
         &::before {
             transform: rotate(-45deg);
             top: 0px;
+            background-color: #fff;
             width: 60%;
         }
 

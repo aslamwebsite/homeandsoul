@@ -49,7 +49,7 @@ const Index = () => {
   return (
     <>
       <Container>
-        <div className='title col-12 float-start flex-center'>
+        <div className='title col-12 float-start flex-center titlePosition'>
           <span data-aos="zoom-in"
           data-aos-offset="200"
           data-aos-duration="500"
@@ -115,13 +115,13 @@ const Index = () => {
                     </SwiperSlide>
                   ))}
                 </Swiper>
-                <div class="wrap flex-center" data-aos="zoom-in"
-          data-aos-offset="200"
-          data-aos-duration="500"
-          data-aos-once="true"
-          data-aos-easing="ease-in-sine"><a class="btn-11"><span>Know More</span></a></div>
               </div>
             </div>
+            <div class="wrap flex-center" data-aos="zoom-in"
+            data-aos-offset="200"
+            data-aos-duration="500"
+            data-aos-once="true"
+            data-aos-easing="ease-in-sine"><a class="btn-11"><span>Know More</span></a></div>
           </div>
         ))}
       </Container>

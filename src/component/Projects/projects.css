@@ -2,6 +2,7 @@
     display: flex;
     align-items: end;
     margin-bottom: 80px;
+    flex-wrap: wrap;
 }
 
 .projectSlider {
@@ -26,10 +27,16 @@
     margin: auto;
 }
 
+.projects:nth-child(2) .protitle h4 {
+    font-size: 130px;
+}
+.projects:nth-child(3) .protitle h4 {
+    font-size: 110px;
+}
 .protitle h4 {
     font-size: 63px;
     white-space: nowrap;
-    font-weight: normal;
+    font-weight: 300;
     color: hsl(0deg 0% 0% / 20%);
     margin: 0;
     line-height: 70px;
@@ -80,11 +87,18 @@
 }
 
 .projectLogo {
-    width: 200px;
+    width: 250px;
     float: right;
-    margin-right: 10%;
+    margin-right: 7.5%;
 }
-
+.projectLogo img{
+    width: 100%;
+}
 .projects:nth-child(odd) .protitle {
     rotate: 360deg;
+}
+.titlePosition {
+    position: absolute;
+    left: 0;
+    right: 0;
 }

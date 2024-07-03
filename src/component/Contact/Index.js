@@ -74,19 +74,19 @@ const Index = () => {
                 <div className="footerbox">
                                <span className='call'></span>
                                
-                                <Magnetic>
+                              
                             <p className='col-12 float-start m-0'> <a href='tel:+918447000360' >+91 8447000360</a></p>
-                            </Magnetic>
+                          
                             </div>
                             <div className="footerbox">
                             <span className='map'></span>
-                                <Magnetic><p className='col-12 float-start m-0'> GH-B3, Jaypee Greens Sports <br/>City, SDZ, Dankaur, Greater<br/> Noida, Gautam Buddha Nagar<br/> Uttar Pradesh, 201301</p></Magnetic>
+                           <p className='col-12 float-start m-0'> GH-B3, Jaypee Greens Sports <br/>City, SDZ, Dankaur, Greater<br/> Noida, Gautam Buddha Nagar<br/> Uttar Pradesh, 201301</p>
                                 
                             </div>
                             <div className="footerbox">
                             <span className='email'></span>
-                                <Magnetic><p className='col-12 float-start m-0'> <a href='mailto:info@redcowdairy.in' >info@redcowdairy.in</a></p>
-                                </Magnetic>
+                                <p className='col-12 float-start m-0'> <a href='mailto:info@redcowdairy.in' >info@redcowdairy.in</a></p>
+                              
                                 
                             </div>
                             <div className="footerbox">
