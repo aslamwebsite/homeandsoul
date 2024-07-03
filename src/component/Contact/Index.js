@@ -85,7 +85,7 @@ const Index = () => {
                             </div>
                             <div className="footerbox">
                             <span className='email'></span>
-                                <p className='col-12 float-start m-0'> <a href='mailto:info@redcowdairy.in' >info@redcowdairy.in</a></p>
+                                <p className='col-12 float-start m-0'> <a href='mailto:crm@homeandsoul.in'>crm@homeandsoul.in</a></p>
                               
                                 
                             </div>
