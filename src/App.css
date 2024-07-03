@@ -1184,10 +1184,9 @@ input[type='radio']:checked+label>em {
 }
 .sideLogo {
   position: absolute;
-  z-index: 9999;
   top: 50%;
-  right: 0;
-  transform: translate(-50%,-50%) scaleX(-1);
+  left: 15%;
+  transform: translate(-50%, -50%);
   text-align: center;
   width: 400px;
   filter: grayscale(1);
