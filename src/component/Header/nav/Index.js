@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { NavLink, useLocation } from 'react-router-dom';
 import { menuSlide, slide, scale } from '../animation';
 import Curve from './Curve';
-import Logo from '../../../images/home-soul.webp';
+import Logo from '../../../images/400x400.webp';
 
 const navItems = [
   {
@@ -13,23 +13,23 @@ const navItems = [
   },
   {
     title: "About Us",
-    href: "/",
+    href: "#",
   },
   {
     title: "Townships",
-    href: "/projects",
+    href: "#",
   },
   {
     title: "Homes",
-    href: "/",
+    href: "/projects/homes",
   },
   {
     title: "Retail",
-    href: "/",
+    href: "/projects/retail",
   },
   {
     title: "Offices",
-    href: "/",
+    href: "#",
   }
 ];
 
@@ -95,7 +95,7 @@ const Nav = ({ setIsActive, toggleMenu, isActive }) => {  // Accept isActive pro
         </div>
         <div className={styles.headerButtonContainer}>
           <div onClick={toggleMenu} className={`${styles.button}`}>
-            <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>  {/* Use isActive prop */}
+            <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>  
           </div>
         </div>
         <Curve />

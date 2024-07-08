@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import "aos/dist/aos.css";
 import Aos from "aos";
@@ -29,7 +29,7 @@ function App() {
           <Route exact path="/projects/:cat/:slug" element={<ProjectDetail />} />
           <Route path="*" element={<Error />} />
         </Routes>
-        <FooterWithDelay />
+        <Footer />
       </Router>
     </>
   );
@@ -42,21 +42,9 @@ function HeaderWithCondition() {
   return <Header className={headerClass} />;
 }
 
-function FooterWithDelay() {
+function Footer() {
   const location = useLocation();
-  const [showContact, setShowContact] = useState(false);
-
-  useEffect(() => {
-    if (location.pathname !== "/projects") {
-      const timer = setTimeout(() => {
-        setShowContact(true);
-      }, 1000); 
-
-      return () => clearTimeout(timer); 
-    }
-  }, [location.pathname]);
-
-  return showContact ? <Contact /> : null;
+  return location.pathname !== "/projects" ? <Contact /> : null;
 }
 
 export default App;
