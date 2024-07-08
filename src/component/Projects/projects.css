@@ -26,12 +26,6 @@
     margin: auto;
 }
 
-.projects:nth-child(2) .protitle h4 {
-    font-size: 130px;
-}
-.projects:nth-child(3) .protitle h4 {
-    font-size: 110px;
-}
 .protitle h4 {
     font-size: 70px;
     white-space: nowrap;
@@ -40,6 +34,7 @@
     margin: 0;
     line-height: 70px;
     letter-spacing: 5px;
+    text-transform: uppercase;
 }
 
 .proinfochild h4 {
@@ -49,6 +44,12 @@
     letter-spacing: 2px;
 }
 
+.projects:nth-child(2) .protitle h4 {
+    font-size: 130px;
+}
+.projects:nth-child(3) .protitle h4 {
+    font-size: 110px;
+}
 .proinfochild ul {
     padding: 0;
     list-style: none;
