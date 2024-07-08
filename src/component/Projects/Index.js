@@ -10,6 +10,7 @@ import '../Projects/projects.css';
 import Container from '../Container/Index';
 import Title from '../Title/Index';
 import noimage from '../../images/noimage.jpg';
+import { Link } from 'react-router-dom';
 
 const isValidUrl = (url) => {
   return url && typeof url === 'string' && url.trim() !== '';
@@ -125,7 +126,11 @@ const Index = ({ Data }) => {
               data-aos-once="true"
               data-aos-easing="ease-in-sine"
             >
-              <a className="btn-11" href={`/projects/homes/${project.slug}`}><span>Know More</span></a>
+              {project.linkActive === '1' ? (
+              <Link className="btn-11" to={`/projects/homes/${project.slug}`}><span>Know More</span></Link>
+            ) : (
+              <a className="btn-11"><span>Know More</span></a>
+            )}
             </div>
           </div>
         ))}

@@ -69,7 +69,6 @@
             padding: 0 20px;
             position: relative;
             z-index: 1;
-            cursor: pointer;
             color: #000;
             font-size: 14px;
             letter-spacing: 3px;
@@ -83,10 +82,6 @@
             a {
                 color: inherit;
             }
-        }
-
-        a {
-            cursor: pointer;
         }
     }
 }

@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import WebContainer from './component/WebContainer/Index';
 import Title from './component/Title/Index';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { BasePath } from './component/BasePath/Index';
+import Noimage from './images/noimage.jpg'
+import { Link } from 'react-router-dom';
 
 const Project = () => {
   const [pageData, setPageData] = useState([]);
@@ -35,7 +37,7 @@ const Project = () => {
   }, [cat]);
 
   if (isLoading) {
-    return <div className="preloader">Loading...</div>;
+    return <div className="preloader"></div>;
   }
 
   if (error) {
@@ -67,12 +69,27 @@ const Project = () => {
         {pageData && pageData.length > 0 ? (
           pageData.map((project) => (
             <div className="projectslider" key={project.id}>
-              <Link to={`/projects/${project.cat.toLowerCase()}/${project.slug}`}>
+              {project.linkActive === '1' ? (
+                <Link to={`/projects/${project.cat.toLowerCase()}/${project.slug}`}>
+                  <figure className="snip0016">
+                    {project.image ? (
+                      <img src={project.image} alt={project.name} />
+                    ) : (
+                      <img src="path_to_default_image.jpg" alt="Default" />
+                    )}
+                    <figcaption>
+                      <h3>{project.name}</h3>
+                      <p>{project.location}</p>
+                      <p>Know More</p>
+                    </figcaption>
+                  </figure>
+                </Link>
+              ) : (
                 <figure className="snip0016">
                   {project.image ? (
                     <img src={project.image} alt={project.name} />
                   ) : (
-                    <img src="path_to_default_image.jpg" alt="Default" />
+                    <img src={Noimage} alt="Home & Shoul" />
                   )}
                   <figcaption>
                     <h3>{project.name}</h3>
@@ -80,7 +97,7 @@ const Project = () => {
                     <p>Know More</p>
                   </figcaption>
                 </figure>
-              </Link>
+              )}
             </div>
           ))
         ) : (
