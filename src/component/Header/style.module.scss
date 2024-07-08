@@ -4,63 +4,8 @@
     width: 100%;
     box-sizing: border-box;
     align-items: center;
-    height: 170px;
-    .logo {
-        display: flex;
-        cursor: pointer;
-
-        p {
-            margin: 0px;
-            transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-        }
-
-        .name {
-            display: flex;
-            position: relative;
-            overflow: hidden;
-            white-space: nowrap;
-            margin-left: 5px;
-            transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-
-            p {
-                position: relative;
-                transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-
-                &:nth-of-type(2) {
-                    padding-left: 0.3em;
-                }
-
-                &:nth-of-type(3) {
-                    position: absolute;
-                    left: 120px;
-                    padding-left: 0.3em;
-                }
-            }
-        }
-
-        &:hover {
-            .copyright {
-                transform: rotate(360deg);
-            }
-
-            .name {
-                padding-right: 30px;
-
-                .codeBy {
-                    transform: translateX(-100%);
-                }
-
-                .dennis {
-                    transform: translateX(-65px);
-                }
-
-                .snellenberg {
-                    transform: translateX(-65px);
-                }
-            }
-        }
-    }
-
+    height: 150px;
+  
     .nav {
 
         .el {

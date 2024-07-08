@@ -263,7 +263,7 @@ svg {
   gap: 25px;
 }
 .logo {
-  width: 170px;
+  width: 140px;
   transition: ease all 1s;
 }
 
@@ -1447,6 +1447,7 @@ button.proarrow {
   display: inline-block;
   font-size: 16px;
   line-height: 22px;
+  letter-spacing: 1px;
 }
 
 .details p span:last-child {
@@ -1471,7 +1472,7 @@ button.proarrow {
 .detailContent {
   width: 70%;
 }
-.proGallery{
+.Gallerybox, .proGallery{
   height: var(--creativeslide-height);
 }
 .proDetail [data-aos^=fade][data-aos^=fade] {
@@ -1510,13 +1511,7 @@ button.proarrow {
   height: 80vh;
   overflow: hidden;
 }
-.Gallerybox img{
-  height: 60vh ;
-}
-.Gallerybox {
-  margin-top: 15vh;
-}
-.Heroslider .swiper-slide img, .projectscroll .galleryslider img{
+.Heroslider .swiper-slide img, .projectscroll .galleryslider img, .projectscroll .lg-react-element img{
   height: auto;
 }
 *, :after, :before {
@@ -1526,12 +1521,51 @@ button.proarrow {
   width: 100%;
   position: fixed;
   background: #fff;
-  top: 16%;
+  top: 0;
   bottom: 0;
   right: 0;
   left: 0;
   z-index: 3;
   height: 100vh;
+}
+.projectDetails {
+  position: fixed;
+  top: 12%;
+  width: 100%;
+  background-color: #414042;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.projectDetails .title-item {
+  background: transparent;
+  margin: 0;
+  line-height: 50px;
+  width: auto;
+  color: var(--white);
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+.lg-download.lg-icon {
+  display: none;
+}
+.projectDetails .title-item.active {
+  color:var(--black);
+}
+.proDetail .footerbox {
+  padding-bottom: 25px;
+}
+.prologoHeader {
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 1%;
+  transform: translate(-50%);
 }
 @media (max-width: 1780px) {
   .outlateshapes::before{

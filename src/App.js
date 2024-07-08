@@ -25,7 +25,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/projects" element={<Project />} />
-          <Route path="/projects/:cat" element={<Project />} />
+          <Route exact path="/projects/:cat" element={<Project />} />
           <Route exact path="/projects/:cat/:slug" element={<ProjectDetail />} />
           <Route path="*" element={<Error />} />
         </Routes>
