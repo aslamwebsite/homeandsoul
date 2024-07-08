@@ -16,6 +16,8 @@ const Index = () => {
         target: container,
         offset: ["start end", "end end"]
     })
+    const combinedClassNames = `${styles.contact} ${'transformRemove'}`;
+
     const x = useTransform(scrollYProgress, [0, 1], [0, 100])
     const y = useTransform(scrollYProgress, [0, 1], [-500, 0])
     return (
@@ -25,7 +27,7 @@ const Index = () => {
           data-aos-duration="500"
           data-aos-once="true"
           data-aos-easing="ease-in-sine">
-            <motion.div style={{y}} ref={container} className={styles.contact}>
+            <motion.div style={{y}} ref={container} className={combinedClassNames}>
                 <div className="container">
                 <div className="title text-center float-start col-12"><span>Talk to us</span>
                 <p className='m-0 lh-1'>For excellent real estate ownership and <br/>investment opportunities</p></div>

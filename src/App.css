@@ -1478,7 +1478,7 @@ button.proarrow {
   opacity: 1;
 }
 
-.proDetail .style_contact__dcFX2 {transform: none !important;}
+.proDetail .transformRemove {transform: none !important;}
 
 .proDetail {
   padding-top: 7vh;
@@ -1516,7 +1516,7 @@ button.proarrow {
 .Gallerybox {
   margin-top: 15vh;
 }
-.Heroslider .swiper-slide img{
+.Heroslider .swiper-slide img, .projectscroll .galleryslider img{
   height: auto;
 }
 *, :after, :before {
