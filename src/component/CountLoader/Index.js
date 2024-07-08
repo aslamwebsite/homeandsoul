@@ -4,32 +4,10 @@ import Container from "../Container/Index"
 import "../CountLoader/Counter.css"
 import bannerImage from '../../images/counter-banner.webp'
 import { Parallax } from 'react-parallax';
+import Title from '../Title/Index'
 
-const Index = () => {
-  const countersData = [
-    { startValue: 0, endValue: 8, speed: 400, label: "Projects Handled"},
-    {
-      startValue: 10,
-      endValue: 20,
-      speed: 400,
-      label: "Lakh sq.ft. Delivered",
-      Plus:"+"
-    },
-    {
-      startValue: 0,
-      endValue: 50,
-      speed: 200,
-      label: "Lakh sq.ft. in Development",
-      Plus: "+",
-    },
-    {
-      startValue: 1000,
-      endValue: 5000,
-      speed: 200,
-      label: "Happy Customers",
-      Plus: "+",
-    },
-  ];
+const Index = ({Data}) => {
+  const countersData = Data.numberData
   const getStrengthValue = () => {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.platform);
     const isMac = /MacIntel/.test(navigator.platform);
@@ -40,13 +18,7 @@ const Index = () => {
 
      <Parallax bgImage={bannerImage} strength={getStrengthValue()} className='flex-center col-12 float-start'>
       <Container>
-      <div className="title col-12 float-start flex-center">
-                    <span className="text-white" data-aos="zoom-in"
-          data-aos-offset="200"
-          data-aos-duration="500"
-          data-aos-once="true"
-          data-aos-easing="ease-in-sine">H&S GROUP IN NUMBERS</span>
-                  </div>
+     <Title firstHeading={'H&S GROUP IN NUMBERS'} parentClass={'text-white'}/>
     <div className={`numberrow col-12 float-start flex-center justify-content-evenly pt-5 position-relative`}
                 >
                   {countersData &&

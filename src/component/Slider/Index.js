@@ -3,32 +3,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
 import styles from './style.module.scss';
 import { motion } from 'framer-motion';
-import banner01 from '../../images/banner-01.webp';
-import banner02 from '../../images/banner-02.webp';
-import banner03 from '../../images/banner-03.webp';
-import logo01 from '../../images/page-three.webp'
-import logo02 from '../../images/premiere.webp'
-import logo03 from '../../images/boulevard-walk.webp'
 
-const slideData = [
-  {
-    image: banner01,
-    prologo: logo01,
-    title: "READY SET <span>Slay</span>",
-  },
-  {
-    image: banner02,    
-    prologo: logo02,
-    title: "TO LIVE THE EXCEPTIONAL LOOK NO <span>Further</span>",
-  },
-  {
-    image: banner03,    
-    prologo: logo03,
-    title: "THE CITY WALK OF GREATER NOIDA WEST READY <span>Shine</span>",
-  },
-];
-
-const Index = () => {
+const Index = ({ Data = [], parentClass }) => {
+  const slideData = Data;
   const [activeIndex, setActiveIndex] = useState(0);
   const [isZoomIn, setIsZoomIn] = useState(true);
   const sectionRef = useRef();
@@ -40,7 +17,6 @@ const Index = () => {
 
   useEffect(() => {
     const intervalId = setInterval(toggleZoomClass, 5000);
-
     return () => clearInterval(intervalId);
   }, []);
 
@@ -67,9 +43,8 @@ const Index = () => {
   }, []);
 
   return (
-    <>
-    <section className="position-relative layerafter m-0">
-    <motion.div initial="initial" animate="enter" className={`${styles.landing} justify-content-end Heroslider`} ref={sectionRef}>
+    <section className={`position-relative layerafter m-0 ${parentClass}`}>
+      <motion.div initial="initial" animate="enter" className={`${styles.landing} justify-content-end Heroslider`} ref={sectionRef}>
         <div className={`${styles.homeslider} downArrow`} data-aos="fade-in"
           data-aos-offset="200"
           data-aos-duration="500"
@@ -96,23 +71,24 @@ const Index = () => {
             {slideData.map((slide, index) => (
               <SwiperSlide key={index}>
                 <div className="swiperslider position-relative col-12 float-start">
-                <div className={styles.sliderdiv}>
-                  <div className={`projectbanner overflow-hidden ${isZoomIn ? 'zoom-in' : 'zoom-out'}`}>
-                    <img
-                      src={slide.image}
-                      width="1740"
-                      height="822"
-                      alt=""
-                      className='desktop-show'
-                    />
+                  <div className={styles.sliderdiv}>
+                    <div className={`projectbanner overflow-hidden ${isZoomIn ? 'zoom-in' : 'zoom-out'}`}>
+                      <img
+                        src={slide.imagePath}
+                        width="1740"
+                        height="822"
+                        alt=""
+                        className='desktop-show'
+                      />
+                    </div>
+                      <div className="prologo flex-center">
+                       {slide.prologo &&  <img src={slide.prologo} alt='Prologo'/>}
+                       {slide.logo &&  <img src={slide.logo} alt='Prologo'/>}
+                      </div>
                   </div>
-                    <div className="prologo flex-center">
-                      <img src={slide.prologo} alt='Prologo'/>
-                    </div>
-                    </div>
-                    <div className={`creativeslide`}>
-                      <h3 className="heading bigFont text-start text-black" dangerouslySetInnerHTML={{ __html: slide.title }}></h3>
-                    </div>
+                  <div className={`creativeslide`}>
+                    <h3 className="heading bigFont text-start text-black" dangerouslySetInnerHTML={{ __html: slide.title }}></h3>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
@@ -120,7 +96,6 @@ const Index = () => {
         </div>
       </motion.div>
     </section>
-    </>
   );
 }
 

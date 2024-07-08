@@ -2,71 +2,67 @@ import { useRef, useState } from 'react';
 import styles from './style.module.scss';
 import { AnimatePresence } from 'framer-motion';
 import Nav from './nav/Index';
-import Magnetic from '../Magnetic/Index';
-import { Link } from 'react-scroll';
-import Logo from '../../images/home-soul.webp'
+import Logo from '../../images/home-soul.webp';
+import Logo2 from '../../images/premiere.webp'
 import Container from '../Container/Index';
-import useStickyHeader from '../Header/useStickyHeader'
+import useStickyHeader from '../Header/useStickyHeader';
+import { NavLink } from 'react-router-dom';
 
-const Index = () => {
+const Index = ({className, projectLogo}) => {
     const header = useRef(null);
     const [isActive, setIsActive] = useState(false);
     const headerRef = useRef(null);
     useStickyHeader(headerRef);
 
+    const toggleMenu = () => {
+        setIsActive(!isActive);
+    };
+
     return (
         <>
-            <div ref={header} className={styles.header}>
-                <Container ref={headerRef} _parentClass="header  m-0">
+            <div ref={header} className={`${styles.header} ${className}`}>
+                <Container ref={headerRef} _parentClass="header m-0">
                     <div className="header col-12 float-start">
                         <div className="row flex-center">
                             <div className="col-lg-4 col-sm-6">
-                                <div className="logo">
-                                    <img src={Logo} alt='Home & Soul' />
-                                </div>
+                                
+                                    <div className="logo">
+                                    <NavLink to='/'>
+                                        <img src={Logo} alt='Home & Soul' />                                        
+                                </NavLink>
+                                    </div>
                             </div>
-                            <div className="menu col-lg-8 col-sm-4">
+                            <div className='col-lg-4 col-sm-4 flex-center'>
+                           {projectLogo &&  <img src={Logo2} alt='Home & Soul' />}
+                            </div>
+                            <div className="menu col-lg-4 col-sm-4">
                                 <div className={`${styles.nav} flex-center justify-content-end`}>
-                                    <Magnetic>
                                         <div className={styles.el}>
-                                            <Link to="home" smooth={true} duration={500}>
+                                            <NavLink to='/projects/townships'>
                                                 TOWNSHIPS
-                                            </Link>
-                                            <div className={styles.indicator}></div>
+                                            </NavLink>
                                         </div>
-                                    </Magnetic>
-
-                                    <Magnetic>
                                         <div className={styles.el}>
-                                            <Link to="flavours" smooth={true} duration={500}>
+                                        <NavLink to='/projects/homes'>
                                                 HOMES
-                                            </Link>
-                                            <div className={styles.indicator}></div>
+                                            </NavLink>
                                         </div>
-                                    </Magnetic>
-                                    <Magnetic>
                                         <div className={styles.el}>
-                                            <Link to="sandaes" smooth={true} duration={500}>
+                                        <NavLink to='/projects/retail'>
                                                 RETAIL
-                                            </Link>
-                                            <div className={styles.indicator}></div>
+                                            </NavLink>
                                         </div>
-                                    </Magnetic>
-                                    <Magnetic>
                                         <div className={styles.el}>
-                                            <Link to="milkshakes" smooth={true} duration={500}>
+                                        <NavLink to='/projects/offices'>
                                                 OFFICES
-                                            </Link>
-                                            <div className={styles.indicator}></div>
+                                            </NavLink>
                                         </div>
-                                    </Magnetic>
-                                        <div className={styles.headerButtonContainer}>
-                                            <div onClick={() => setIsActive(!isActive)} className={`${styles.button}`}>
-                                                <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
-                                            </div>
+                                    <div className={styles.headerButtonContainer}>
+                                        <div onClick={toggleMenu} className={`${styles.button}`}>
+                                            <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
                                         </div>
+                                    </div>
                                 </div>
-                              
                             </div>
                         </div>
                     </div>
@@ -74,7 +70,7 @@ const Index = () => {
             </div>
 
             <AnimatePresence mode="wait">
-                {isActive && <Nav setIsActive={setIsActive} />}
+                {isActive && <Nav setIsActive={setIsActive} toggleMenu={toggleMenu} isActive={isActive} />} 
             </AnimatePresence>
         </>
     );

@@ -1,0 +1,27 @@
+{
+    "projects": [
+      {
+        "id": 1,
+        "name": "Page 3",
+        "location": "Sector 83, New Gurugram",
+        "slug": "page-3",
+        "cat":"homes",
+        "image": "/listing01.webp"
+      },
+      {
+        "id": 2,
+        "name": "Project 2",
+        "location": "Location 2",
+        "slug": "project-2",
+        "image": "/listing02.webp"
+      },
+      {
+        "id": 3,
+        "name": "Project 3",
+        "location": "Location 3",
+        "slug": "project-3",
+        "image": "/listing03.webp"
+      }
+    ]
+  }
+  

@@ -8,77 +8,56 @@ import 'swiper/css/effect-fade';
 import { Mousewheel, Autoplay, Pagination, Navigation, Zoom, EffectFade } from 'swiper/modules';
 import '../Projects/projects.css';
 import Container from '../Container/Index';
+import Title from '../Title/Index';
+import noimage from '../../images/noimage.jpg';
 
-const Index = () => {
-  const projects = [
-    {
-      title: 'PAGE 3',
-      location: 'Jaypee Greens, Greater Noida',
-      features: ['Apartments, Penthouses and Villas', 'High-end specifications', 'Exclusive Club Velvet'],
-      logo: { src: '/page-three.webp', alt: 'Page 3 Logo' },
-      slides: [
-        { id: 1, src: '/page-03_project.webp', alt: 'Slide 1' },
-        { id: 2, src: '/premiere_project.webp', alt: 'Slide 2' },
-        { id: 3, src: '/boulevard-walk_project.webp', alt: 'Slide 3' },
-      ],
-    },
-    {
-      title: 'PREMIERE',
-      location: 'Some Location, City',
-      features: ['Luxury Apartments', 'Premium Amenities', 'Great View'],
-      logo: { src: '/premiere.webp', alt: 'Premiere Logo' },
-      slides: [
-        { id: 1, src: '/page-03_project.webp', alt: 'Slide 1' },
-        { id: 2, src: '/premiere_project.webp', alt: 'Slide 2' },
-        { id: 3, src: '/boulevard-walk_project.webp', alt: 'Slide 3' },
-      ],
-    },
-    {
-      title: 'BOULEVARD WALK',
-      location: 'Another Location, City',
-      features: ['Modern Design', 'Central Park', 'Shopping Mall'],
-      logo: { src: '/boulevard-walk.webp', alt: 'Boulevard Walk Logo' },
-      slides: [
-        { id: 1, src: '/page-03_project.webp', alt: 'Slide 1' },
-        { id: 2, src: '/premiere_project.webp', alt: 'Slide 2' },
-        { id: 3, src: '/boulevard-walk_project.webp', alt: 'Slide 3' },
-      ],
-    },
-  ];
+const isValidUrl = (url) => {
+  return url && typeof url === 'string' && url.trim() !== '';
+};
+
+const defaultImage = noimage;
+
+const Index = ({ Data }) => {
+  if (!Data || !Array.isArray(Data)) {
+    return null;
+  }
 
   return (
     <>
       <Container>
-        <div className='title col-12 float-start flex-center titlePosition'>
-          <span data-aos="zoom-in"
-          data-aos-offset="200"
-          data-aos-duration="500"
-          data-aos-once="true"
-          data-aos-easing="ease-in-sine">Featured Products</span>
-        </div>
-        {projects.map((project, index) => (
-          <div className='projects col-12 float-start position-relative' key={index} data-aos="fade-in"
-          data-aos-offset="200"
-          data-aos-duration="500"
-          data-aos-once="true"
-          data-aos-easing="ease-in-sine">
-            <div className='protitle' data-aos="fade-left"
-          data-aos-offset="500"
-          data-aos-duration="500"
-          data-aos-once="true"
-          data-aos-easing="ease-in-sine">
-              <h4>{project.title}</h4>
+        <Title firstHeading={'Featured Products'} grandClass={'titlePosition'} />
+        {Data.map((project, index) => (
+          <div
+            className='projects col-12 float-start position-relative'
+            key={index}
+            data-aos="fade-in"
+            data-aos-offset="200"
+            data-aos-duration="500"
+            data-aos-once="true"
+            data-aos-easing="ease-in-sine"
+          >
+            <div
+              className='protitle'
+              data-aos="fade-left"
+              data-aos-offset="500"
+              data-aos-duration="500"
+              data-aos-once="true"
+              data-aos-easing="ease-in-sine"
+            >
+              <h4>{project.project_name}</h4>
             </div>
             <div className='projectinfo'>
-              <div className='proinfochild' data-aos="fade-down"
-          data-aos-offset="200"
-          data-aos-duration="500"
-          data-aos-once="true"
-          data-aos-easing="ease-in-sine">
-                <h4>{project.title}</h4>
+              <div
+                className='proinfochild'
+                data-aos="fade-down"
+                data-aos-offset="200"
+                data-aos-duration="500"
+                data-aos-once="true"
+                data-aos-easing="ease-in-sine"
+              >
+                <h4>{project.project_name}</h4>
                 <ul>
-                  <li>{project.location}</li>
-                  {project.features.map((feature, idx) => (
+                  {Array.isArray(project.project_features) && project.project_features.map((feature, idx) => (
                     <li key={idx}>{feature}</li>
                   ))}
                 </ul>
@@ -86,7 +65,7 @@ const Index = () => {
             </div>
             <div className='projectSlider loadeffect'>
               <div className='projectLogo'>
-                <img src={project.logo.src} alt={project.logo.alt} />
+                {isValidUrl(project.logo) && <img src={project.logo} alt={`${project.project_name} logo`} />}
               </div>
               <div className="col-12 float-start">
                 <Swiper
@@ -107,21 +86,47 @@ const Index = () => {
                   loop={true}
                   className="mySwiper"
                 >
-                  {project.slides.map((slide) => (
-                    <SwiperSlide key={slide.id}>
+                  {isValidUrl(project.featured_images1) && (
+                    <SwiperSlide>
                       <div className="swiper-container">
-                        <img src={slide.src} alt={slide.alt} width="500" height="350" />
+                        <img src={project.featured_images1} alt={`${project.project_name} slide`} width="500" height="350" />
                       </div>
                     </SwiperSlide>
-                  ))}
+                  )}
+                  {isValidUrl(project.featured_images2) && (
+                    <SwiperSlide>
+                      <div className="swiper-container">
+                        <img src={project.featured_images2} alt={`${project.project_name} slide`} width="500" height="350" />
+                      </div>
+                    </SwiperSlide>
+                  )}
+                  {isValidUrl(project.featured_images3) && (
+                    <SwiperSlide>
+                      <div className="swiper-container">
+                        <img src={project.featured_images3} alt={`${project.project_name} slide`} width="500" height="350" />
+                      </div>
+                    </SwiperSlide>
+                  )}
+                  {!(isValidUrl(project.featured_images1) || isValidUrl(project.featured_images2) || isValidUrl(project.featured_images3)) && (
+                    <SwiperSlide>
+                      <div className="swiper-container">
+                        <img src={defaultImage} alt="Default slide" width="500" height="350" />
+                      </div>
+                    </SwiperSlide>
+                  )}
                 </Swiper>
               </div>
             </div>
-            <div class="wrap flex-center" data-aos="zoom-in"
-            data-aos-offset="200"
-            data-aos-duration="500"
-            data-aos-once="true"
-            data-aos-easing="ease-in-sine"><a class="btn-11"><span>Know More</span></a></div>
+            <div
+              className="wrap flex-center"
+              data-aos="zoom-in"
+              data-aos-offset="200"
+              data-aos-duration="500"
+              data-aos-once="true"
+              data-aos-easing="ease-in-sine"
+            >
+              <a className="btn-11" href={`/projects/homes/${project.slug}`}><span>Know More</span></a>
+            </div>
           </div>
         ))}
       </Container>

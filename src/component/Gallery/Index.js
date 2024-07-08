@@ -3,9 +3,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Mousewheel, Autoplay, Pagination, Navigation } from 'swiper/modules';
-import slideData from '../../json/Parlour.json';
 
-const Index = () => {
+const Index = ({Data}) => {
+  const slideData = Data
   return (
     <>
       <div className="galleryslider col-12 float-start">
@@ -28,7 +28,7 @@ const Index = () => {
         >
           {slideData.map((slide) => (
             <SwiperSlide key={slide.id}>
-              <img src={slide.src} alt={slide.alt} width="500" height="350" />
+              <img src={slide.desktop_image} alt={slide.alt_text} width="500" height="350" />
             </SwiperSlide>
           ))}
         </Swiper>

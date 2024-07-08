@@ -1,0 +1,1 @@
+export const BasePath = 'https://triverseadvertising.com/homeandsoul_website/admin-portal/api';
