@@ -1040,7 +1040,7 @@ input[type='radio']:checked+label>em {
   width: 36px;
   height: 36px;
 }
-.tab-content{
+.tab-content, .react-parallax-content{
   width: 100%;
 }
 
