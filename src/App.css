@@ -1533,10 +1533,10 @@ button.proarrow {
   top: 12%;
   width: 100%;
   background-color: #414042;
-  z-index: 1000;
+  z-index: 1;
   display: flex;
   justify-content: center;
-  gap: 25px;
+  gap: 40px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -1555,7 +1555,7 @@ button.proarrow {
   display: none;
 }
 .projectDetails .title-item.active {
-  color:var(--black);
+  color: #ceb87f;
 }
 .proDetail .footerbox {
   padding-bottom: 25px;

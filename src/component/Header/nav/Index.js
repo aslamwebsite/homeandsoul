@@ -40,7 +40,7 @@ const Nav = ({ setIsActive, toggleMenu, isActive }) => {  // Accept isActive pro
 
   const handleNavLinkClick = (href) => {
     setSelectedIndicator(href);
-    setIsActive(false); // Close the menu
+    setIsActive(false); 
   };
 
   return (
