@@ -1571,49 +1571,63 @@ button.proarrow {
 .prologoHeader img{
   width: 100%;
 }
-@media (max-width:1440px){
-  .title{
-    margin-bottom: 40px;
+@media (max-width:1680px){
+
+  .projectDetails .title-item {
+    font-size: 13px;
+    line-height: 40px;
   }
-  .prologoHeader {
-    width: 220px;
-    top: 3%;
+  .projectDetails{
+    top:16vh
+  }
+  :root { 
+    --bigFont: 60px;
+    --bigLineheight:60px;
+    --creativeslide-height: 77vh;
+    --base-font-size:17px;
+    line-height: 26px;
+  }
+  
+.prologo {
+  width: 250px;
+  height: 250px;
 }
+.prologoHeader {
+  width: 220px;
+  top: 3%;
+}
+
 .details p span {
   font-size: 15px;
   line-height: 20px;
 }
+
+.creativeslide h3{
+  max-width: 500px;
+}
+.title span{
+  font-size: 17px;
+  line-height: 22px;
+}
+}
+@media (max-width:1440px){
+  .title{
+    margin-bottom: 40px;
+  }
+  
   section{
     margin: 50px 0;
   }
   .logo {
     width: 120px;
 }
-.title span{
-  font-size: 17px;
-  line-height: 22px;
-}
 .footerbox p {
   font-size: 15px;
   line-height: 24px;
 }
-.prologo {
-    width: 250px;
-    height: 250px;
-}
-:root { 
-  --bigFont: 60px;
-  --bigLineheight:60px;
-  --creativeslide-height: 77vh;
-  --base-font-size:17px;
-  line-height: 26px;
-}
 .proinfochild ul li:before{
   width: 30px;
   height: 1px;
-}
-.creativeslide h3{
-  max-width: 500px;
 }
 .Upcomingimg h4{
   font-size: 50px;
@@ -1637,12 +1651,5 @@ button {
 }
 figure.snip0016 h3, figure.snip0016 h4{
   font-size: 1.2rem;
-}
-.projectDetails .title-item {
-  font-size: 13px;
-  line-height: 40px;
-}
-.projectDetails{
-  top:16vh
 }
 }

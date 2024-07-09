@@ -103,7 +103,11 @@
     right: 0;
 }
 .projects .wrap {margin: auto;margin-top: 50px;}
-@media (max-width:1440px){
+@media (max-width:1680px){
+    .proinfochild h4{
+        font-size: 21px;
+        line-height: 30px;
+    }
     .protitle h4 {
         font-size: 50px;
         line-height: 28px;
