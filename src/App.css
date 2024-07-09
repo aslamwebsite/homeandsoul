@@ -1218,7 +1218,7 @@ input[type='radio']:checked+label>em {
 .header.sticky .logo {
   width: 100px;
 }
-.header.sticky .menu .style_el__cbqOr{
+.header.sticky .menu .Textcolor div{
   color: var(--white);
 }
 .header.sticky .menu .style_headerButtonContainer__3pquu .style_burger__eYK2Q::after, .header.sticky .menu .style_headerButtonContainer__3pquu .style_burger__eYK2Q::before{

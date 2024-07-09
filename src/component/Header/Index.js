@@ -36,7 +36,7 @@ const Index = ({className, projectLogo}) => {
                            {projectLogo &&  <img src={Logo2} alt='Home & Soul' />}
                             </div>
                             <div className="menu col-lg-4 col-sm-4">
-                                <div className={`${styles.nav} flex-center justify-content-end`}>
+                                <div className={`${styles.nav} flex-center justify-content-end Textcolor`}>
                                         <div className={styles.el}>
                                             {/* <NavLink to='/projects/townships'>
                                                 TOWNSHIPS
