@@ -1221,9 +1221,12 @@ input[type='radio']:checked+label>em {
 .header.sticky .menu .Textcolor div{
   color: var(--white);
 }
-.header.sticky .menu .style_headerButtonContainer__3pquu .style_burger__eYK2Q::after, .header.sticky .menu .style_headerButtonContainer__3pquu .style_burger__eYK2Q::before{
+.header.sticky .menu .Textcolor div::after, .header.sticky .menu .Textcolor div::before{
   background-color: var(--white);
 }
+/* .header.sticky .menu .style_headerButtonContainer__3pquu .style_burger__eYK2Q::after, .header.sticky .menu .style_headerButtonContainer__3pquu .style_burger__eYK2Q::before{
+  background-color: var(--white);
+} */
 .logo img {
   width: 100%;
 }
