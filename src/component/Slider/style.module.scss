@@ -58,10 +58,15 @@
       }
     }
   }
-  @media (max-width: 1280px) {
+  @media (max-width: 1440px) {
     .landing{
-     height: 680px;
+      
+      .homeslider {
+        .sliderdiv {
+          height: 70vh;
+      }
     }
+  }
  }
   @media (max-width: 630px) {
    

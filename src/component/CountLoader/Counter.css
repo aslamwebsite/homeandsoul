@@ -33,3 +33,12 @@
 .odometer-inside {
     font-family: 'bw-vivant-light';
 }
+@media (max-width:1440px){
+    .countercount .plussign {
+        font-size: 35px;
+    }
+    .countercont p{
+        font-size: 17px;
+        line-height: 26px;
+    }
+}

@@ -70,7 +70,7 @@ const Project = () => {
           pageData.map((project) => (
             <div className="projectslider" key={project.id}>
               {project.linkActive === '1' ? (
-                <Link to={`/projects/${project.cat.toLowerCase()}/${project.slug}`}>
+                <a href={`/projects/${project.cat.toLowerCase()}/${project.slug}`}>
                   <figure className="snip0016">
                     {project.image ? (
                       <img src={project.image} alt={project.name} />
@@ -83,7 +83,7 @@ const Project = () => {
                       <p>Know More</p>
                     </figcaption>
                   </figure>
-                </Link>
+                </a>
               ) : (
                 <figure className="snip0016">
                   {project.image ? (

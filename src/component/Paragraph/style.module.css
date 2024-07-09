@@ -17,3 +17,8 @@
       }
     } 
   }
+  @media (max-width:1440px){
+    .paragraph{
+      font-size: 34px;      
+    }
+  }
