@@ -52,7 +52,7 @@ const ProjectDetail = () => {
   if (error) return <div>Error loading data: {error.message}</div>;
 
   const sectionTitles = [
-    "Oveview",
+    "Overview",
     projectDetails.section1?.heading,
     projectDetails.section2?.heading,
     projectDetails.section3?.heading,
