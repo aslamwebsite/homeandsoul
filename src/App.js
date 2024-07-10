@@ -12,6 +12,7 @@ import Error from './Error';
 import ProjectDetail from "./ProjectDetail";
 import ScrollToTop from "./ScrollToTop";
 import Content from "./Content";
+import NRI from "./NRI";
 
 function App() {
   useEffect(() => {
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/projects/:cat" element={<Project />} />
           <Route exact path="/projects/:cat/:slug" element={<ProjectDetail />} />
           <Route exact path="/:slug" element={<Content />} />
+          <Route exact path="/nri" element={<NRI/>} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />

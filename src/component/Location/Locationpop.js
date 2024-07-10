@@ -5,6 +5,7 @@ import 'lightgallery/css/lg-zoom.css';
 import 'lightgallery/css/lg-thumbnail.css';
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
+import Noimage from '../../images/noimage.jpg'
 
 function Locationpop({Data}) {
     const onInit = () => {
@@ -23,7 +24,8 @@ function Locationpop({Data}) {
                     plugins={[lgThumbnail, lgZoom]}
                 >
                     <a href={Data}>
-                        <img src={Data} className='col-12' alt='Location Map' />
+                        {/* <img src={Data} className='col-12' alt='Location Map' /> */}
+                        {Data ? (<img src={Data} alt={`Location map`} />) : (<img src={Noimage} alt="Home & Shoul" />)}
                         <div className='col-12 float-start flex-center'>
                             <div className="wrap flex-center">
                                 <a className="btn-11"><span>View Location Map</span></a>

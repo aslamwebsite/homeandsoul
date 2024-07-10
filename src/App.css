@@ -273,10 +273,10 @@ svg {
   gap: 25px;
 }
 .logo {
-  width: 140px;
+  width: 130px;
   transition: ease all 1s;
   position: relative;
-  top: 10px;
+  top: 5px;
 }
 
 section {
@@ -1240,6 +1240,9 @@ input[type='radio']:checked+label>em {
 .header.sticky .menu .Textcolor div::after, .header.sticky .menu .Textcolor div::before{
   background-color: var(--white);
 }
+.proHeaderClass .header .menu .Textcolor div:before, .proHeaderClass .header .menu .Textcolor div:after{
+  background-color: var(--white);
+}
 /* .header.sticky .menu .style_headerButtonContainer__3pquu .style_burger__eYK2Q::after, .header.sticky .menu .style_headerButtonContainer__3pquu .style_burger__eYK2Q::before{
   background-color: var(--white);
 } */
@@ -1427,10 +1430,6 @@ button.proarrow {
     color: var(--white) !important;
 }
 
-.proHeaderClass .menu .style_headerButtonContainer__3pquu .style_burger__eYK2Q::before, .proHeaderClass .menu .style_headerButtonContainer__3pquu .style_burger__eYK2Q::after {
-    background: var(--white);
-}
-
 .proHeaderClass .logo {
     width: 120px;
 }
@@ -1547,7 +1546,7 @@ button.proarrow {
 }
 .projectDetails {
   position: fixed;
-  top: 14vh;
+  top: 12vh;
   width: 100%;
   background-color: #414042;
   z-index: 1;
@@ -1575,14 +1574,15 @@ button.proarrow {
   color: #ceb87f;
 }
 .proDetail .footerbox {
-  padding-bottom: 25px;
+  padding-bottom: 0;
 }
 .prologoHeader {
-  position: fixed;
+  position: absolute;
   z-index: 1;
   left: 50%;
-  top: 1%;
+  top: 2%;
   transform: translate(-50%);
+  max-width: 220px;
 }
 .prologoHeader img{
   width: 100%;
@@ -1601,6 +1601,43 @@ button.proarrow {
 }
 .bggrey {
   background: #f7f7f7;
+}
+.MuiButtonBase-root.homeSoulAccordion {
+  background: var(--black);
+  border-radius: 50px;
+  padding: 0px 30px;
+  height: 75px;
+}
+[aria-expanded="true"] {
+  background: #003d89 !important;
+}
+.MuiPaper-elevation {
+  margin-bottom: 10px;
+  box-shadow: inherit;
+  border: solid 1px #dcdcdc;
+  border-radius: 50px !important;
+}
+
+.homeSoulAccordion p, .MuiTypography-root p, .MuiTypography-root ul li{
+  color: var(--white);
+  font-size: 19px;
+  font-family: var(--font);
+  line-height: 24px;
+}
+.MuiTypography-root p, .MuiTypography-root ul li{
+  color: var(--black);
+}
+.MuiTypography-root ul li{
+  margin-bottom: 10px;
+}
+.MuiAccordionDetails-root, .MuiTypography-root {
+  font-family: var(--font) !important;
+}
+.Accordion .MuiAccordionSummary-expandIconWrapper {
+  color: var(--white);
+}
+.MuiAccordionSummary-content{
+  margin: 0 !important;
 }
 @media (max-width:1680px){
 

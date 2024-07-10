@@ -8,6 +8,7 @@ import { BasePath } from './component/BasePath/Index';
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import FixedStrip from './component/Tabs/Tabs';
+import Noimage from './images/noimage.jpg'
 
 const ProjectDetail = () => {
   const [projectDetails, setProjectDetails] = useState(null);
@@ -41,7 +42,7 @@ const ProjectDetail = () => {
   const handleTitleClick = (index) => {
     if (fullpageApiRef.current) {
       fullpageApiRef.current.moveTo(index + 1);
-      setActiveSection(index); // Set the active section
+      setActiveSection(index); 
     }
   };
 
@@ -95,7 +96,7 @@ const ProjectDetail = () => {
               {projectDetails.section1 && (
                 <div className="section">
                   <div className='projectscroll first-stn'>
-                    <img src={projectDetails.section1.image} alt={projectDetails.section1.heading} />
+                    {projectDetails.section1.image ? (<img src={projectDetails.section1.image} alt={projectDetails.section1.heading} />) : (<img src={Noimage} alt="Home & Shoul" />)}
                     <div className='projectscont'>
                       <div className="details flex-center">
                         <div className='detailHeading'>
@@ -117,7 +118,7 @@ const ProjectDetail = () => {
               {projectDetails.section2 && (
                 <div className="section">
                   <div className='projectscroll first-stn'>
-                    <img src={projectDetails.section2.image} alt={projectDetails.section2.heading} />
+                    {projectDetails.section2.image ? (<img src={projectDetails.section2.image} alt={projectDetails.section1.heading} />) : (<img src={Noimage} alt="Home & Shoul" />)}
                     <div className='projectscont'>
                       <div className="details flex-center">
                         <div className='detailHeading'>
@@ -139,7 +140,7 @@ const ProjectDetail = () => {
               {projectDetails.section3 && (
                 <div className="section">
                   <div className='projectscroll first-stn'>
-                    <img src={projectDetails.section3.image} alt={projectDetails.section3.heading} />
+                  {projectDetails.section3.image ? (<img src={projectDetails.section3.image} alt={projectDetails.section1.heading} />) : (<img src={Noimage} alt="Home & Shoul" />)}
                     <div className='projectscont'>
                       <div className="details flex-center">
                         <div className='detailHeading'>
@@ -161,7 +162,7 @@ const ProjectDetail = () => {
               {projectDetails.section4 && (
                 <div className="section">
                   <div className='projectscroll first-stn'>
-                    <img src={projectDetails.section4.image} alt={projectDetails.section4.heading} />
+                    {projectDetails.section4.image ? (<img src={projectDetails.section4.image} alt={projectDetails.section1.heading} />) : (<img src={Noimage} alt="Home & Shoul" />)}
                     <div className='projectscont'>
                       <div className="details flex-center">
                         <div className='detailHeading'>
