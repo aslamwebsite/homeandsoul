@@ -13,6 +13,8 @@ import ProjectDetail from "./ProjectDetail";
 import ScrollToTop from "./ScrollToTop";
 import Content from "./Content";
 import NRI from "./NRI";
+import ContactPage from "./ContactPage";
+import Media from "./Media";
 
 function App() {
   useEffect(() => {
@@ -31,6 +33,8 @@ function App() {
           <Route exact path="/projects/:cat/:slug" element={<ProjectDetail />} />
           <Route exact path="/:slug" element={<Content />} />
           <Route exact path="/nri" element={<NRI/>} />
+          <Route exact path="/media" element={<Media/>} />
+          <Route exact path="/contact-us" element={<ContactPage/>} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
@@ -48,7 +52,9 @@ function HeaderWithCondition() {
 
 function Footer() {
   const location = useLocation();
-  return location.pathname !== "/projects" ? <Contact /> : null;
+  const excludedPaths = ["/projects", "/contact-us"];
+
+  return !excludedPaths.includes(location.pathname) ? <Contact /> : null;
 }
 
 export default App;

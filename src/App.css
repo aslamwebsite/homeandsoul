@@ -136,8 +136,12 @@ a{
     transition: transform 1s 1s, background-position 1s;
     -webkit-background-clip: text;  
 }
-.creativeslide.hsoul02 h3{
+.creativeslide.hsoul02 h3, .Herosection .Heroslider .swiper-slide .creativeslide h3{
   background-image: linear-gradient(90deg, var(--black), var(--black) 50%, rgba(89, 89, 91, 0) 0);
+}
+.Herosection .Heroslider .swiper-slide .creativeslide {
+  left: 28%;
+  bottom: 40%;
 }
 .Heroslider .swiper-slide-active .creativeslide h3 {
   background-position: 0;
@@ -168,6 +172,7 @@ a{
   border-radius: 50px;
   border: none;
   font-family: var(--font-family);
+  width: 92%;
 }
 .swiper-slide .prologo img {
   width: 70%;
@@ -645,7 +650,7 @@ input[type='radio']:checked+label>em {
 .swiper-button-prev:after,
 .swiper-button-next:after,
 .slick-next::before,
-.slick-prev::before {
+.slick-prev::before, .projectDetails .title-item:first-child {
   display: none;
 }
 
@@ -1328,10 +1333,10 @@ figure.snip0016 h4 {
 }
 
 figure.snip0016 p, figure.snip00161 p {
-  font-weight: 300;
   transform: translate3d(0, 30%, 0);
   transition-delay: 0s;
   margin: 0;
+  width: 70%;
 }
 
 figure.snip0016 a {
@@ -1343,12 +1348,6 @@ figure.snip0016 a {
   color: #fff
 }
 
-figure.snip0016:hover figcaption:before {
-  background: hsla(0,0%,100%,0);
-  left: 15px;
-  opacity: 1;
-  transition-delay: 0s
-}
 
 figure.snip0016:hover figcaption h3,figure.snip0016:hover figcaption h4 {
   opacity: 1;
@@ -1365,11 +1364,15 @@ figure.snip0016:hover figcaption p {
 figure.snip0016 p:last-child {
   position: absolute;
   right: 5%;
-  bottom: 30%;
-  width: 100%;
+  bottom: 20%;
+  max-width: 100px;
   float: right;
   text-align: right;
-  text-transform: uppercase
+  text-transform: uppercase;
+  background: #000;
+  padding: 0px 30px;
+  line-height: 50px;
+  border-radius: 25px;
 }
 
 figure.snip0016 a {

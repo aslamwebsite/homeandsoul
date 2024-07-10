@@ -7,9 +7,8 @@ import { RiTwitterXLine } from "react-icons/ri";
 import { FaLinkedinIn } from "react-icons/fa";
 import { RiInstagramLine } from "react-icons/ri";
 import { RiYoutubeFill } from "react-icons/ri";
-import TextField from "@mui/material/TextField";
 import { Link } from 'react-router-dom';
-
+import EnquiryForm from '../Form/EnquiryForm'
 const Index = () => {
     const currentYear = new Date().getFullYear();
     const container = useRef(null);
@@ -35,42 +34,7 @@ const Index = () => {
                 <div className='col-lg-11 m-auto'>
                 <div className={styles.body}>
                     <div className='col-lg-9 m-auto'>
-                    <form>
-          <div className="row">
-            <div className={styles.collg4}>
-              <TextField
-                name="name"
-                label="Name"
-                className="modifiedinput"
-                fullWidth
-                required
-              />
-            </div>
-            <div className={styles.collg4}>
-              <TextField
-                name="email"
-                label="Email"
-                className="modifiedinput"
-                fullWidth
-                required
-              />
-            </div>
-            <div className={styles.collg4}>
-              <TextField
-                name="phone"
-                label="Phone"
-                className="modifiedinput"
-                fullWidth
-                required
-              />
-            </div>
-            <div className="col-12 flex-center mt-5 text-center">
-            <div className={styles.collg4}>
-                <button>Submit</button>
-                </div>
-            </div>
-          </div>
-        </form>
+                    <EnquiryForm />
                     </div>
                 <div className={styles.title}>                    
                 <div className={styles.nav}>

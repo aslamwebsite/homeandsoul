@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
 import styles from './style.module.scss';
 import { motion } from 'framer-motion';
+import Noimage from '../../images/noimage.jpg'
 
 const Index = ({ Data = [], parentClass }) => {
   const slideData = Data;
@@ -80,18 +81,25 @@ const Index = ({ Data = [], parentClass }) => {
                 <div className="swiperslider position-relative col-12 float-start">
                   <div className={styles.sliderdiv}>
                     <div className={`projectbanner overflow-hidden ${isZoomIn ? 'zoom-in' : 'zoom-out'}`}>
-                      <img
+                      {slide.imagePath ? (<img
                         src={slide.imagePath}
                         width="1740"
                         height="822"
                         alt=""
-                        className='desktop-show'
-                      />
+                      />) : (<img
+                        src={Noimage}
+                        width="1740"
+                        height="822"
+                        alt=""
+                      />)}
+                      
                     </div>
+                    {slide.logo && 
                     <div className="prologo flex-center">
-                      {slide.prologo && <img src={slide.prologo} alt='Prologo' />}
-                      {slide.logo && <img src={slide.logo} alt='Prologo' />}
+                      {/* {slide.prologo && <img src={slide.prologo} alt='Prologo' />} */}
+                      <img src={slide.logo} alt='Prologo' />
                     </div>
+                    }
                   </div>
                   <div className={`creativeslide ${getNextClass()}`}>
                     <h3 className="heading bigFont text-start text-black" dangerouslySetInnerHTML={{ __html: slide.title }}></h3>

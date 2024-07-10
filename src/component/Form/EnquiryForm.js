@@ -2,14 +2,9 @@ import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import BannerImg from "./images/contact-banner.webp";
-import Banner from "./components/Banner/Index";
-import WebContainer from "./components/WebContainer/Index";
-import Title from "./components/Title/Index";
-import Fill from "./components/Button/Fill/Index";
 import TextField from "@mui/material/TextField";
-import { BASE_URL } from "./Utils/useApi";
-import AlertComponent from "./components/AlertComponent";
+import AlertComponent from "../AlertComponent/index";
+import { BasePath } from "../BasePath/Index";
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
@@ -19,13 +14,13 @@ const ContactSchema = Yup.object().shape({
     .required("Phone is required"),
 });
 
-const Contact = () => {
+const EnquiryForm = () => {
   const [alertProps, setAlertProps] = useState(null);
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       const response = await axios.post(
-        `${BASE_URL}/contact_submit.php`,
+        `${BasePath}/contact_submit.php`,
         values,
         {
           headers: { "Content-Type": "application/json" },
@@ -62,13 +57,6 @@ const Contact = () => {
       {alertProps && (
         <AlertComponent {...alertProps} onClose={() => setAlertProps(null)} />
       )}
-      <Banner
-        BannerImage={BannerImg}
-        BannerName={"Contact Us"}
-        pageName={"Contact Us"}
-      />
-      <WebContainer _parentClass={"p-100"}>
-        <Title secondHeading={"Contact us"} />
         <div className="col-lg-9 col-12 m-auto">
           <Formik
             initialValues={{ name: "", email: "", phone: "" }}
@@ -77,8 +65,8 @@ const Contact = () => {
           >
             {({ errors, touched, isSubmitting, status }) => (
               <Form>
-                <div className="row space-25">
-                  <div className="col-lg-4 col-12">
+                <div className="row">
+                  <div className="col-lg-4 ">
                     <Field name="name">
                       {({ field }) => (
                         <TextField
@@ -93,7 +81,7 @@ const Contact = () => {
                       )}
                     </Field>
                   </div>
-                  <div className="col-lg-4 col-12">
+                  <div className="col-lg-4 ">
                     <Field name="email">
                       {({ field }) => (
                         <TextField
@@ -108,7 +96,7 @@ const Contact = () => {
                       )}
                     </Field>
                   </div>
-                  <div className="col-lg-4 col-12">
+                  <div className="col-lg-4 ">
                     <Field name="phone">
                       {({ field }) => (
                         <TextField
@@ -125,13 +113,9 @@ const Contact = () => {
                   </div>
                   <div className="col-12 flex-center mt-5 text-center">
                     <div className="col-lg-3 col-12 flex-center">
-                      <Fill
-                        buttonText1={"Submit"}
-                        buttonText2={"submit"}
-                        _class={"secondarybtn"}
+                    <button _class={"secondarybtn"}
                         isSubmit={true}
-                        _disable={isSubmitting}
-                      />
+                        _disable={isSubmitting}>Sumit</button>
                     </div>
                   </div>
                 </div>
@@ -139,9 +123,8 @@ const Contact = () => {
             )}
           </Formik>
         </div>
-      </WebContainer>
     </>
   );
 };
 
-export default React.memo(Contact);
+export default React.memo(EnquiryForm);

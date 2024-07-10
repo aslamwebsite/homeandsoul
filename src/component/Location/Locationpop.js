@@ -24,7 +24,6 @@ function Locationpop({Data}) {
                     plugins={[lgThumbnail, lgZoom]}
                 >
                     <a href={Data}>
-                        {/* <img src={Data} className='col-12' alt='Location Map' /> */}
                         {Data ? (<img src={Data} alt={`Location map`} />) : (<img src={Noimage} alt="Home & Shoul" />)}
                         <div className='col-12 float-start flex-center'>
                             <div className="wrap flex-center">

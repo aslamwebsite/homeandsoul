@@ -58,14 +58,14 @@ const ProjectDetail = () => {
     projectDetails.section2?.heading,
     projectDetails.section3?.heading,
     projectDetails.section4?.heading,
-    "Location Map",
-    "Gallery",
-    "Contact"
+    projectDetails.location_map ? "Location Map" : null,
+    projectDetails.gallery?.desktop_image ? "Gallery" : null,
+    "Contact Us"
   ].filter(Boolean);
 
   const sliderData = projectDetails.banner ? [{
     imagePath: projectDetails.banner.bannerPath,
-    prologo: projectDetails.banner.logo,
+    logo: projectDetails.banner.logo,
     title: projectDetails.banner.bannerHeading,
   }] : [];
 
@@ -180,7 +180,7 @@ const ProjectDetail = () => {
                   </div>
                 </div>
               )}
-
+            {projectDetails.location_map && 
               <div className="section">
               <div className='projectscroll d-flex align-items-end flex-wrap'>
               <div className='col-12 float-start proGallery'>
@@ -188,7 +188,8 @@ const ProjectDetail = () => {
                 </div>
                 </div>
               </div>
-              {projectDetails.gallery && (
+              }
+              {projectDetails.gallery.desktop_image && (
                 <div className="section">
                   <div className='projectscroll d-flex align-items-end flex-wrap'>
                     <div className='col-12 float-start proGallery'>
@@ -196,9 +197,6 @@ const ProjectDetail = () => {
                         <span className='m-0'>Gallery</span>
                       </div>
                       <Gallery Data={projectDetails.gallery} />
-                      <button onClick={() => fullpageApi.moveSectionDown()} className="proarrow">
-                        <div className="downarrow"><a><span className="animated bounce"></span></a></div>
-                      </button>
                     </div>
                   </div>
                 </div>

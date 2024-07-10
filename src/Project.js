@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { BasePath } from './component/BasePath/Index';
 import Noimage from './images/noimage.jpg'
-import { Link } from 'react-router-dom';
 
 const Project = () => {
   const [pageData, setPageData] = useState([]);
@@ -24,7 +23,7 @@ const Project = () => {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${BasePath}/projects.php?url=${cat}`);
+        const response = await axios.get(`${BasePath}/projects.php?cat=${cat}`);
         setPageData(response.data);
       } catch (error) {
         setError(error);

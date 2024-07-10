@@ -38,10 +38,9 @@ const Index = ({className, projectLogo}) => {
                             <div className="menu col-lg-4 col-sm-4">
                                 <div className={`${styles.nav} flex-center justify-content-end Textcolor`}>
                                         <div className={styles.el}>
-                                            {/* <NavLink to='/projects/townships'>
+                                            <NavLink to='/projects/townships'>
                                                 TOWNSHIPS
-                                            </NavLink> */}
-                                            <a>     TOWNSHIPS</a>
+                                            </NavLink>
                                         </div>
                                         <div className={styles.el}>
                                         <NavLink to='/projects/homes'>
@@ -54,10 +53,9 @@ const Index = ({className, projectLogo}) => {
                                             </NavLink>
                                         </div>
                                         <div className={styles.el}>
-                                        {/* <NavLink to='/projects/offices'>
+                                        <NavLink to='/projects/offices'>
                                                 OFFICES
-                                            </NavLink> */}
-                                            <a>OFFICES</a>
+                                            </NavLink>
                                         </div>
                                     <div className={styles.headerButtonContainer}>
                                         <div onClick={toggleMenu} className={`${styles.button}`}>
