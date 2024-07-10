@@ -8,6 +8,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { RiInstagramLine } from "react-icons/ri";
 import { RiYoutubeFill } from "react-icons/ri";
 import TextField from "@mui/material/TextField";
+import { Link } from 'react-router-dom';
 
 const Index = () => {
     const currentYear = new Date().getFullYear();
@@ -109,7 +110,7 @@ const Index = () => {
                 <div className={styles.info}>
                     <div>
                         <p>
-                          &copy; {currentYear} | All Right Reserved | Home & Soul
+                          &copy; {currentYear} | All Right Reserved | Home & Soul | <Link to='/privacy-policy'>Privacy & Policy</Link> | <Link to='/disclaimer'> Disclaimer</Link>
                         </p>
                     </div>
                     <div>

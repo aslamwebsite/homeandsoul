@@ -11,6 +11,7 @@ import Project from './Project';
 import Error from './Error';
 import ProjectDetail from "./ProjectDetail";
 import ScrollToTop from "./ScrollToTop";
+import Content from "./Content";
 
 function App() {
   useEffect(() => {
@@ -27,6 +28,7 @@ function App() {
           <Route exact path="/projects" element={<Project />} />
           <Route exact path="/projects/:cat" element={<Project />} />
           <Route exact path="/projects/:cat/:slug" element={<ProjectDetail />} />
+          <Route exact path="/:slug" element={<Content />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />

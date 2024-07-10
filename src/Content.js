@@ -1,0 +1,85 @@
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import WebContainer from './component/WebContainer/Index';
+import Title from './component/Title/Index';
+import axios from 'axios';
+import { BasePath } from './component/BasePath/Index';
+import { Parallax } from 'react-parallax';
+import Error from './Error';
+
+const Content = () => {
+    const { slug } = useParams();
+    const [pageData, setPageData] = useState(null);
+    const [bannerImage, setBannerImage] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`${BasePath}/policy_page.php?category=${slug}`);
+                if (response.data.error) {
+                    setError(new Error(response.data.error));
+                } else {
+                    setPageData(response.data.policy_page);
+                    if (response.data.bannerImage && response.data.bannerImage.length > 0) {
+                        setBannerImage(response.data.bannerImage[0].imagePath);
+                    }
+                }
+            } catch (err) {
+                setError(err);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchData();
+    }, [slug]);
+
+    if (isLoading) {
+        return <div className="preloader"></div>;
+    }
+
+    if (error) {
+        return <Error />;
+    }
+
+    if (!pageData) {
+        return <div className="mx-auto p-100 w-100 d-flex justify-content-center">No data found</div>;
+    }
+
+    const { heading, subheading, content } = pageData;
+    const isContentEmpty = !content || content.trim() === '';
+
+    const getStrengthValue = () => {
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.platform);
+        const isMac = /MacIntel/.test(navigator.platform);
+        return isIOS || isMac ? 100 : 300;
+    };
+    const careerCustomclass = slug === 'career' ? 'bgcolor' : 'bggrey';
+    const textAlign = slug === 'career' ? 'text-center' : ''
+
+    return (
+        <>
+        {bannerImage && <Parallax bgImage={bannerImage} strength={getStrengthValue()} className="flex-center col-12 float-start parallaxBanner" /> }
+            
+            <WebContainer _parentClass={`m-0 p-100 ${careerCustomclass}`}>
+                <Title firstHeading={subheading} secondHeading={heading} grandClass={'customMargin'}/>
+                <div className="col-12 float-start pb-5">
+                    <div className="pageContent">
+                        {isContentEmpty ? (
+                            <div className="text-center">
+                                <h1 className="fs-1 opacity-50">Content Not Available!</h1>
+                                <h2>This page is Under Maintenance!</h2>
+                            </div>
+                        ) : (
+            <div dangerouslySetInnerHTML={{ __html: content }} className={`col-12 float-start ${textAlign}`}/>
+                        )}
+                    </div>
+                </div>
+            </WebContainer>
+        </>
+    );
+};
+
+export default Content;

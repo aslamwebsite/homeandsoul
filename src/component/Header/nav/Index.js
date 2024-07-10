@@ -33,7 +33,7 @@ const navItems = [
   }
 ];
 
-const Nav = ({ setIsActive, toggleMenu, isActive }) => {  // Accept isActive prop
+const Nav = ({ setIsActive, toggleMenu, isActive }) => {  
   const location = useLocation();
   const pathname = location.pathname;
   const [selectedIndicator, setSelectedIndicator] = useState(pathname);
@@ -41,6 +41,12 @@ const Nav = ({ setIsActive, toggleMenu, isActive }) => {  // Accept isActive pro
   const handleNavLinkClick = (href) => {
     setSelectedIndicator(href);
     setIsActive(false); 
+  };
+
+  const handleSubChildClick = (e, href) => {
+    e.stopPropagation(); // Prevent the click event from bubbling up
+    setSelectedIndicator(href);
+    setIsActive(false);
   };
 
   return (
@@ -81,17 +87,17 @@ const Nav = ({ setIsActive, toggleMenu, isActive }) => {  // Accept isActive pro
             ))}
             <motion.div>
               <ul className={styles.subChildmenu}>
-                <li><NavLink to='/media'>Media</NavLink></li>
-                <li><NavLink to='/csr'>CSR</NavLink></li>
-                <li><NavLink to='/faq'>FAQ</NavLink></li>
-                <li><NavLink to='/nri'>NRI</NavLink></li>
-                <li><NavLink to='/contact-us'>Contact Us</NavLink></li>
+                <li><NavLink to='/career' onClick={(e) => handleSubChildClick(e, '/career')}>Career</NavLink></li>
+                <li><NavLink to='/media' onClick={(e) => handleSubChildClick(e, '/media')}>Media</NavLink></li>
+                <li><NavLink to='/csr' onClick={(e) => handleSubChildClick(e, '/csr')}>CSR</NavLink></li>
+                <li><NavLink to='/nri' onClick={(e) => handleSubChildClick(e, '/nri')}>NRI</NavLink></li>
+                <li><NavLink to='/contact-us' onClick={(e) => handleSubChildClick(e, '/contact-us')}>Contact Us</NavLink></li>
               </ul>
             </motion.div>
           </div>
           <div className='sideLogo'>
-          <img src={Logo} alt='Home & Soul'/>
-        </div>
+            <img src={Logo} alt='Home & Soul'/>
+          </div>
         </div>
         <div className={styles.headerButtonContainer}>
           <div onClick={toggleMenu} className={`${styles.button}`}>
@@ -100,7 +106,6 @@ const Nav = ({ setIsActive, toggleMenu, isActive }) => {  // Accept isActive pro
         </div>
         <Curve />
       </motion.div>
-     
     </>
   );
 };
