@@ -3,8 +3,8 @@
   --base-font-size: 19px;
   --base-line-height: 30px;
   --base-color: rgb(0 0 0 / 100%);
-  --bigFont: 70px;
-  --bigLineheight:80px;
+  --bigFont: 60px;
+  --bigLineheight:70px;
   --letter-spacing: 0.5px;
   --creativeslide-height: 80vh;
   --heading-font-family: 'bw-vivant-light';
@@ -108,25 +108,36 @@ a{
 }
 .creativeslide {
   position: absolute;
-  top: 50%;
-  left: 2%;
-  transform: translateY(-50%);
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+.creativeslide.hsoul02 {
+  left: 30%;
+  bottom: 20%;
+}
+.creativeslide.hsoul02 {
+  left: 30%;
+  bottom: 20%;
+}
+
+.creativeslide.hsoul03 {right: -10%;left: inherit;bottom: inherit;top: 30%;}
 .creativeslide h3{
   font-size: var(--bigFont);
   line-height: var(--bigLineheight);  
   text-transform: uppercase;
-  left: 3%;
-  top: 50%;
-  max-width:650px;
+  max-width:580px;
   font-family: 'bw-vivant-light';
   pointer-events: all;
   -webkit-text-fill-color: transparent;
     background-size: 200% 100%;
     background-position: 100%;
-    background-image: linear-gradient(90deg, var(--black), var(--black) 50%, rgba(89, 89, 91, 0) 0);
+    background-image: linear-gradient(90deg, var(--white), var(--white) 50%, rgba(89, 89, 91, 0) 0);
     transition: transform 1s 1s, background-position 1s;
     -webkit-background-clip: text;  
+}
+.creativeslide.hsoul02 h3{
+  background-image: linear-gradient(90deg, var(--black), var(--black) 50%, rgba(89, 89, 91, 0) 0);
 }
 .Heroslider .swiper-slide-active .creativeslide h3 {
   background-position: 0;

@@ -10,6 +10,13 @@ const Index = ({ Data = [], parentClass }) => {
   const [isZoomIn, setIsZoomIn] = useState(true);
   const sectionRef = useRef();
   const [inView, setInView] = useState(false);
+  let classCounter = 1; // Initialize counter
+
+  const getNextClass = () => {
+    const className = `hsoul${String(classCounter).padStart(2, '0')}`;
+    classCounter += 1;
+    return className;
+  };
 
   const toggleZoomClass = () => {
     setIsZoomIn((prev) => !prev);
@@ -81,12 +88,12 @@ const Index = ({ Data = [], parentClass }) => {
                         className='desktop-show'
                       />
                     </div>
-                      <div className="prologo flex-center">
-                       {slide.prologo &&  <img src={slide.prologo} alt='Prologo'/>}
-                       {slide.logo &&  <img src={slide.logo} alt='Prologo'/>}
-                      </div>
+                    <div className="prologo flex-center">
+                      {slide.prologo && <img src={slide.prologo} alt='Prologo' />}
+                      {slide.logo && <img src={slide.logo} alt='Prologo' />}
+                    </div>
                   </div>
-                  <div className={`creativeslide`}>
+                  <div className={`creativeslide ${getNextClass()}`}>
                     <h3 className="heading bigFont text-start text-black" dangerouslySetInnerHTML={{ __html: slide.title }}></h3>
                   </div>
                 </div>

@@ -25,7 +25,7 @@ const Project = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${BasePath}/projects.php?url=${cat}`);
-        setPageData(response.data.filter(project => project.cat.toLowerCase() === cat.toLowerCase()));
+        setPageData(response.data);
       } catch (error) {
         setError(error);
       } finally {
@@ -75,7 +75,7 @@ const Project = () => {
                     {project.image ? (
                       <img src={project.image} alt={project.name} />
                     ) : (
-                      <img src="path_to_default_image.jpg" alt="Default" />
+                      <img src={Noimage} alt="Home & Shoul" />
                     )}
                     <figcaption>
                       <h3>{project.name}</h3>
