@@ -6,7 +6,7 @@ const MediaNavabar = () => {
   const { pathname } = location;
 
   return (
-    <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
+    <div className='column3'>
       <ul className='medianavbar'>
         <li className={pathname === '/media' ? 'active' : ''}>
           <Link to='/media'>Press Release</Link>

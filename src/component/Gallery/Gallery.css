@@ -1,0 +1,137 @@
+.lg-react-element {
+    display: flex;
+    gap: 1%;
+    row-gap: 1%;
+    flex-wrap: wrap;
+}
+
+.lg-react-element a {
+    width: 32%;
+}
+
+.galleryimg {
+    border: solid 5px #737373;
+    height: 250px;
+}
+.galleryimg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 5px;
+    
+}
+.column3 {
+    width: 28%;
+    float: left;
+    margin-right: 2%;
+}
+
+.column9 {
+    width: 70%;
+    float: right;
+}
+.medianavbar {
+    background: #f1f2f2;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    list-style: none;
+}
+.medianavbar li.active {
+    background: #013989;
+}
+.medianavbar li{
+    width: 100%;
+    float: left;
+    cursor: pointer;
+}
+.medianavbar li a{
+    padding: 20px 30px;
+    border-bottom: solid 1px #d7d2d2;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: var(--letter3);
+    transition: ease all 0.5s;
+    display: inline-block;
+    width: 100%;
+}
+.medianavbar li:hover{
+    background-color: #013989;
+    color: var(--white);
+}
+
+.medianavbar li:last-child {
+    border: none;
+}
+
+.lightcont {
+    background: #f1f2f2;
+    padding: 15px;
+}
+.lightcont h5{
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.col-Months .active {
+    color: #013989;
+    font-weight: 600;
+}
+.col-Months {
+    cursor: pointer;
+}
+.col-Months ul {
+    padding-right: 40px;
+    padding-left: 10px;
+    list-style: none;
+}
+.medianavbar li.active a, .medianavbar li:hover a{
+    color: var(--white);
+  }
+  .col-Months ul li {
+    padding-right: 15px;
+    border-right: solid 1px #ededed;
+    margin-right: 15px;
+}
+
+.col-Months ul li:last-child {
+    border: none;
+    padding: 0;
+}
+@media (max-width:1040px){
+    .lg-react-element a{
+        width: 45%;
+    }
+}
+@media (max-width:900px){
+    .lg-react-element a{
+        width: 100%;
+    }
+}
+@media (max-width:680px){
+    .medianavbar {
+        display: flex;
+        margin-bottom: 25px;
+    }
+    .medianavbar li a {
+        padding: 15px 0;
+        text-align: center;
+        border-bottom: 0;
+        border-right: solid 1px #d7d2d2;
+        font-size: var(--smallFont);
+        letter-spacing: var(--letter1);
+    }
+}
+@media (max-width:420px){
+    .medianavbar li a {
+        padding: 10px 0;
+    }
+    .medianavbar{
+        min-width: 420px;
+        margin-bottom: 0;
+    }
+    .oveflow-auto{
+        overflow: auto;
+        margin-bottom: 25px;
+    }
+}

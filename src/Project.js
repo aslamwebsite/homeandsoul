@@ -46,16 +46,16 @@ const Project = () => {
   let title;
   switch (cat.toLowerCase()) {
     case 'townships':
-      title = 'Townships Projects';
+      title = 'Townships';
       break;
     case 'homes':
-      title = 'Homes Projects';
+      title = 'Homes';
       break;
     case 'retail':
-      title = 'Retail Projects';
+      title = 'Retail';
       break;
     case 'offices':
-      title = 'Offices Projects';
+      title = 'Offices';
       break;
     default:
       title = 'Projects';

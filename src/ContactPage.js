@@ -1,6 +1,6 @@
 import React from 'react'
 import { Parallax } from 'react-parallax';
-import bannerImage from './images/career_Banner.webp'
+import bannerImage from './images/contactBanner.webp'
 import Contact from './component/Contact/Index'
 
 const ContactPage = () => {
