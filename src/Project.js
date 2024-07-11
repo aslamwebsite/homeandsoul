@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { BasePath } from './component/BasePath/Index';
 import Noimage from './images/noimage.jpg'
+import BreadCrubs from './component/BreadCrumb/Index'
+import Container from './component/Container/Index'
 
 const Project = () => {
   const [pageData, setPageData] = useState([]);
@@ -62,6 +64,10 @@ const Project = () => {
   }
 
   return (
+   <>
+    <Container _parentClass={'m-0'}>
+      <BreadCrubs pageName={`${cat}`}/>
+    </Container>
     <WebContainer _parentClass={'projects p-100 pt-0'}>
       <Title firstHeading={title} />
       <div className="col-12 float-start categoryimage flex-center gap-25 flex-wrap">
@@ -104,6 +110,7 @@ const Project = () => {
         )}
       </div>
     </WebContainer>
+   </>
   );
 };
 

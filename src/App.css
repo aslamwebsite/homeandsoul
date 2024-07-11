@@ -10,7 +10,7 @@
   --heading-font-family: 'bw-vivant-light';
   --heading-font-size: 2.8125vw;
   --heading-line-height: 3.3333vw;
-  --white: #fff;
+  --white:#fff;
   --black:#000;
   --font-old--standard-tt: "Old Standard TT";
   --grey: "#f1f2f2"
@@ -162,7 +162,7 @@ a{
   position: absolute;
   bottom: -50%;
   right: 2%;
-  background: #fff;
+  background: var(--white);
   width: 300px;
   height: 300px;
   border-radius: 100%;
@@ -347,8 +347,8 @@ button {
   width: 360px;
   border-radius: 50px;
   border: none;
-  background: #000;
-  color: #fff;
+  background: var(--black);
+  color: var(--white);
   font-size: 16px;
   line-height: 58px;
   font-family: var(--font-family);
@@ -360,7 +360,7 @@ button:hover {
   background: #00499a;
 }
 .text-black{
-  color: #000;
+  color: var(--black);
 }
 .text-start {
   text-align: left;
@@ -572,7 +572,7 @@ input[type='radio']:checked+label>em {
 }
 
 .text-white {
-  color: #fff !important;
+  color:var(--white) !important;
 }
 
 .redcowlayer {
@@ -604,7 +604,7 @@ input[type='radio']:checked+label>em {
 }
 
 .roundedbutton:hover button {
-  color: #fff;
+  color: var(--white);
 }
 
 .product-info:after {
@@ -826,7 +826,7 @@ input[type='radio']:checked+label>em {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: #000;
+  color: var(--black);
   margin: 0 1%;
   line-height: 50px;
   font-size: 16px;
@@ -842,14 +842,14 @@ input[type='radio']:checked+label>em {
   width: 0;
   height: 10px;
   position: absolute;
-  background-color: #fff;
+  background-color:var(--white);
   bottom: 0;
   left: 0;
   transition: ease all 0.5s;
 }
 .tabs .react-tabs__tab--selected::before{
   border: none;
-  background-color: #000;
+  background-color: var(--black);
   width: 100%;
 }
 .tabs .react-tabs__tab:focus:after{
@@ -931,7 +931,7 @@ input[type='radio']:checked+label>em {
 .tabcontantContainer ul li {
     padding: 10px 0;
     position: relative;
-    color: #000;
+    color: var(--black);
 }
 
 .tabcontantContainer ul li:before {
@@ -993,7 +993,7 @@ input[type='radio']:checked+label>em {
 .btn_red svg {
   width: 25px;
   height: auto;
-  fill: #fff;
+  fill:var(--white);
   display: inline;
   margin-right: 8px;
 }
@@ -1004,7 +1004,7 @@ input[type='radio']:checked+label>em {
 
 .get_direction_btn {
   font-size: 22px;
-  color: #000000;
+  color: var(--black)000;
   font-weight: bold;
   margin-top: 15px;
   display: flex;
@@ -1133,7 +1133,7 @@ input[type='radio']:checked+label>em {
   content: '';
   width: 25px;
   height: 25px;
-  background: #000;
+  background: var(--black);
   position: absolute;
   border-radius: 100%;
   opacity: 0.2;
@@ -1159,7 +1159,7 @@ input[type='radio']:checked+label>em {
   opacity: 1;
 }
 .btn-11:hover span{
-  color: #fff;
+  color:var(--white);
 }
 .Upcomingimg {
   width: 46%;
@@ -1176,7 +1176,7 @@ input[type='radio']:checked+label>em {
   font-size: 62px;
   line-height: 70px;
   font-weight: normal;
-  color: #fff;
+  color:var(--white);
   letter-spacing: 3px;
 }
 .aboutUs{
@@ -1355,7 +1355,7 @@ figure.snip0016 a {
   top: 0;
   bottom: 0;
   position: absolute;
-  color: #fff
+  color:var(--white)
 }
 
 
@@ -1378,7 +1378,7 @@ figure.snip0016 p:last-child {
   max-width: 160px;
   float: right;
   text-transform: uppercase;
-  background: #000;
+  background: var(--black);
   line-height: 50px;
   border-radius: 25px;
   white-space: nowrap;
@@ -1433,7 +1433,7 @@ button.proarrow {
 }
 .proHeaderClass {
   position: fixed;
-  background: #000;
+  background: var(--black);
   z-index: 1;
   top: 0;
   left: 0;
@@ -1449,12 +1449,12 @@ button.proarrow {
 
 .details {
   max-height: 150px;
-  color: #fff;
+  color:var(--white);
   gap: 20px;
   width: 75%;
 }
 .details h4,
-.details p, .projectscroll .title span {
+.details p, .projectscroll .title span, .marginRemoveul ul {
   margin: 0;
 }
 
@@ -1491,7 +1491,7 @@ button.proarrow {
   position: absolute;
   top: 50%;
   left:0;
-  background: #ffffff;
+  background:var(--white);
   transform: translate(-50%, -50%);
 }
 .detailHeading {
@@ -1552,7 +1552,7 @@ button.proarrow {
 .preloader {
   width: 100%;
   position: fixed;
-  background: #fff;
+  background:var(--white);
   top: 0;
   bottom: 0;
   right: 0;
@@ -1571,22 +1571,25 @@ button.proarrow {
   gap: 40px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
+.fixMenu {
+  gap: 30px;
+  padding-right: 6.5vw;
+}
 .projectDetails .title-item {
   background: transparent;
   margin: 0;
-  line-height: 50px;
+  line-height: 45px;
   width: auto;
   color: var(--white);
   text-transform: uppercase;
-  font-size: 15px;
-  letter-spacing: 2px;
+  font-size: 14px;
+  letter-spacing: 3px;
   cursor: pointer;
 }
 .lg-download.lg-icon {
   display: none;
 }
-.projectDetails .title-item.active {
+.projectDetails .pagebreadcumb ul li, .projectDetails .title-item.active {
   color: #ceb87f;
 }
 .proDetail .footerbox {
@@ -1611,7 +1614,7 @@ button.proarrow {
   color: #0a327b;
   transition: ease all 0.5s;
   &:hover{
-    color: #000;
+    color: var(--black);
     text-decoration: none;
   }
 }
@@ -1652,7 +1655,7 @@ button.proarrow {
 .Accordion .MuiAccordionSummary-expandIconWrapper {
   color: var(--white);
 }
-.MuiAccordionSummary-content{
+.MuiAccordionSummary-content, .lg-toolbar .lg-icon{
   margin: 0 !important;
 }
 .proGallery .lg-react-element {
@@ -1667,7 +1670,9 @@ button.proarrow {
   border-radius: 50px;
   background: #f2f2f2;
 }
-
+.projectDetails .pagebreadcumb ul li a {
+  color: #a8a8a8;
+}
 @media (max-width:1680px){
 
   .projectDetails .title-item {

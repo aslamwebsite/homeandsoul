@@ -17,7 +17,7 @@ const navItems = [
   },
   {
     title: "Townships",
-    href: "#",
+    href: "/projects/townships",
   },
   {
     title: "Homes",
@@ -29,7 +29,7 @@ const navItems = [
   },
   {
     title: "Offices",
-    href: "#",
+    href: "/projects/offices",
   }
 ];
 

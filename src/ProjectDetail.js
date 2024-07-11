@@ -8,13 +8,13 @@ import { BasePath } from './component/BasePath/Index';
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import FixedStrip from './component/Tabs/Tabs';
-import Noimage from './images/noimage.jpg'
+import Noimage from './images/noimage.jpg';
 
 const ProjectDetail = () => {
   const [projectDetails, setProjectDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [activeSection, setActiveSection] = useState(0); 
+  const [activeSection, setActiveSection] = useState(0);
   const { slug } = useParams();
   const fullpageApiRef = useRef(null);
 
@@ -42,7 +42,7 @@ const ProjectDetail = () => {
   const handleTitleClick = (index) => {
     if (fullpageApiRef.current) {
       fullpageApiRef.current.moveTo(index + 1);
-      setActiveSection(index); 
+      setActiveSection(index);
     }
   };
 
@@ -58,8 +58,11 @@ const ProjectDetail = () => {
     projectDetails.section2?.heading,
     projectDetails.section3?.heading,
     projectDetails.section4?.heading,
+    projectDetails.section5?.heading,
+    projectDetails.section6?.heading,
+    projectDetails.section7?.heading,
     projectDetails.location_map ? "Location Map" : null,
-    projectDetails.gallery?.desktop_image ? "Gallery" : null,
+    projectDetails.gallery?.desktop_image?.length ? "Gallery" : null,
     "Contact Us"
   ].filter(Boolean);
 
@@ -69,19 +72,47 @@ const ProjectDetail = () => {
     title: projectDetails.banner.bannerHeading,
   }] : [];
 
+  const renderSection = (section, sectionNumber) => {
+    if (!section) return null;
+    const { heading, image, description } = section;
+    if (!heading || !description) return null;
+    return (
+      <div className="section">
+        <div className='projectscroll first-stn'>
+          {image ? (<img src={image} alt={heading} />) : (<img src={Noimage} alt="Placeholder" />)}
+          <div className='projectscont'>
+            <div className="details flex-center">
+              <div className='detailHeading'>
+                <h4>{heading}</h4>
+              </div>
+              <div className='detailContent'>
+                <p>
+                  {description.map((desc, index) => (
+                    <span key={index}>{desc}</span>
+                  ))}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
       <FixedStrip 
         titles={sectionTitles} 
         onClick={handleTitleClick} 
         activeIndex={activeSection} 
+        slug={`${slug}`}
       />
       <ReactFullpage
         licenseKey={'YOUR_KEY_HERE'}
         scrollingSpeed={1000}
         onLeave={(origin, destination, direction) => {
           fullpageApiRef.current = destination.fullpageApi;
-          setActiveSection(destination.index); 
+          setActiveSection(destination.index);
         }}
         render={({ state, fullpageApi }) => {
           fullpageApiRef.current = fullpageApi;
@@ -93,103 +124,25 @@ const ProjectDetail = () => {
                 </div>
               </div>
 
-              {projectDetails.section1 && (
+              {renderSection(projectDetails.section1, 1)}
+              {renderSection(projectDetails.section2, 2)}
+              {renderSection(projectDetails.section3, 3)}
+              {renderSection(projectDetails.section4, 4)}
+              {renderSection(projectDetails.section5, 5)}
+              {renderSection(projectDetails.section6, 6)}
+              {renderSection(projectDetails.section7, 7)}
+
+              {projectDetails.location_map && (
                 <div className="section">
-                  <div className='projectscroll first-stn'>
-                    {projectDetails.section1.image ? (<img src={projectDetails.section1.image} alt={projectDetails.section1.heading} />) : (<img src={Noimage} alt="Home & Shoul" />)}
-                    <div className='projectscont'>
-                      <div className="details flex-center">
-                        <div className='detailHeading'>
-                          <h4>{projectDetails.section1.heading}</h4>
-                        </div>
-                        <div className='detailContent'>
-                          <p>
-                            {projectDetails.section1.description.map((desc, index) => (
-                              <span key={index}>{desc}</span>
-                            ))}
-                          </p>
-                        </div>
-                      </div>
+                  <div className='projectscroll d-flex align-items-end flex-wrap'>
+                    <div className='col-12 float-start proGallery'>
+                      <LocationMap Data={projectDetails.location_map} />
                     </div>
                   </div>
                 </div>
               )}
 
-              {projectDetails.section2 && (
-                <div className="section">
-                  <div className='projectscroll first-stn'>
-                    {projectDetails.section2.image ? (<img src={projectDetails.section2.image} alt={projectDetails.section1.heading} />) : (<img src={Noimage} alt="Home & Shoul" />)}
-                    <div className='projectscont'>
-                      <div className="details flex-center">
-                        <div className='detailHeading'>
-                          <h4>{projectDetails.section2.heading}</h4>
-                        </div>
-                        <div className='detailContent'>
-                          <p>
-                            {projectDetails.section2.description.map((desc, index) => (
-                              <span key={index}>{desc}</span>
-                            ))}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {projectDetails.section3 && (
-                <div className="section">
-                  <div className='projectscroll first-stn'>
-                  {projectDetails.section3.image ? (<img src={projectDetails.section3.image} alt={projectDetails.section1.heading} />) : (<img src={Noimage} alt="Home & Shoul" />)}
-                    <div className='projectscont'>
-                      <div className="details flex-center">
-                        <div className='detailHeading'>
-                          <h4>{projectDetails.section3.heading}</h4>
-                        </div>
-                        <div className='detailContent'>
-                          <p>
-                            {projectDetails.section3.description.map((desc, index) => (
-                              <span key={index}>{desc}</span>
-                            ))}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {projectDetails.section4 && (
-                <div className="section">
-                  <div className='projectscroll first-stn'>
-                    {projectDetails.section4.image ? (<img src={projectDetails.section4.image} alt={projectDetails.section1.heading} />) : (<img src={Noimage} alt="Home & Shoul" />)}
-                    <div className='projectscont'>
-                      <div className="details flex-center">
-                        <div className='detailHeading'>
-                          <h4>{projectDetails.section4.heading}</h4>
-                        </div>
-                        <div className='detailContent'>
-                          <p>
-                            {projectDetails.section4.description.map((desc, index) => (
-                              <span key={index}>{desc}</span>
-                            ))}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-            {projectDetails.location_map && 
-              <div className="section">
-              <div className='projectscroll d-flex align-items-end flex-wrap'>
-              <div className='col-12 float-start proGallery'>
-                <LocationMap Data={projectDetails.location_map} />
-                </div>
-                </div>
-              </div>
-              }
-              {projectDetails.gallery.desktop_image && (
+              {projectDetails.gallery?.desktop_image?.length > 0 && (
                 <div className="section">
                   <div className='projectscroll d-flex align-items-end flex-wrap'>
                     <div className='col-12 float-start proGallery'>
@@ -201,6 +154,7 @@ const ProjectDetail = () => {
                   </div>
                 </div>
               )}
+
               <div className="section proDetail">
                 <Contact />
               </div>
