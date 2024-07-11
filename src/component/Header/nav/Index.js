@@ -13,7 +13,7 @@ const navItems = [
   },
   {
     title: "About Us",
-    href: "#",
+    href: "/error",
   },
   {
     title: "Townships",
@@ -58,7 +58,7 @@ const Nav = ({ setIsActive, toggleMenu, isActive }) => {
         exit="exit"
         className={styles.menu}
       >
-        <div className={styles.body}>
+        <div className={`${styles.body} slideMenu`}>
           <div onMouseLeave={() => setSelectedIndicator(pathname)} className={styles.nav}>
             {navItems.map((data, index) => (
               <motion.div

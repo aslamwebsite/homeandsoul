@@ -6,6 +6,8 @@ import axios from 'axios';
 import { BasePath } from './component/BasePath/Index';
 import { Parallax } from 'react-parallax';
 import Error from './Error';
+import BreadCrumb from './component/BreadCrumb/Index'
+import Container from './component/Container/Index'
 
 const Content = () => {
     const { slug } = useParams();
@@ -62,7 +64,7 @@ const Content = () => {
     return (
         <>
         {bannerImage && <Parallax bgImage={bannerImage} strength={getStrengthValue()} className="flex-center col-12 float-start parallaxBanner" /> }
-            
+          <Container _parentClass={`m-0 ${careerCustomclass}`}>  <BreadCrumb pageName={slug}/></Container>
             <WebContainer _parentClass={`m-0 p-100 ${careerCustomclass}`}>
                 <Title firstHeading={subheading} secondHeading={heading} grandClass={'customMargin'}/>
                 <div className="col-12 float-start pb-5">

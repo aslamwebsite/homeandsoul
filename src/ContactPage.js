@@ -2,6 +2,8 @@ import React from 'react'
 import { Parallax } from 'react-parallax';
 import bannerImage from './images/contactBanner.webp'
 import Contact from './component/Contact/Index'
+import BreadCrumb from './component/BreadCrumb/Index'
+import Container from './component/Container/Index'
 
 const ContactPage = () => {
     const getStrengthValue = () => {
@@ -12,6 +14,7 @@ const ContactPage = () => {
   return (
     <>
         <Parallax bgImage={bannerImage} strength={getStrengthValue()} className="flex-center col-12 float-start parallaxBanner" />
+        <Container _parentClass={`m-0`}>  <BreadCrumb pageName={'Contact Us'}/></Container>
     <div className="section proDetail">
                 <Contact />
               </div>

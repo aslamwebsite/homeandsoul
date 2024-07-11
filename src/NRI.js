@@ -7,22 +7,28 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import parse from 'html-react-parser';
 import { BasePath } from './component/BasePath/Index';
-import WebContainer from './component/WebContainer/Index'
+import WebContainer from './component/WebContainer/Index';
 import { Parallax } from 'react-parallax';
-import bannerImage from './images/career_Banner.webp'
-import Title from './component/Title/Index'
+import Title from './component/Title/Index';
+import BreadCrumb from './component/BreadCrumb/Index'
+import Container from './component/Container/Index'
 
 const NRI = () => {
-  const [faqData, setFaqData] = useState([]);
+  const [faqData, setFaqData] = useState({
+    bannerImage: [],
+    nris: [],
+  });
   const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${BasePath}/nri.php`);
+        // Assuming the response structure matches the provided JSON
         setFaqData(response.data);
       } catch (error) {
         console.error('Error fetching the data', error);
+        setFaqData({ bannerImage: [], nris: [] });
       }
     };
 
@@ -32,40 +38,49 @@ const NRI = () => {
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
+
   const getStrengthValue = () => {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.platform);
     const isMac = /MacIntel/.test(navigator.platform);
     return isIOS || isMac ? 100 : 300;
-};
+  };
+
   return (
     <>
-    <Parallax bgImage={bannerImage} strength={getStrengthValue()} className="flex-center col-12 float-start parallaxBanner" /> 
-    <WebContainer _parentClass={'nriSection bgcolor m-0 p-100'}>
-            <Title firstHeading={'Home & Soul'} secondHeading={'RIGHT TIME TO TURN TO INDIA'}/>
-        <div className='col-12 float-start Accordion'>
-      {faqData.map((item) => (
-        <Accordion 
-          key={item.id}
-          expanded={expanded === item.id}
-          onChange={handleChange(item.id)}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls={`panel${item.id}-content`}
-            id={`panel${item.id}-header`}
-            className='homeSoulAccordion'
-          >
-            <Typography>{item.title}</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              {parse(item.description)}
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-      ))}
-    </div>
-    </WebContainer>
+      <Parallax
+        bgImage={faqData.bannerImage.length > 0 ? faqData.bannerImage[0].imagePath : ''}
+        strength={getStrengthValue()}
+        className="flex-center col-12 float-start parallaxBanner"
+      />
+      <Container _parentClass={`m-0 bgcolor`}>  <BreadCrumb pageName={'NRI'}/></Container>
+      <WebContainer _parentClass={'nriSection bgcolor m-0 p-100'}>
+        <Title firstHeading={'Home & Soul'} secondHeading={'Right Time To Turn To India'} />
+        <div className="col-12 float-start Accordion">
+          {faqData.nris.length > 0 ? (
+            faqData.nris.map((item) => (
+              <Accordion
+                key={item.id}
+                expanded={expanded === item.id}
+                onChange={handleChange(item.id)}
+              >
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls={`panel${item.id}-content`}
+                  id={`panel${item.id}-header`}
+                  className="homeSoulAccordion"
+                >
+                  <Typography>{item.title}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>{parse(item.description)}</Typography>
+                </AccordionDetails>
+              </Accordion>
+            ))
+          ) : (
+            <Typography>No FAQs available</Typography>
+          )}
+        </div>
+      </WebContainer>
     </>
   );
 };

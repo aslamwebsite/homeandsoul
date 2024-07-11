@@ -105,7 +105,7 @@ const ProjectDetail = () => {
         titles={sectionTitles} 
         onClick={handleTitleClick} 
         activeIndex={activeSection} 
-        slug={`${slug}`}
+        Slug={`${slug}`}
       />
       <ReactFullpage
         licenseKey={'YOUR_KEY_HERE'}
