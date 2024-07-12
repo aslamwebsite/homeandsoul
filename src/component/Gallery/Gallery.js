@@ -85,7 +85,7 @@ const Gallery = ({
     <div className="column9">
       {photoTabs && (
         <div className="upper__tabs mb-5 d-flex justify-content-between align-items-center">
-          <div className="col-Months col-lg-10 col-12">
+          <div className="col-Months">
             <ul className="d-flex px-5">
               {monthsWithData.map((month) => (
                 <li
@@ -99,7 +99,7 @@ const Gallery = ({
             </ul>
           </div>
           {uniqueYears.length > 1 && (
-            <div className="col-Years col-lg-2 col-12">
+            <div className="col-Years">
               <select
                 className="radius-0"
                 value={selectedYear}

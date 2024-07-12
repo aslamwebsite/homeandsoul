@@ -119,10 +119,6 @@ a{
   left: 30%;
   bottom: 20%;
 }
-.creativeslide.hsoul02 {
-  left: 30%;
-  bottom: 20%;
-}
 
 .creativeslide.hsoul03 {right: -10%;left: inherit;bottom: inherit;top: 30%;}
 .creativeslide h3{
@@ -897,10 +893,10 @@ input[type='radio']:checked+label>em {
   transform: rotate(180deg);
 }
 .desktop-show{
-  display: block;
+  display: block !important;
 }
 .mobile-show{
-  display: none;
+  display: none !important;
 }
 
 .othersundaename ul {
@@ -1068,7 +1064,7 @@ input[type='radio']:checked+label>em {
   width: 36px;
   height: 36px;
 }
-.tab-content, .react-parallax-content{
+.tab-content, .react-parallax-content, .Upcomingimg.w-100{
   width: 100%;
 }
 
@@ -1595,8 +1591,11 @@ button.proarrow {
 .lg-download.lg-icon {
   display: none;
 }
-.projectDetails .pagebreadcumb ul li, .projectDetails .title-item.active {
+.projectDetails .title-item.active {
   color: #ceb87f;
+}
+.projectDetails .pagebreadcumb ul li{
+  color: #d0d0d0;
 }
 .sticky .menu .active{
   color: #ceb87f !important;
@@ -1689,7 +1688,17 @@ button.proarrow {
   background: #f2f2f2;
 }
 .projectDetails .pagebreadcumb ul li a {
-  color: #a8a8a8;
+  color:#878686;
+}
+
+.Upcomingimg p {
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+.justify-content-between {
+  justify-content: space-between;
 }
 @media (max-width:1680px){
 
@@ -1728,10 +1737,17 @@ button.proarrow {
 }
 }
 @media (max-width:1480px){
+  .react-parallax.numberCounter {
+    height: auto;
+    padding: 50px 0;
+    padding: 100px 0;
+}
   .details {
     width: 90%;
 }
-
+.react-parallax{
+  height: 400px;
+}
   .fixMenu {
     gap: 20px;
 }
@@ -1759,8 +1775,8 @@ button.proarrow {
   height: 1px;
 }
 .Upcomingimg h4{
-  font-size: 50px;
-  line-height: 60px;
+  font-size: 40px;
+  line-height: 50px;
 }
 button {
   width: 280px;
@@ -1797,8 +1813,8 @@ figure.snip0016 h3, figure.snip0016 h4{
 }
 @media (max-width:1380px){
   .Upcomingimg h4 {
-    font-size: 40px;
-    line-height: 50px;
+    font-size: 30px;
+    line-height: 40px;
 }
   .creativeslide h3 {
     max-width: 400px;
@@ -1864,8 +1880,24 @@ figure.snip0016 h3, figure.snip0016 h4{
 .slideMenu {
   width: 400px !important;
 }
+.projects:nth-child(2) .protitle h4 {
+  font-size: 80px;
+}
+.projects:nth-child(3) .protitle h4 {
+font-size: 50px;
+}
+.protitle h4{
+  font-size: 35px;
+}
 }
 @media (max-width:1200px){
+ 
+  .downArrow .swiper-button-next{
+    left: 20%;
+  }
+  .creativeslide.hsoul03 {
+    right: -18%;
+}
   .projectDetails .title-item{
     display: none;
   }
@@ -1874,5 +1906,93 @@ figure.snip0016 h3, figure.snip0016 h4{
 }
 .footerForm{
   width: 100%;
+}
+}
+@media (max-width:992px){
+  .Heroslider .swiper-slide img {
+    height: 100%;
+    object-fit: cover;
+}
+.creativeslide {
+  bottom: 10%;
+}
+.logo{
+  left: 10%;
+}
+.Heroslider .swiper-slide .projectbanner {
+    height: 80vh;
+}
+
+.Heroslider .swiper-slide .prologo img {
+    height: auto;
+    top: -14%;
+}
+
+.downArrow .swiper-button-next {
+    left: 17%;
+}
+.desktop-show{
+  display: none !important;
+}
+.mobile-show{
+  display: block !important;
+}
+}
+@media (max-width:630px){
+  .footerForm .col-lg-4 {width: 100%;margin-bottom: 20px;}
+
+  .modifiedinput .MuiOutlinedInput-root {
+      width: 100%;
+  }
+  
+  .footerbox {
+      width: 40%;
+      margin-top: 30px;
+  }
+  
+  
+  .creativeslide.hsoul02, .creativeslide.hsoul01, .creativeslide.hsoul03 {
+      bottom: inherit;
+      top: 10%;
+      left: inherit;
+      transform: inherit;
+      right: 2%;
+  }
+  .creativeslide.hsoul02 h3 {
+      background-image: linear-gradient(90deg, var(--white), var(--white) 50%, rgba(89, 89, 91, 0) 0);
+  }
+
+.tab-buttons button, .tabs .react-tabs__tab {
+    width: 120px;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+.tabs .react-tabs__tab::before {
+    height: 5px;
+}
+
+.tabs ul {
+    min-width: 480px;
+    overflow: auto;
+}
+
+.tabs .swiper-slide img {
+    height: 350px;
+    object-fit: cover;
+}
+.Upcomingimg{
+  width: 100%;
+  margin-bottom: 10px;
+}
+.footerForm .col-lg-4 {width: 100%;margin-bottom: 20px;}
+
+.modifiedinput .MuiOutlinedInput-root {
+    width: 100%;
+}
+
+.footerbox {
+    width: 40%;
+    margin-top: 30px;
 }
 }

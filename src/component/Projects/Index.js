@@ -37,7 +37,7 @@ const Index = ({ Data }) => {
             data-aos-easing="ease-in-sine"
           >
             <div
-              className='protitle'
+              className='protitle desktop-show'
               data-aos="fade-left"
               data-aos-offset="500"
               data-aos-duration="500"

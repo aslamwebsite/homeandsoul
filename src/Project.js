@@ -86,22 +86,20 @@ const Project = () => {
                         <h3>{project.name}</h3>
                         <p>{project.location}</p>
                         <p>Know More</p>
+                        
                       </figcaption>
                     </figure>
                   </a>
                 ) : (
-                  <figure className="snip0016">
+                  <div className="Upcomingimg w-100">
                     {project.image ? (
                       <img src={project.image} alt={project.name} />
                     ) : (
                       <img src={Noimage} alt="Home & Shoul" />
                     )}
-                    <figcaption>
-                      <h3>{project.name}</h3>
+                      <h4>{project.name}</h4>
                       <p>{project.location}</p>
-                      <p>Know More</p>
-                    </figcaption>
-                  </figure>
+                  </div>
                 )}
               </div>
             ))

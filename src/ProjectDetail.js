@@ -29,6 +29,7 @@ const ProjectDetail = () => {
         } else {
           setProjectDetails(response.data);
         }
+        console.log(response.data);
       } catch (error) {
         setError(error);
       } finally {
@@ -106,6 +107,8 @@ const ProjectDetail = () => {
         onClick={handleTitleClick} 
         activeIndex={activeSection} 
         Slug={slug}
+        Category={projectDetails.category}
+        Whitelogo={projectDetails.banner.logo2}
       />
       <ReactFullpage
         licenseKey={'YOUR_KEY_HERE'}

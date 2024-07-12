@@ -65,7 +65,7 @@ const Index = ({ Data = [], parentClass }) => {
             initialSlide={0}
             speed={2500}
             autoplay={{
-              delay: 6000,
+              delay: 600000000000000000,
               disableOnInteraction: false,
             }}
             navigation={true}
@@ -81,12 +81,19 @@ const Index = ({ Data = [], parentClass }) => {
                 <div className="swiperslider position-relative col-12 float-start">
                   <div className={styles.sliderdiv}>
                     <div className={`projectbanner overflow-hidden ${isZoomIn ? 'zoom-in' : 'zoom-out'}`}>
-                      {slide.imagePath ? (<img
+                      {slide.imagePath ? (<><img
                         src={slide.imagePath}
                         width="1740"
                         height="822"
                         alt=""
-                      />) : (<img
+                        className="desktop-show"
+                      /> <img
+                      src={slide.mobimgPath}
+                      width="630"
+                      height="800"
+                      alt=""
+                       className="mobile-show"
+                    /></>) : (<img
                         src={Noimage}
                         width="1740"
                         height="822"
