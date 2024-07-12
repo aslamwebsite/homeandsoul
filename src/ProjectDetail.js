@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import FixedStrip from './component/Tabs/Tabs';
 import Noimage from './images/noimage.jpg';
+import downloadImage from './images/downloadBanner.webp'
 
 const ProjectDetail = () => {
   const [projectDetails, setProjectDetails] = useState(null);
@@ -139,7 +140,7 @@ const ProjectDetail = () => {
                 <div className="section">
                   <div className='projectscroll d-flex align-items-end flex-wrap'>
                     <div className='col-12 float-start proGallery'>
-                      <LocationMap Data={projectDetails.location_map} />
+                      <LocationMap Data={projectDetails.location_map} Data2={projectDetails.location_map2}/>
                     </div>
                   </div>
                 </div>
@@ -157,7 +158,7 @@ const ProjectDetail = () => {
                   </div>
                 </div>
               )}
-
+             
               <div className="section proDetail">
                 <Contact />
               </div>
