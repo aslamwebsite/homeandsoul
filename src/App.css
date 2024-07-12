@@ -1651,10 +1651,12 @@ button.proarrow {
 .MuiPaper-elevation {
   margin-bottom: 10px;
   box-shadow: inherit;
-  border: solid 1px #dcdcdc;
   border-radius: 50px !important;
 }
-
+.MuiPaper-elevation::before{
+  content: '' !important;
+  opacity: 0 !important;
+}
 .homeSoulAccordion p, .MuiTypography-root p, .MuiTypography-root ul li{
   color: var(--white);
   font-size: 19px;
