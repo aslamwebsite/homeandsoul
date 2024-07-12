@@ -10,12 +10,20 @@ import axios from "axios";
 import FixedStrip from './component/Tabs/Tabs';
 import Noimage from './images/noimage.jpg';
 import downloadImage from './images/downloadBanner.webp'
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import parse from 'html-react-parser';
+import WebContainer from './component/WebContainer/Index'
 
 const ProjectDetail = () => {
   const [projectDetails, setProjectDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeSection, setActiveSection] = useState(0);
+  const [expanded, setExpanded] = useState(false);
   const { slug } = useParams();
   const fullpageApiRef = useRef(null);
 
@@ -100,7 +108,21 @@ const ProjectDetail = () => {
   }
 
   if (error) return <div>Error loading data: {error.message}</div>;
-
+  const faqData = [
+    {
+      id: 1,
+      title: 'What is NRI?',
+      description: '<p>An NRI is a Non-Resident Indian.</p>'
+    },
+    {
+      id: 2,
+      title: 'How can NRIs invest in Indian real estate?',
+      description: '<p>NRIs can invest through various channels.</p>'
+    },
+  ];
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
   return (
     <>
       <FixedStrip 
@@ -158,7 +180,62 @@ const ProjectDetail = () => {
                   </div>
                 </div>
               )}
-             
+              <div className="section">
+              <div className='projectscroll d-flex align-items-end flex-wrap downloadSection position-relative'>
+              <img src={downloadImage} alt='Quick Links'/>
+                    <div className='col-12 float-start downloadTab'>
+                      <div className='col-12 float-start'>
+                      <div className='title flex-center'>
+                        <span className='m-0 text-white'>Quick Links</span>
+                      </div>
+                      <div className='col-12 float-start quickTabs flex-center gap-25'>
+                          <span>Brochure</span>
+                          <span>Floor Plan</span>
+                          <span>Construction Updates</span>
+                      </div>
+                      <div className='col-12 float-start quickTabsrera wrap quickTabs'>
+                          <span>HARERA Registration No. 77 of 2023</span>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div className="section">
+              <div className='projectscroll d-flex align-items-end flex-wrap  text-center position-relative'>
+              <div className='col-12 float-start proGallery'>
+                  <WebContainer _parentClass={'faqDetailpage'}>
+                  <div className='title'>
+                    <span>FREQUENTLY ASKED QUESTIONS</span>
+                  </div>
+                  <div className="col-12 float-start Accordion">
+      {faqData.length > 0 ? (
+        faqData.map((item) => (
+          <Accordion
+            key={item.id}
+            expanded={expanded === item.id}
+            onChange={handleChange(item.id)}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls={`panel${item.id}-content`}
+              id={`panel${item.id}-header`}
+              className="homeSoulAccordion"
+            >
+              <Typography>{item.title}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>{parse(item.description)}</Typography>
+            </AccordionDetails>
+          </Accordion>
+        ))
+      ) : (
+        <Typography>No FAQs available</Typography>
+      )}
+    </div>
+                  </WebContainer>
+                  </div>
+              </div>
+              </div>
               <div className="section proDetail">
                 <Contact />
               </div>

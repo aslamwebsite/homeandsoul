@@ -1700,6 +1700,38 @@ button.proarrow {
 .justify-content-between {
   justify-content: space-between;
 }
+.downloadTab {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(0 0 0 / 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.quickTabs span {
+  background: #ceb87f;
+  width: 20%;
+  line-height: 50px;
+  border-radius: 25px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 13px;
+  font-weight: bold;
+  transition: ease all 0.5s;
+  display: inline-block;
+}
+.quickTabsrera.quickTabs span {
+  width: auto;
+}
+.quickTabs span:hover {
+  color: #ceb87f;
+  background: #000;
+}
 @media (max-width:1680px){
 
   .projectDetails .title-item {
