@@ -17,7 +17,7 @@ const Index = ({ galleryData }) => {
 
   return (
     <>
-      <section className="mb-0">
+      <section className="mb-0 overflow-hidden">
         <div className="tabs">
           <div className="flex-center col-12 float-start">
             <Tabs className="col-12 float-start">
