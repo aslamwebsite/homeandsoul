@@ -11,7 +11,7 @@ const Index = ({ Data = [], parentClass }) => {
   const [isZoomIn, setIsZoomIn] = useState(true);
   const sectionRef = useRef();
   const [inView, setInView] = useState(false);
-  let classCounter = 1; // Initialize counter
+  let classCounter = 1; 
 
   const getNextClass = () => {
     const className = `hsoul${String(classCounter).padStart(2, '0')}`;
@@ -96,7 +96,6 @@ const Index = ({ Data = [], parentClass }) => {
                     </div>
                     {slide.logo && 
                     <div className="prologo flex-center">
-                      {/* {slide.prologo && <img src={slide.prologo} alt='Prologo' />} */}
                       <img src={slide.logo} alt='Prologo' />
                     </div>
                     }

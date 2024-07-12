@@ -19,6 +19,11 @@
   }
   @media (max-width:1680px){
     .paragraph{
+      font-size: 40px;      
+    }
+  }
+  @media (max-width:1480px){
+    .paragraph{
       font-size: 34px;      
     }
   }

@@ -41,4 +41,18 @@
         font-size: 17px;
         line-height: 26px;
     }
+    .odometer-inside{
+        font-size: 50px;
+        line-height: 60px;
+    }
+}
+@media (max-width:1200px){
+    .numberrow {
+        flex-wrap: wrap;
+        row-gap: 50px;
+    }
+    .numbercolumn {
+        width: 30%;
+        margin: 0 10%;
+    }
 }

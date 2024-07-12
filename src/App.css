@@ -309,6 +309,7 @@ section {
 .heading span {
   font-family: 'Just Lovely Slanted';
   text-transform: capitalize;
+  font-size: larger;
 }
 .theme-color {
   color: var(--red-color);
@@ -1452,6 +1453,7 @@ button.proarrow {
   color:var(--white);
   gap: 20px;
   width: 75%;
+  overflow: auto;
 }
 .details h4,
 .details p, .projectscroll .title span, .marginRemoveul ul {
@@ -1468,6 +1470,9 @@ button.proarrow {
 .details p {
   width: 100%;
   text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 6px;
 }
 
 .details p span {
@@ -1562,7 +1567,7 @@ button.proarrow {
 }
 .projectDetails {
   position: fixed;
-  top: 12vh;
+  top: 120px;
   width: 100%;
   background-color: #414042;
   z-index: 1;
@@ -1583,14 +1588,18 @@ button.proarrow {
   color: var(--white);
   text-transform: uppercase;
   font-size: 14px;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   cursor: pointer;
+  white-space: nowrap;
 }
 .lg-download.lg-icon {
   display: none;
 }
 .projectDetails .pagebreadcumb ul li, .projectDetails .title-item.active {
   color: #ceb87f;
+}
+.sticky .menu .active{
+  color: #ceb87f !important;
 }
 .proDetail .footerbox {
   padding-bottom: 0;
@@ -1688,15 +1697,12 @@ button.proarrow {
     font-size: 13px;
     line-height: 40px;
   }
-  .projectDetails{
-    top:16vh
-  }
   :root { 
-    --bigFont: 60px;
-    --bigLineheight:60px;
+    --bigFont: 50px;
+    --bigLineheight:56px;
     --creativeslide-height: 77vh;
     --base-font-size:17px;
-    line-height: 26px;
+    --base-line-height: 26px;
   }
   
 .prologo {
@@ -1714,24 +1720,36 @@ button.proarrow {
 }
 
 .creativeslide h3{
-  max-width: 500px;
+  max-width: 480px;
 }
 .title span{
   font-size: 17px;
   line-height: 22px;
 }
 }
-@media (max-width:1440px){
+@media (max-width:1480px){
+  .details {
+    width: 90%;
+}
+
+  .fixMenu {
+    gap: 20px;
+}
   .title{
     margin-bottom: 40px;
   }
-  
+  .btn-11 {
+    height: 50px;
+}
+
+.wrap span {
+    padding: 0 30px;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
   section{
     margin: 50px 0;
   }
-  .logo {
-    width: 120px;
-}
 .footerbox p {
   font-size: 15px;
   line-height: 24px;
@@ -1756,11 +1774,105 @@ button {
 .title span{
   margin-bottom: 15px;
 }
-.mantainde p, figure.snip0016 p, figure.snip00161 p{
+.mantainde p{
   font-size: 13px;
   line-height: 28px;
 }
+figure.snip0016 p, figure.snip00161 p{
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: 1px;
+}
 figure.snip0016 h3, figure.snip0016 h4{
   font-size: 1.2rem;
+}
+.prologo {
+  width: 200px;
+  height: 200px;
+}
+.resultrow .slick-arrow.slick-prev, .resultrow .slick-arrow.slick-next, .swiper-horizontal .swiper-button-prev, .swiper-horizontal .swiper-button-next {
+  width: 40px;
+  height: 40px;
+}
+}
+@media (max-width:1380px){
+  .Upcomingimg h4 {
+    font-size: 40px;
+    line-height: 50px;
+}
+  .creativeslide h3 {
+    max-width: 400px;
+}
+.details h4{
+  font-size: 19px;
+  line-height: 26px;
+}
+.details p{
+  row-gap: 3px;
+}
+.details p span {
+  font-size: 14px;
+  line-height: 20px;
+}
+  .title {
+    margin-bottom: 30px;
+}
+  .footerbox p {
+    font-size: 14px;
+    line-height: 20px;
+}
+  .logo {
+    width: 100px;
+}
+:root {
+  --bigFont: 40px;
+  --bigLineheight: 46px;
+  --base-font-size: 16px;
+  --base-line-height: 24px;
+}
+.proHeaderClass .logo, .header.sticky .logo {
+  width: 80px;
+}
+.prologoHeader {
+  width: 180px;
+  max-width: 180px;
+}
+.projectDetails {
+  top: 100px;
+}
+.projectDetails .title-item {
+  font-size: 11px;
+  line-height: 30px;
+  letter-spacing: 2px;
+}
+.sideLogo{
+  width: 300px;
+  height: 300px;
+}
+}
+@media (max-width:1280px){
+  .downArrow .swiper-horizontal .swiper-button-prev, .downArrow .swiper-horizontal .swiper-button-next{
+    width:25px;
+    height:25px;
+  }
+  .web-container {
+    width: 80%;
+}
+.Herosection {
+  align-items: center;
+}
+.slideMenu {
+  width: 400px !important;
+}
+}
+@media (max-width:1200px){
+  .projectDetails .title-item{
+    display: none;
+  }
+  .projectscroll .layerafter {
+    margin-top: 50px;
+}
+.footerForm{
+  width: 100%;
 }
 }

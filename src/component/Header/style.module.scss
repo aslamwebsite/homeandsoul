@@ -91,7 +91,7 @@
 
 @media (max-width: 1440px) {
     .header {
-        height: 130px;
+      
         .nav {
 
             .el {
@@ -101,7 +101,28 @@
     }
 }
 }
+@media (max-width: 1380px) {
+    .header {
+      height: 100px;
+        .nav {
 
+            .el {
+                font-size: 12px;
+                padding: 0 10px;
+            }
+    }
+}
+}
+@media (max-width: 1200px) {
+    .header {
+          .nav {
+  
+              .el {
+                display: none;
+              }
+      }
+  }
+}
 @media (max-width: 900px) {
     .headerButtonContainer {
         .button {

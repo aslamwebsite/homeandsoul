@@ -33,7 +33,7 @@ const Index = () => {
                 <p className='m-0 lh-1'>For excellent real estate ownership and <br/>investment opportunities</p></div>
                 <div className='col-lg-11 m-auto'>
                 <div className={styles.body}>
-                    <div className='col-lg-9 m-auto'>
+                    <div className='col-lg-9 m-auto footerForm'>
                     <EnquiryForm />
                     </div>
                 <div className={styles.title}>                    

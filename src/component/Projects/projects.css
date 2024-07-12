@@ -37,6 +37,7 @@
     text-transform: uppercase;
 }
 
+
 .proinfochild h4 {
     margin: 0;
     font-size: 24px;
@@ -118,7 +119,13 @@
         font-size: 21px;
         line-height: 30px;
     }
-
+    .proinfochild ul li:before{
+        width: 35px;
+        height: 1px;
+      }
+      .proinfochild ul li{
+        padding: 8px 0;
+      }
     .protitle h4 {
         font-size: 50px;
         line-height: 28px;

@@ -63,11 +63,21 @@
       
       .homeslider {
         .sliderdiv {
-          height: 70vh;
+          height: 80vh;
       }
     }
   }
  }
+ @media (max-width: 1280px) {
+  .landing{
+    
+    .homeslider {
+      .sliderdiv {
+        height: auto;
+    }
+  }
+}
+}
   @media (max-width: 630px) {
    
     .sliderdiv.vh-100 {

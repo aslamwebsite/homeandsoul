@@ -3,7 +3,6 @@ import styles from './style.module.scss';
 import { AnimatePresence } from 'framer-motion';
 import Nav from './nav/Index';
 import Logo from '../../images/home-soul.webp';
-import Logo2 from '../../images/premiere.webp'
 import Container from '../Container/Index';
 import useStickyHeader from '../Header/useStickyHeader';
 import { NavLink } from 'react-router-dom';
@@ -25,7 +24,6 @@ const Index = ({className, projectLogo}) => {
                     <div className="header col-12 float-start">
                         <div className="row flex-center">
                             <div className="col-lg-4 col-sm-6">
-                                
                                     <div className="logo">
                                     <NavLink to='/'>
                                         <img src={Logo} alt='Home & Soul' />                                        
@@ -33,7 +31,7 @@ const Index = ({className, projectLogo}) => {
                                     </div>
                             </div>
                             <div className='col-lg-4 col-sm-4 flex-center'>
-                           {projectLogo &&  <img src={Logo2} alt='Home & Soul' />}
+                          
                             </div>
                             <div className="menu col-lg-4 col-sm-4">
                                 <div className={`${styles.nav} flex-center justify-content-end Textcolor`}>

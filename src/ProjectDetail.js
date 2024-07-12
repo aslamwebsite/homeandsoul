@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
 import Slider from './component/Slider/Index';
 import Gallery from './component/Gallery/Index';
@@ -46,40 +46,34 @@ const ProjectDetail = () => {
     }
   };
 
-  if (loading) {
-    return <div className="preloader"></div>;
-  }
-
-  if (error) return <div>Error loading data: {error.message}</div>;
-
-  const sectionTitles = [
+  const sectionTitles = useMemo(() => [
     "Overview",
-    projectDetails.section1?.heading,
-    projectDetails.section2?.heading,
-    projectDetails.section3?.heading,
-    projectDetails.section4?.heading,
-    projectDetails.section5?.heading,
-    projectDetails.section6?.heading,
-    projectDetails.section7?.heading,
-    projectDetails.location_map ? "Location Map" : null,
-    projectDetails.gallery?.desktop_image?.length ? "Gallery" : null,
+    projectDetails?.section1?.heading,
+    projectDetails?.section2?.heading,
+    projectDetails?.section3?.heading,
+    projectDetails?.section4?.heading,
+    projectDetails?.section5?.heading,
+    projectDetails?.section6?.heading,
+    projectDetails?.section7?.heading,
+    projectDetails?.location_map ? "Location Map" : null,
+    projectDetails?.gallery && projectDetails.gallery.length > 0 ? "Gallery" : null,
     "Contact Us"
-  ].filter(Boolean);
+  ].filter(Boolean), [projectDetails]);
 
-  const sliderData = projectDetails.banner ? [{
+  const sliderData = useMemo(() => projectDetails?.banner ? [{
     imagePath: projectDetails.banner.bannerPath,
     logo: projectDetails.banner.logo,
     title: projectDetails.banner.bannerHeading,
-  }] : [];
+  }] : [], [projectDetails]);
 
   const renderSection = (section, sectionNumber) => {
     if (!section) return null;
     const { heading, image, description } = section;
     if (!heading || !description) return null;
     return (
-      <div className="section">
+      <div className="section" key={sectionNumber}>
         <div className='projectscroll first-stn'>
-          {image ? (<img src={image} alt={heading} />) : (<img src={Noimage} alt="Placeholder" />)}
+          <img src={image || Noimage} alt={heading || "Placeholder"} />
           <div className='projectscont'>
             <div className="details flex-center">
               <div className='detailHeading'>
@@ -99,13 +93,19 @@ const ProjectDetail = () => {
     );
   };
 
+  if (loading) {
+    return <div className="preloader"></div>;
+  }
+
+  if (error) return <div>Error loading data: {error.message}</div>;
+
   return (
     <>
       <FixedStrip 
         titles={sectionTitles} 
         onClick={handleTitleClick} 
         activeIndex={activeSection} 
-        Slug={`${slug}`}
+        Slug={slug}
       />
       <ReactFullpage
         licenseKey={'YOUR_KEY_HERE'}
@@ -124,15 +124,15 @@ const ProjectDetail = () => {
                 </div>
               </div>
 
-              {renderSection(projectDetails.section1, 1)}
-              {renderSection(projectDetails.section2, 2)}
-              {renderSection(projectDetails.section3, 3)}
-              {renderSection(projectDetails.section4, 4)}
-              {renderSection(projectDetails.section5, 5)}
-              {renderSection(projectDetails.section6, 6)}
-              {renderSection(projectDetails.section7, 7)}
+              {renderSection(projectDetails?.section1, 1)}
+              {renderSection(projectDetails?.section2, 2)}
+              {renderSection(projectDetails?.section3, 3)}
+              {renderSection(projectDetails?.section4, 4)}
+              {renderSection(projectDetails?.section5, 5)}
+              {renderSection(projectDetails?.section6, 6)}
+              {renderSection(projectDetails?.section7, 7)}
 
-              {projectDetails.location_map && (
+              {projectDetails?.location_map && (
                 <div className="section">
                   <div className='projectscroll d-flex align-items-end flex-wrap'>
                     <div className='col-12 float-start proGallery'>
@@ -142,7 +142,7 @@ const ProjectDetail = () => {
                 </div>
               )}
 
-              {projectDetails.gallery?.desktop_image?.length > 0 && (
+              {projectDetails?.gallery && projectDetails.gallery.length > 0 && (
                 <div className="section">
                   <div className='projectscroll d-flex align-items-end flex-wrap'>
                     <div className='col-12 float-start proGallery'>

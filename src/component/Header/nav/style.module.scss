@@ -135,24 +135,59 @@
         }
     }
 }
-@media (max-width: 1366px) {
+@media (max-width: 1380px) {
     .menu{
         .body{
             .nav{
-                font-size: 40px;
-                gap: 40px;
+                font-size: 36px;
+                line-height: 50px;
+                gap: 10px;
+                .subChildmenu {
+                    margin: 0;
+                    padding: 0;
+                    text-transform: uppercase;
+                    display: flex;
+                    width: 100%;
+                    li{
+                        list-style: none;
+                        font-size: 17px;
+                        letter-spacing: 2px;
+                        line-height: 15px;
+                        padding: 0 20px;
+                        text-align: center;
+                        margin-top: 05px;    
+                    }
+                }   
             }
         }
     }
 }
 
-@media (max-width: 900px) {
-    .headerButtonContainer {
-        .button {
-            width: 60px;
-            height: 60px;
-        }
-    }
+@media (max-width: 1200px) {
+    .menu{
+        .body{
+            .nav{
+                font-size: 36px;
+                line-height: 50px;
+                gap: 10px;
+                .subChildmenu {
+                    flex-wrap: wrap;
+                    li {
+                        width: 40%;
+                        text-align: left;
+                        padding: 0;
+                        border: 0;
+                        margin: 10px 0;
+                    }
+                }
+                .headerButtonContainer {
+                    .button {
+                        width: 60px;
+                        height: 60px;
+                    }
+                }
+            }}}
+   
 }
 @media (max-width: 630px) {
     .menu{

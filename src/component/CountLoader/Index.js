@@ -17,7 +17,7 @@ const Index = ({Data}) => {
    return (
 
      <Parallax bgImage={bannerImage} strength={getStrengthValue()} className='flex-center col-12 float-start'>
-      <Container>
+      <Container _parentClass={'m-0'}>
      <Title firstHeading={'H&S GROUP IN NUMBERS'} parentClass={'text-white'}/>
     <div className={`numberrow col-12 float-start flex-center justify-content-evenly pt-5 position-relative`}
                 >

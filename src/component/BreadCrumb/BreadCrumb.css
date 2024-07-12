@@ -5,7 +5,7 @@
 .pagebreadcumb ul li {
     text-transform: uppercase;
     font-size: 13px;
-    letter-spacing: 1;
+    letter-spacing: 1px;
     padding-right: 25px;
     color: #013989;
     list-style: none;
@@ -21,10 +21,16 @@
     color: #535353;
     font-weight: 600;
 }
-@media (max-width:1280px) {
-    .pagebreadcumb ul li{
-        font-size: 12px;
-    }
+@media (max-width:1380px) {
+    .pagebreadcumb ul li {
+        font-size: 11px;
+        line-height: 30px;
+        letter-spacing: 2px;
+      }
+      
+.pagebreadcumb ul li{
+    letter-spacing: 1px;
+  }
 }
 @media (max-width:980px){
     .pagebreadcumb ul li {
