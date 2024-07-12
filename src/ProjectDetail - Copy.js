@@ -9,13 +9,21 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import FixedStrip from './component/Tabs/Tabs';
 import Noimage from './images/noimage.jpg';
-import downloadImage from './images/downloadBanner.webp';
+import downloadImage from './images/downloadBanner.webp'
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import parse from 'html-react-parser';
+import WebContainer from './component/WebContainer/Index'
 
 const ProjectDetail = () => {
   const [projectDetails, setProjectDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeSection, setActiveSection] = useState(0);
+  const [expanded, setExpanded] = useState(false);
   const { slug } = useParams();
   const fullpageApiRef = useRef(null);
 
@@ -30,6 +38,7 @@ const ProjectDetail = () => {
         } else {
           setProjectDetails(response.data);
         }
+        console.log(response.data);
       } catch (error) {
         setError(error);
       } finally {
@@ -41,15 +50,8 @@ const ProjectDetail = () => {
   }, [slug]);
 
   const handleTitleClick = (index) => {
-    let sectionIndex = index + 1;
-  
-    // Skip the location map section for Gallery and Download
-    if (sectionIndex >= sectionTitles.length - 2) {
-      sectionIndex += 1; // Skip the location map section
-    }
-  
     if (fullpageApiRef.current) {
-      fullpageApiRef.current.moveTo(sectionIndex);
+      fullpageApiRef.current.moveTo(index + 1);
       setActiveSection(index);
     }
   };
@@ -63,8 +65,8 @@ const ProjectDetail = () => {
     projectDetails?.section5?.heading,
     projectDetails?.section6?.heading,
     projectDetails?.section7?.heading,
+    projectDetails?.location_map ? "Location Map" : null,
     projectDetails?.gallery && projectDetails.gallery.length > 0 ? "Gallery" : null,
-    "Downloads",
     "Contact Us"
   ].filter(Boolean), [projectDetails]);
 
@@ -106,7 +108,21 @@ const ProjectDetail = () => {
   }
 
   if (error) return <div>Error loading data: {error.message}</div>;
-  
+  const faqData = [
+    {
+      id: 1,
+      title: 'What is NRI?',
+      description: '<p>An NRI is a Non-Resident Indian.</p>'
+    },
+    {
+      id: 2,
+      title: 'How can NRIs invest in Indian real estate?',
+      description: '<p>NRIs can invest through various channels.</p>'
+    },
+  ];
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
   return (
     <>
       <FixedStrip 
@@ -114,8 +130,8 @@ const ProjectDetail = () => {
         onClick={handleTitleClick} 
         activeIndex={activeSection} 
         Slug={slug}
-        Category={projectDetails?.category}
-        Whitelogo={projectDetails?.banner?.logo2}
+        Category={projectDetails.category}
+        Whitelogo={projectDetails.banner.logo2}
       />
       <ReactFullpage
         licenseKey={'YOUR_KEY_HERE'}
@@ -165,25 +181,60 @@ const ProjectDetail = () => {
                 </div>
               )}
               <div className="section">
-                <div className='projectscroll d-flex align-items-end flex-wrap downloadSection position-relative'>
-                  <img src={downloadImage} alt='Quick Links'/>
-                  <div className='col-12 float-start downloadTab'>
-                    <div className='col-12 float-start'>
-                      <div className='title flex-center col-12 float-start flex-wrap'>
-                        <span className='text-white col-12 float-start'>Quick Links</span>
-                        <h3 className='heading bigFont text-black col-12 float-start text-white'>Downloads</h3>
+              <div className='projectscroll d-flex align-items-end flex-wrap downloadSection position-relative'>
+              <img src={downloadImage} alt='Quick Links'/>
+                    <div className='col-12 float-start downloadTab'>
+                      <div className='col-12 float-start'>
+                      <div className='title flex-center'>
+                        <span className='m-0 text-white'>Quick Links</span>
                       </div>
                       <div className='col-12 float-start quickTabs flex-center gap-25'>
-                        <span>Brochure</span>
-                        <span>Floor Plan</span>
-                        <span>Construction Updates</span>
+                          <span>Brochure</span>
+                          <span>Floor Plan</span>
+                          <span>Construction Updates</span>
                       </div>
                       <div className='col-12 float-start quickTabsrera wrap quickTabs'>
-                        <span>HARERA Registration No. 77 of 2023</span>
+                          <span>HARERA Registration No. 77 of 2023</span>
+                      </div>
                       </div>
                     </div>
                   </div>
-                </div>
+              </div>
+              <div className="section">
+              <div className='projectscroll d-flex align-items-end flex-wrap  text-center position-relative'>
+              <div className='col-12 float-start proGallery'>
+                  <WebContainer _parentClass={'faqDetailpage'}>
+                  <div className='title'>
+                    <span>FREQUENTLY ASKED QUESTIONS</span>
+                  </div>
+                  <div className="col-12 float-start Accordion">
+      {faqData.length > 0 ? (
+        faqData.map((item) => (
+          <Accordion
+            key={item.id}
+            expanded={expanded === item.id}
+            onChange={handleChange(item.id)}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls={`panel${item.id}-content`}
+              id={`panel${item.id}-header`}
+              className="homeSoulAccordion"
+            >
+              <Typography>{item.title}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>{parse(item.description)}</Typography>
+            </AccordionDetails>
+          </Accordion>
+        ))
+      ) : (
+        <Typography>No FAQs available</Typography>
+      )}
+    </div>
+                  </WebContainer>
+                  </div>
+              </div>
               </div>
               <div className="section proDetail">
                 <Contact />

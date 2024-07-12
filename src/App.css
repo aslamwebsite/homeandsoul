@@ -306,6 +306,7 @@ section {
   font-family: 'Just Lovely Slanted';
   text-transform: capitalize;
   font-size: larger;
+  line-height: normal;
 }
 .theme-color {
   color: var(--red-color);
@@ -1170,8 +1171,8 @@ input[type='radio']:checked+label>em {
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  font-size: 62px;
-  line-height: 70px;
+  font-size: 50px;
+  line-height: 60px;
   font-weight: normal;
   color:var(--white);
   letter-spacing: 3px;
@@ -1294,20 +1295,20 @@ figure.snip0016 figcaption {
   right: 0;
 }
 
-figure.snip0016 figcaption:before {
+figure.snip0016:before {
   position: absolute;
-  top: 30px;
-  right: 30px;
-  bottom: 30px;
-  left: 100%;
-  border-left: 4px solid hsla(0,0%,100%,.8);
   content: "";
-  opacity: 0;
-  background-color: hsla(0,0%,100%,.5);
   transition: all .5s;
-  transition-delay: .6s
+  transition-delay: .2s;
+  background: rgb(0 0 0 / 50%);
+  top: 100%;
+  bottom: 10px;
+  left: 0;
+  right: 0;
 }
-
+figure.snip0016:hover:before {
+  top: 0;
+}
 figure.snip0016 h3,figure.snip0016 h4,figure.snip0016 p {
   opacity: 0;
   transition: opacity .35s,transform .35s;
@@ -1639,13 +1640,13 @@ button.proarrow {
   background: #f7f7f7;
 }
 .MuiButtonBase-root.homeSoulAccordion {
-  background: var(--black);
+  background: #003d89;
   border-radius: 50px;
   padding: 0px 30px;
   height: 75px;
 }
 [aria-expanded="true"] {
-  background: #003d89 !important;
+  background: var(--black) !important;
 }
 .MuiPaper-elevation {
   margin-bottom: 10px;
@@ -1706,7 +1707,7 @@ button.proarrow {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgb(0 0 0 / 80%);
+  background: rgb(0 0 0 / 90%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1720,13 +1721,25 @@ button.proarrow {
   border-radius: 25px;
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: bold;
   transition: ease all 0.5s;
   display: inline-block;
 }
+.downloadTab .title span {
+  margin-bottom: 25px;
+}
+.quickTabsrera {
+  position: absolute;
+  bottom: 5%;
+}
 .quickTabsrera.quickTabs span {
   width: auto;
+  font-size: 21px;
+  line-height: 70px;
+  border-radius: 50px;
+  color: #fcf8ff;
+  background: #414042;
 }
 .quickTabs span:hover {
   color: #ceb87f;
