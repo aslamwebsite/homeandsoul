@@ -18,7 +18,10 @@ const ProjectDetail = () => {
   const [activeSection, setActiveSection] = useState(0);
   const { slug } = useParams();
   const fullpageApiRef = useRef(null);
-
+  const location = window.location.href;
+  const pathSegments = location.split('/');
+  const BredCat = pathSegments[4];
+ 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -30,6 +33,7 @@ const ProjectDetail = () => {
         } else {
           setProjectDetails(response.data);
         }
+        console.log(response.data);
       } catch (error) {
         setError(error);
       } finally {
@@ -56,7 +60,7 @@ const ProjectDetail = () => {
     projectDetails?.section5?.heading,
     projectDetails?.section6?.heading,
     projectDetails?.section7?.heading,
-    projectDetails?.location_map ? "Location Map" : null,
+    // projectDetails?.location_map ? "Location Map" : null,
     projectDetails?.gallery && projectDetails.gallery.length > 0 ? "Gallery" : null,
     "Downloads",
     "Contact Us"
@@ -110,6 +114,7 @@ const ProjectDetail = () => {
         Slug={slug}
         Category={projectDetails?.category}
         Whitelogo={projectDetails?.banner?.logo2}
+        BredCat={BredCat}
       />
       <ReactFullpage
         licenseKey={'YOUR_KEY_HERE'}
@@ -136,7 +141,7 @@ const ProjectDetail = () => {
               {renderSection(projectDetails?.section6, 6)}
               {renderSection(projectDetails?.section7, 7)}
 
-              {projectDetails?.location_map && (
+              {/* {projectDetails?.location_map && (
                 <div className="section">
                   <div className='projectscroll d-flex align-items-end flex-wrap'>
                     <div className='col-12 float-start proGallery'>
@@ -144,7 +149,7 @@ const ProjectDetail = () => {
                     </div>
                   </div>
                 </div>
-              )}
+              )} */}
 
               {projectDetails?.gallery && projectDetails.gallery.length > 0 && (
                 <div className="section">
@@ -163,17 +168,21 @@ const ProjectDetail = () => {
               <img src={downloadImage} alt='Quick Links'/>
                     <div className='col-12 float-start downloadTab'>
                       <div className='col-12 float-start'>
-                      <div className='title flex-center'>
-                        <span className='m-0 text-white'>Quick Links</span>
+                      <div className='title flex-center col-12 float-start flex-wrap'>
+                        <span className='text-white col-12 float-start'>Quick Links</span>
+                        <h3 className='heading bigFont text-black col-12 float-start text-white'>Downloads</h3>
                       </div>
                       <div className='col-12 float-start quickTabs flex-center gap-25'>
-                          <span>Brochure</span>
-                          <span>Floor Plan</span>
-                          <span>Construction Updates</span>
+                          <a onClick={() => fullpageApi.moveSectionDown()}><span>Brochure</span></a>
+                          {/* <a href={projectDetails.floor_plans} target='_blank'><span>Floor Plan</span></a> */}
+                          <a onClick={() => fullpageApi.moveSectionDown()}><span>Floor Plan</span></a>
+                          <a><span>Construction Updates</span></a>
                       </div>
+                      {projectDetails.rera_number && 
                       <div className='col-12 float-start quickTabsrera wrap quickTabs'>
-                          <span>HARERA Registration No. 77 of 2023</span>
+                          <span>HARERA Registration No. {projectDetails.rera_number}</span>
                       </div>
+                      }
                       </div>
                     </div>
                   </div>

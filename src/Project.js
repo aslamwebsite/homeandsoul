@@ -13,7 +13,9 @@ const Project = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { cat } = useParams();
-
+  const location = window.location.href;
+  const pathSegments = location.split('/');
+  
   useEffect(() => {
     const validCategories = ['townships', 'homes', 'retail', 'offices'];
 
@@ -75,7 +77,7 @@ const Project = () => {
             pageData.map((project) => (
               <div className="projectslider" key={project.id}>
                 {project.linkActive === '1' ? (
-                  <a href={`/projects/${project.cat.toLowerCase()}/${project.slug}`}>
+                  <a href={`/projects/${pathSegments[4].toLowerCase()}/${project.slug}`}>
                     <figure className="snip0016">
                       {project.image ? (
                         <img src={project.image} alt={project.name} />

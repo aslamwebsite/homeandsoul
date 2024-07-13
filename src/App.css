@@ -1717,7 +1717,7 @@ button.proarrow {
 }
 .quickTabs span {
   background: #ceb87f;
-  width: 20%;
+  width: 320px;
   line-height: 50px;
   border-radius: 25px;
   text-transform: uppercase;
@@ -1728,7 +1728,7 @@ button.proarrow {
   display: inline-block;
 }
 .downloadTab .title span {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 .quickTabsrera {
   position: absolute;
