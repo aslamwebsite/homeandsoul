@@ -3,8 +3,8 @@
   --base-font-size: 19px;
   --base-line-height: 30px;
   --base-color: rgb(0 0 0 / 100%);
-  --bigFont: 60px;
-  --bigLineheight:70px;
+  --bigFont: 56px;
+  --bigLineheight:66px;
   --letter-spacing: 0.5px;
   --creativeslide-height: 80vh;
   --heading-font-family: 'bw-vivant-light';
@@ -116,7 +116,7 @@ a{
   transform: translate(-50%, -50%);
 }
 .creativeslide.hsoul02 {
-  left: 30%;
+  left: 25%;
   bottom: 20%;
 }
 
@@ -125,7 +125,6 @@ a{
   font-size: var(--bigFont);
   line-height: var(--bigLineheight);  
   text-transform: uppercase;
-  max-width:580px;
   font-family: 'bw-vivant-light';
   pointer-events: all;
   -webkit-text-fill-color: transparent;
@@ -139,8 +138,8 @@ a{
   background-image: linear-gradient(90deg, var(--black), var(--black) 50%, rgba(89, 89, 91, 0) 0);
 }
 .Herosection .Heroslider .swiper-slide .creativeslide {
-  left: 28%;
-  bottom: 40%;
+  left: 18%;
+  bottom: 25%;
 }
 .Heroslider .swiper-slide-active .creativeslide h3 {
   background-position: 0;
@@ -1574,7 +1573,7 @@ button.proarrow {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .fixMenu {
-  gap: 30px;
+  gap: 25px;
   padding-right: 6.5vw;
 }
 .projectDetails .title-item {

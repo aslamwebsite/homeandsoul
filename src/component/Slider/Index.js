@@ -65,7 +65,7 @@ const Index = ({ Data = [], parentClass }) => {
             initialSlide={0}
             speed={2500}
             autoplay={{
-              delay: 600000000000000000,
+              delay: 6000,
               disableOnInteraction: false,
             }}
             navigation={true}
