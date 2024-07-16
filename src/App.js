@@ -15,6 +15,7 @@ import Content from "./Content";
 import NRI from "./NRI";
 import ContactPage from "./ContactPage";
 import Media from "./Media";
+import AboutHS from "./AboutHS";
 
 function App() {
   useEffect(() => {
@@ -28,6 +29,7 @@ function App() {
         <HeaderWithCondition />
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/home-and-shoul" element={<AboutHS />} />
           <Route exact path="/projects" element={<Project />} />
           <Route exact path="/projects/:cat" element={<Project />} />
           <Route exact path="/projects/:cat/:slug" element={<ProjectDetail />} />

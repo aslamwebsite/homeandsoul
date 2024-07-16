@@ -7,7 +7,7 @@ import Container from '../Container/Index';
 import useStickyHeader from '../Header/useStickyHeader';
 import { NavLink } from 'react-router-dom';
 
-const Index = ({className, projectLogo}) => {
+const Index = ({className}) => {
     const header = useRef(null);
     const [isActive, setIsActive] = useState(false);
     const headerRef = useRef(null);

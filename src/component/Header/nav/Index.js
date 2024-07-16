@@ -13,7 +13,7 @@ const navItems = [
   },
   {
     title: "About Us",
-    href: "/error",
+    href: "/home-and-shoul",
   },
   {
     title: "Townships",

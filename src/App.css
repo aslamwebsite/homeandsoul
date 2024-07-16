@@ -115,6 +115,11 @@ a{
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.creativeslide.hsoul01 {
+  left: 25%;
+  top: 50%;
+}
 .creativeslide.hsoul02 {
   left: 25%;
   bottom: 20%;
@@ -158,8 +163,8 @@ a{
   bottom: -50%;
   right: 2%;
   background: var(--white);
-  width: 300px;
-  height: 300px;
+  width: 280px;
+  height: 280px;
   border-radius: 100%;
   transition: ease all 0.5s;
 }
@@ -177,7 +182,7 @@ a{
   margin: auto;
   height: auto;
   position: relative;
-  top: -5%;
+  top: -10%;
 }
 
 .zoom-in {
@@ -1991,7 +1996,6 @@ font-size: 50px;
       width: 40%;
       margin-top: 30px;
   }
-  
   
   .creativeslide.hsoul02, .creativeslide.hsoul01, .creativeslide.hsoul03 {
       bottom: inherit;
