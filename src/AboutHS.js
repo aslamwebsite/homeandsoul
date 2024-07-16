@@ -17,9 +17,6 @@ const AboutHS = () => {
           <img src={bannerImage} alt='About Us Home and Soul'/>
         </div>
         <Container _parentClass={`m-0`}>  <BreadCrumb pageName={'Home and Soul'}/></Container>
-    <div className="section proDetail">
-                <Contact />
-              </div>
     </>
   )
 }

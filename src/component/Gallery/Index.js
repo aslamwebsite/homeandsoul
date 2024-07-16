@@ -1,14 +1,44 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Mousewheel, Autoplay, Pagination, Navigation } from 'swiper/modules';
 
-const Index = ({Data}) => {
-  const slideData = Data
+const Index = ({ Data }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const galleryRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target); 
+        }
+      },
+      {
+        root: null, 
+        rootMargin: '0px',
+        threshold: 0.1 
+      }
+    );
+
+    if (galleryRef.current) {
+      observer.observe(galleryRef.current);
+    }
+
+    return () => {
+      if (galleryRef.current) {
+        observer.unobserve(galleryRef.current);
+      }
+    };
+  }, [galleryRef]);
+
+  const slideData = Data;
+
   return (
-    <>
-      <div className="galleryslider col-12 float-start">
+    <div ref={galleryRef} className="galleryslider col-12 float-start">
+      {isVisible && (
         <Swiper
           spaceBetween={0}
           slidesPerView={1.5}
@@ -32,8 +62,8 @@ const Index = ({Data}) => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
-    </>
+      )}
+    </div>
   );
 };
 
