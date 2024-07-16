@@ -16,6 +16,7 @@ import NRI from "./NRI";
 import ContactPage from "./ContactPage";
 import Media from "./Media";
 import AboutHS from "./AboutHS";
+import Construction from "./Consturction";
 
 function App() {
   useEffect(() => {
@@ -33,6 +34,7 @@ function App() {
           <Route exact path="/projects" element={<Project />} />
           <Route exact path="/projects/:cat" element={<Project />} />
           <Route exact path="/projects/:cat/:slug" element={<ProjectDetail />} />
+          <Route exact path="/projects/construction-updates" element={<Construction />} />
           <Route exact path="/:slug" element={<Content />} />
           <Route exact path="/nri" element={<NRI/>} />
           <Route exact path="/media" element={<Media/>} />

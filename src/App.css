@@ -1616,8 +1616,13 @@ button.proarrow {
   top: 1%;
   transform: translate(-50%);
 }
-.prologoHeader img{
+.prologoHeader img, .constructionUpdates .column9{
   width: 100%;
+}
+.constructionUpdates .lg-react-element {
+  display: flex;
+  justify-content: center;
+  row-gap: 15px;
 }
 .bgcolor {
   background: #edf2fa;

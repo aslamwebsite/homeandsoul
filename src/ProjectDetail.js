@@ -9,7 +9,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import FixedStrip from './component/Tabs/Tabs';
 import Noimage from './images/noimage.jpg';
-import downloadImage from './images/downloadBanner.webp';
+import { Link } from 'react-router-dom';
+
 
 const ProjectDetail = () => {
   const [projectDetails, setProjectDetails] = useState(null);
@@ -175,8 +176,10 @@ const ProjectDetail = () => {
                       </div>
                       <div className='col-12 float-start quickTabs flex-center gap-25'>
                         <a onClick={() => fullpageApi.moveSectionDown()}><span>Brochure</span></a>
-                        <a onClick={() => fullpageApi.moveSectionDown()}><span>Floor Plan</span></a>
-                        <a><span>Construction Updates</span></a>
+                        {projectDetails.floor_plans && 
+                        <a href={projectDetails.floor_plans} target='_blank'><span>Floor Plan</span></a>
+                      }
+                        <Link to='/projects/construction-updates'><span>Construction Updates</span></Link>
                       </div>
                       {projectDetails.rera_number && 
                         <div className='col-12 float-start quickTabsrera wrap quickTabs'>
