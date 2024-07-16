@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import FixedStrip from './component/Tabs/Tabs';
 import Noimage from './images/noimage.jpg';
-import downloadImage from './images/downloadBanner.webp'
+import downloadImage from './images/downloadBanner.webp';
 
 const ProjectDetail = () => {
   const [projectDetails, setProjectDetails] = useState(null);
@@ -21,7 +21,7 @@ const ProjectDetail = () => {
   const location = window.location.href;
   const pathSegments = location.split('/');
   const BredCat = pathSegments[4];
- 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -44,6 +44,18 @@ const ProjectDetail = () => {
     fetchData();
   }, [slug]);
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      console.log('Key pressed:', event.key);
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   const handleTitleClick = (index) => {
     if (fullpageApiRef.current) {
       fullpageApiRef.current.moveTo(index + 1);
@@ -60,7 +72,6 @@ const ProjectDetail = () => {
     projectDetails?.section5?.heading,
     projectDetails?.section6?.heading,
     projectDetails?.section7?.heading,
-    // projectDetails?.location_map ? "Location Map" : null,
     projectDetails?.gallery && projectDetails.gallery.length > 0 ? "Gallery" : null,
     "Downloads",
     "Contact Us"
@@ -104,7 +115,7 @@ const ProjectDetail = () => {
   }
 
   if (error) return <div>Error loading data: {error.message}</div>;
-  
+
   return (
     <>
       <FixedStrip 
@@ -119,6 +130,7 @@ const ProjectDetail = () => {
       <ReactFullpage
         licenseKey={'YOUR_KEY_HERE'}
         scrollingSpeed={1000}
+        keyboardScrolling={true}
         onLeave={(origin, destination, direction) => {
           fullpageApiRef.current = destination.fullpageApi;
           setActiveSection(destination.index);
@@ -141,16 +153,6 @@ const ProjectDetail = () => {
               {renderSection(projectDetails?.section6, 6)}
               {renderSection(projectDetails?.section7, 7)}
 
-              {/* {projectDetails?.location_map && (
-                <div className="section">
-                  <div className='projectscroll d-flex align-items-end flex-wrap'>
-                    <div className='col-12 float-start proGallery'>
-                      <LocationMap Data={projectDetails.location_map} Data2={projectDetails.location_map2}/>
-                    </div>
-                  </div>
-                </div>
-              )} */}
-
               {projectDetails?.gallery && projectDetails.gallery.length > 0 && (
                 <div className="section">
                   <div className='projectscroll d-flex align-items-end flex-wrap'>
@@ -164,28 +166,26 @@ const ProjectDetail = () => {
                 </div>
               )}
               <div className="section">
-              <div className='projectscroll d-flex align-items-end flex-wrap downloadSection position-relative'>
-              <img src={downloadImage} alt='Quick Links'/>
-                    <div className='col-12 float-start downloadTab'>
-                      <div className='col-12 float-start'>
+                <div className='projectscroll d-flex align-items-end flex-wrap downloadSection position-relative'>
+                  <div className='col-12 float-start downloadTab'>
+                    <div className='col-12 float-start'>
                       <div className='title flex-center col-12 float-start flex-wrap'>
-                        <span className='text-white col-12 float-start'>Quick Links</span>
-                        <h3 className='heading bigFont text-black col-12 float-start text-white'>Downloads</h3>
+                        <span className='col-12 float-start'>Quick Links</span>
+                        <h3 className='heading bigFont text-black col-12 float-start'>Downloads</h3>
                       </div>
                       <div className='col-12 float-start quickTabs flex-center gap-25'>
-                          <a onClick={() => fullpageApi.moveSectionDown()}><span>Brochure</span></a>
-                          {/* <a href={projectDetails.floor_plans} target='_blank'><span>Floor Plan</span></a> */}
-                          <a onClick={() => fullpageApi.moveSectionDown()}><span>Floor Plan</span></a>
-                          <a><span>Construction Updates</span></a>
+                        <a onClick={() => fullpageApi.moveSectionDown()}><span>Brochure</span></a>
+                        <a onClick={() => fullpageApi.moveSectionDown()}><span>Floor Plan</span></a>
+                        <a><span>Construction Updates</span></a>
                       </div>
                       {projectDetails.rera_number && 
-                      <div className='col-12 float-start quickTabsrera wrap quickTabs'>
+                        <div className='col-12 float-start quickTabsrera wrap quickTabs'>
                           <span>HARERA Registration No. {projectDetails.rera_number}</span>
-                      </div>
+                        </div>
                       }
-                      </div>
                     </div>
                   </div>
+                </div>
               </div>
               <div className="section proDetail">
                 <Contact />
