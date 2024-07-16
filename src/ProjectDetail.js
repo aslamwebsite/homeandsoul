@@ -5,12 +5,10 @@ import Gallery from './component/Gallery/Index';
 import Contact from './component/Contact/Index';
 import LocationMap from './component/Location/Locationpop';
 import { BasePath } from './component/BasePath/Index';
-import { useParams } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import FixedStrip from './component/Tabs/Tabs';
 import Noimage from './images/noimage.jpg';
-import { Link } from 'react-router-dom';
-
 
 const ProjectDetail = () => {
   const [projectDetails, setProjectDetails] = useState(null);
@@ -22,21 +20,19 @@ const ProjectDetail = () => {
   const location = window.location.href;
   const pathSegments = location.split('/');
   const BredCat = pathSegments[4];
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `${BasePath}/project_details.php?url=${slug}`
-        );
+        const response = await axios.get(`${BasePath}/project_details.php?url=${slug}`);
         if (response.data.error) {
           setError(response.data.error);
         } else {
           setProjectDetails(response.data);
         }
-        console.log(response.data);
       } catch (error) {
-        setError(error);
+        setError(error.message);
       } finally {
         setLoading(false);
       }
@@ -73,7 +69,7 @@ const ProjectDetail = () => {
     projectDetails?.section5?.heading,
     projectDetails?.section6?.heading,
     projectDetails?.section7?.heading,
-    projectDetails?.gallery && projectDetails.gallery.length > 0 ? "Gallery" : null,
+    projectDetails?.gallery?.length ? "Gallery" : null,
     "Downloads",
     "Contact Us"
   ].filter(Boolean), [projectDetails]);
@@ -98,11 +94,7 @@ const ProjectDetail = () => {
                 <h4>{heading}</h4>
               </div>
               <div className='detailContent'>
-                <p>
-                  {description.map((desc, index) => (
-                    <span key={index}>{desc}</span>
-                  ))}
-                </p>
+                <p>{description.map((desc, index) => <span key={index}>{desc}</span>)}</p>
               </div>
             </div>
           </div>
@@ -115,7 +107,9 @@ const ProjectDetail = () => {
     return <div className="preloader"></div>;
   }
 
-  if (error) return <div>Error loading data: {error.message}</div>;
+  if (error) {
+    return <div>Error loading data: {error}</div>;
+  }
 
   return (
     <>
@@ -179,7 +173,12 @@ const ProjectDetail = () => {
                         {projectDetails.floor_plans && 
                         <a href={projectDetails.floor_plans} target='_blank'><span>Floor Plan</span></a>
                       }
-                        <Link to='/projects/construction-updates'><span>Construction Updates</span></Link>
+                        <Link 
+                          to={`/construction/${slug}`} 
+                          state={{ cat: projectDetails.heading }}
+                        >
+                          <span>Construction Updates</span>
+                        </Link>
                       </div>
                       {projectDetails.rera_number && 
                         <div className='col-12 float-start quickTabsrera wrap quickTabs'>

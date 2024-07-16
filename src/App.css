@@ -1624,6 +1624,9 @@ button.proarrow {
   justify-content: center;
   row-gap: 15px;
 }
+.textFormat {
+  text-transform: capitalize;
+}
 .bgcolor {
   background: #edf2fa;
 }
@@ -1726,9 +1729,9 @@ button.proarrow {
 }
 .quickTabs span {
   background: #ceb87f;
-  width: 320px;
-  line-height: 50px;
-  border-radius: 25px;
+  width: 350px;
+  line-height: 70px;
+  border-radius: 35px;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 15px;

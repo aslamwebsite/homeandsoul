@@ -34,7 +34,7 @@ function App() {
           <Route exact path="/projects" element={<Project />} />
           <Route exact path="/projects/:cat" element={<Project />} />
           <Route exact path="/projects/:cat/:slug" element={<ProjectDetail />} />
-          <Route exact path="/projects/construction-updates" element={<Construction />} />
+          <Route exact path="/construction/:slug" element={<Construction />} />
           <Route exact path="/:slug" element={<Content />} />
           <Route exact path="/nri" element={<NRI/>} />
           <Route exact path="/media" element={<Media/>} />

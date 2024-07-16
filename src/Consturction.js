@@ -3,10 +3,12 @@ import Webcontainer from "./component/WebContainer/Index";
 import Title from "./component/Title/Index";
 import Gallery from "./component/Gallery/Gallery";
 import "./component/Gallery/Gallery.css";
-import Gallery01 from './images/gallery01.jpg';
-import Gallery02 from './images/gallery02.jpeg';
+import Gallery01 from './images/noimage.jpg';
+import Gallery02 from './images/noimage.jpg';
 import Container from "./component/Container/Index";
 import BreadCrumb from './component/BreadCrumb/Index'
+import { useParams } from "react-router-dom";
+
 
 const galleryData = [
   { imageUrl: Gallery01, thumbnailUrl: Gallery01, titleData: 'Constuctions Updates', datemonth: 'Jan 2024' },
@@ -30,6 +32,8 @@ const galleryData = [
 ];
 
 const Construction = () => {
+    const { slug } = useParams();
+
   const [selectedCategory, setSelectedCategory] = useState('Constuctions Updates');
   const [activeCategory, setActiveCategory] = useState('Constuctions Updates');
 
@@ -61,16 +65,17 @@ const Construction = () => {
       })
     ),
   ];
-
+  const formattedSlug = slug.replace(/-/g, ' ');
   return (
     <>
     <Container _parentClass={'m-0'}>
-        <BreadCrumb pageName={'F Premiere'} pageChildName={'Construction Updates'} pageUrl={'/projects/homes/f-premiere'}/>
+        <BreadCrumb pageName={`${slug}`} pageChildName={'Construction Updates'} pageUrl={`/projects/homes/${slug}`}/>
     </Container>
       <Webcontainer _parentClass={"constructionUpdates"}>
         <Title
-          secondHeading={`F Premiere`}
+          secondHeading={formattedSlug}
           firstHeading={"Construction Updates"}
+          childClass={'textFormat'}
         />
 
           <Gallery
