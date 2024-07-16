@@ -139,14 +139,14 @@ a{
     transition: transform 1s 1s, background-position 1s;
     -webkit-background-clip: text;  
 }
-.creativeslide.hsoul02 h3, .Herosection .Heroslider .swiper-slide .creativeslide h3{
+.creativeslide.hsoul02 h3, .Herosection .Heroslider .swiper-slide .creativeslide h3, .react-parallax-content .creativeslide h3{
   background-image: linear-gradient(90deg, var(--black), var(--black) 50%, rgba(89, 89, 91, 0) 0);
 }
 .Herosection .Heroslider .swiper-slide .creativeslide {
   left: 18%;
   bottom: 25%;
 }
-.Heroslider .swiper-slide-active .creativeslide h3 {
+.Heroslider .swiper-slide-active .creativeslide h3, .react-parallax-content .creativeslide h3  {
   background-position: 0;
 }
 .layerafter:after {
@@ -1613,9 +1613,8 @@ button.proarrow {
   position: absolute;
   z-index: 1;
   left: 50%;
-  top: 2%;
+  top: 1%;
   transform: translate(-50%);
-  max-width: 220px;
 }
 .prologoHeader img{
   width: 100%;
@@ -1750,6 +1749,14 @@ button.proarrow {
 .quickTabs span:hover {
   color: #ceb87f;
   background: #000;
+}
+.react-parallax-content .creativeslide {
+  left: inherit;
+  right: 15%;
+  top: 10%;
+}
+.react-parallax-content .creativeslide h3 {
+  padding: 0 10px;
 }
 @media (max-width:1680px){
 
