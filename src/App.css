@@ -1760,8 +1760,9 @@ button.proarrow {
 }
 .react-parallax-content .creativeslide {
   left: inherit;
-  right: 15%;
-  top: 10%;
+  right: 0;
+  transform: inherit;
+  top: inherit;
 }
 .react-parallax-content .creativeslide h3 {
   padding: 0 10px;

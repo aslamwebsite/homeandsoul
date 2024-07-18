@@ -10,24 +10,26 @@ import { BasePath } from './component/BasePath/Index';
 import WebContainer from './component/WebContainer/Index';
 import { Parallax } from 'react-parallax';
 import Title from './component/Title/Index';
-import BreadCrumb from './component/BreadCrumb/Index'
-import Container from './component/Container/Index'
+import BreadCrumb from './component/BreadCrumb/Index';
+import Container from './component/Container/Index';
 
 const NRI = () => {
-  const [faqData, setFaqData] = useState({
-    bannerImage: [],
-    nris: [],
-  });
+  const [faqData, setFaqData] = useState({ bannerImage: [], nris: [] });
   const [expanded, setExpanded] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${BasePath}/nri.php`);
         setFaqData(response.data);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching the data', error);
+        setError('Failed to fetch data');
         setFaqData({ bannerImage: [], nris: [] });
+        setLoading(false);
       }
     };
 
@@ -44,16 +46,34 @@ const NRI = () => {
     return isIOS || isMac ? 100 : 300;
   };
 
+  if (loading) return <Typography>Loading...</Typography>;
+  if (error) return <Typography>{error}</Typography>;
+
   return (
     <>
       <Parallax
         bgImage={faqData.bannerImage.length > 0 ? faqData.bannerImage[0].imagePath : ''}
         strength={getStrengthValue()}
         className="flex-center col-12 float-start parallaxBanner"
-      />
-      <Container _parentClass={`m-0 bgcolor`}>  <BreadCrumb pageName={'NRI'}/></Container>
-      <WebContainer _parentClass={'nriSection bgcolor m-0 p-100'}>
-        <Title firstHeading={'Home & Soul'} secondHeading={'Right Time To Turn To India'} />
+      >
+        <div className="container position-relative">
+          <div className="creativeslide">
+            {faqData.bannerImage.length > 0 && faqData.bannerImage[0].title ? (
+              <h3
+                className="heading bigFont text-start"
+                dangerouslySetInnerHTML={{ __html: faqData.bannerImage[0].title }}
+              />
+            ) : (
+              <h3 className="heading bigFont text-start">Title Not Available</h3>
+            )}
+          </div>
+        </div>
+      </Parallax>
+      <Container _parentClass="m-0 bgcolor">
+        <BreadCrumb pageName="NRI" />
+      </Container>
+      <WebContainer _parentClass="nriSection bgcolor m-0 p-100">
+        <Title firstHeading="Home & Soul" secondHeading="Right Time To Turn To India" />
         <div className="col-12 float-start Accordion">
           {faqData.nris.length > 0 ? (
             faqData.nris.map((item) => (

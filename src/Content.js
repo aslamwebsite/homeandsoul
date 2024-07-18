@@ -6,8 +6,8 @@ import axios from 'axios';
 import { BasePath } from './component/BasePath/Index';
 import { Parallax } from 'react-parallax';
 import Error from './Error';
-import BreadCrumb from './component/BreadCrumb/Index'
-import Container from './component/Container/Index'
+import BreadCrumb from './component/BreadCrumb/Index';
+import Container from './component/Container/Index';
 
 const Content = () => {
     const { slug } = useParams();
@@ -21,15 +21,15 @@ const Content = () => {
             try {
                 const response = await axios.get(`${BasePath}/policy_page.php?category=${slug}`);
                 if (response.data.error) {
-                    setError(new Error(response.data.error));
+                    setError(response.data.error);
                 } else {
                     setPageData(response.data.policy_page);
-                    if (response.data.bannerImage && response.data.bannerImage.length > 0) {
-                        setBannerImage(response.data.bannerImage[0].imagePath);
+                    if (response.data.bannerImage?.length > 0) {
+                        setBannerImage(response.data.bannerImage[0]);
                     }
                 }
             } catch (err) {
-                setError(err);
+                setError(err.message);
             } finally {
                 setIsLoading(false);
             }
@@ -43,7 +43,7 @@ const Content = () => {
     }
 
     if (error) {
-        return <Error />;
+        return <Error message={error} />;
     }
 
     if (!pageData) {
@@ -51,22 +51,33 @@ const Content = () => {
     }
 
     const { heading, subheading, content } = pageData;
-    const isContentEmpty = !content || content.trim() === '';
+    const isContentEmpty = !content?.trim();
 
     const getStrengthValue = () => {
         const isIOS = /iPad|iPhone|iPod/.test(navigator.platform);
         const isMac = /MacIntel/.test(navigator.platform);
         return isIOS || isMac ? 100 : 300;
     };
-    const careerCustomclass = slug === 'career' ? 'bgcolor' : 'bggrey';
-    const textAlign = slug === 'career' ? 'text-center' : ''
+
+    const careerCustomClass = slug === 'career' ? 'bgcolor' : 'bggrey';
+    const textAlignClass = slug === 'career' ? 'text-center' : '';
 
     return (
         <>
-        {bannerImage && <Parallax bgImage={bannerImage} strength={getStrengthValue()} className="flex-center col-12 float-start parallaxBanner" /> }
-          <Container _parentClass={`m-0 ${careerCustomclass}`}>  <BreadCrumb pageName={slug}/></Container>
-            <WebContainer _parentClass={`m-0 p-100 ${careerCustomclass}`}>
-                <Title firstHeading={subheading} secondHeading={heading} grandClass={'customMargin'}/>
+            {bannerImage && (
+                <Parallax bgImage={bannerImage.imagePath} strength={getStrengthValue()} className="flex-center col-12 float-start parallaxBanner">
+                    <div className='container position-relative'>
+                        <div className="creativeslide">
+                            <h3 className="heading bigFont text-start" dangerouslySetInnerHTML={{ __html: bannerImage.title }} />
+                        </div>
+                    </div>
+                </Parallax>
+            )}
+            <Container _parentClass={`m-0 ${careerCustomClass}`}>
+                <BreadCrumb pageName={slug} />
+            </Container>
+            <WebContainer _parentClass={`m-0 p-100 ${careerCustomClass}`}>
+                <Title firstHeading={subheading} secondHeading={heading} grandClass="customMargin" />
                 <div className="col-12 float-start pb-5">
                     <div className="pageContent">
                         {isContentEmpty ? (
@@ -75,7 +86,7 @@ const Content = () => {
                                 <h2>This page is Under Maintenance!</h2>
                             </div>
                         ) : (
-            <div dangerouslySetInnerHTML={{ __html: content }} className={`col-12 float-start ${textAlign}`}/>
+                            <div dangerouslySetInnerHTML={{ __html: content }} className={`col-12 float-start ${textAlignClass}`} />
                         )}
                     </div>
                 </div>
