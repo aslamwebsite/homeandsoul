@@ -118,15 +118,20 @@ a{
 }
 
 .creativeslide.hsoul01 {
-  left: 25%;
-  top: 55%;
+  top: 45vh;
+  left: 25vw;
 }
 .creativeslide.hsoul02 {
-  left: 25%;
-  bottom: 20%;
+  top: 55vh;
+  left: 25vw;
 }
 
-.creativeslide.hsoul03 {right: -10%;left: inherit;bottom: inherit;top: 30%;}
+.creativeslide.hsoul03 {
+  right: 0;
+  left: inherit;
+  bottom: inherit;
+  top: 25vh;
+}
 .creativeslide h3{
   font-size: var(--bigFont);
   line-height: var(--bigLineheight);  
@@ -1586,7 +1591,7 @@ button.proarrow {
   color: var(--white);
   text-transform: capitalize;
   font-size: 15px;
-  letter-spacing: 1.2px;
+  letter-spacing: 0.5spx;
   cursor: pointer;
   white-space: nowrap;
 }
