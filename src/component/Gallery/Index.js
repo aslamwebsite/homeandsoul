@@ -41,7 +41,6 @@ const Index = ({ Data }) => {
       {isVisible && (
         <Swiper
           spaceBetween={0}
-          slidesPerView={1.5}
           centeredSlides={true}
           initialSlide={0}
           autoplay={{
@@ -55,6 +54,15 @@ const Index = ({ Data }) => {
           grabCursor={true}
           loop={true}
           className="mySwiper"
+           breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            1024: {
+              slidesPerView: 1.5,
+            },
+          }}
         >
           {slideData.map((slide) => (
             <SwiperSlide key={slide.id}>

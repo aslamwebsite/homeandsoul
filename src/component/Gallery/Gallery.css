@@ -109,6 +109,13 @@
     }
 }
 @media (max-width:680px){
+    .column3, .column9 {
+        width: 100%;
+        margin: 0;
+    }
+    .upper__tabs {
+        margin: 25px 0;
+    }
     .medianavbar {
         display: flex;
         margin-bottom: 25px;
@@ -118,8 +125,9 @@
         text-align: center;
         border-bottom: 0;
         border-right: solid 1px #d7d2d2;
-        font-size: var(--smallFont);
-        letter-spacing: var(--letter1);
+    }
+    .media .column3 {
+        overflow: auto;
     }
 }
 @media (max-width:420px){

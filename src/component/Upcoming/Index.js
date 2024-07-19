@@ -13,7 +13,7 @@ const Index = ({ Data }) => {
   }
 
   return (
-    <Container>
+    <Container _parentClass={'upComingStn'}>
       <Title firstHeading={'IN PLANS'} secondHeading={'WHAT’S NEXT'} />
       <div 
         className='col-12 float-start' 

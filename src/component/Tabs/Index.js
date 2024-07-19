@@ -22,11 +22,13 @@ const Index = ({ galleryData }) => {
           <div className="flex-center col-12 float-start">
             <Tabs className="col-12 float-start">
               <Title firstHeading={'Gallery'} />
+              <div className="overTabs flex-center col-12 float-start">
               <TabList className="flex-center m-0 p-0 float-start col-12">
                 {Object.keys(galleryData).map((tab) => (
                   <Tab key={tab}>{tab}</Tab>
                 ))}
               </TabList>
+              </div>
               {Object.entries(galleryData).map(([tab, data]) => (
                 <TabPanel key={tab}>
                   <Gallery Data={data} />

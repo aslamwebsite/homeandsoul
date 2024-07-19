@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import styles from './style.module.css';
 import WebContainer from '../WebContainer/Index';
 import Title from '../Title/Index';
+import { Link } from 'react-router-dom';
 
 const Index = ({ Data }) => {
     const container = useRef(null);
@@ -35,7 +36,7 @@ const Index = ({ Data }) => {
                     data-aos-duration="500"
                     data-aos-once="true"
                     data-aos-easing="ease-in-sine">
-                    <a className="btn-11"><span>Know More</span></a>
+                    <Link className="btn-11" to='/home-and-soul'><span>Know More</span></Link>
                 </div>
             </WebContainer>
         </>

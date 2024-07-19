@@ -46,7 +46,7 @@ const Index = ({ Data = [], parentClass }) => {
               disableOnInteraction: false,
             }}
             navigation={true}
-            modules={[Mousewheel, Autoplay, Pagination, Navigation, EffectFade]}
+            modules={[Mousewheel,  Pagination, Navigation, EffectFade]}
             grabCursor={true}
             loop={true}
             effect="fade"

@@ -195,11 +195,50 @@
             }}}
    
 }
+@media (max-width:768px){
+    .menu{
+        .body{
+            width: 90%;
+            position: relative;
+            .nav{
+                ul {
+                margin: 0;
+                padding: 0;
+                column-count: inherit;
+                    li{
+                        margin-bottom: 10px;
+                    }
+                }      
+               
+            }
+        }
+        .headerButtonContainer {
+            .button {
+                position: relative;
+                margin: 20px;
+                width: 50px;
+                height: 40px;
+                border-radius: 50%;
+            }
+        
+        }
+    }
+}
 @media (max-width: 630px) {
     .menu{
         .body{
             .nav{
                 font-size: 30px;
+            }
+        }
+    }
+}
+@media (max-width: 420px) {
+    .menu{
+        .body{
+            .nav{
+                font-size: 24px;
+                line-height: 32px;
             }
         }
     }

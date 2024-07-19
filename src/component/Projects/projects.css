@@ -182,4 +182,13 @@
     .projects .wrap {
         margin-top: 25px;
     }
+    .projectSlider .swiper-container{
+        width: 100%;
+    }
   }
+  @media (max-width:480px){
+ 
+    .projectLogo {
+        width: 150px;
+    }
+}
