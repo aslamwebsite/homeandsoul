@@ -30,10 +30,7 @@ const Index = ({className}) => {
                                 </NavLink>
                                     </div>
                             </div>
-                            <div className='col-lg-4 col-sm-4 flex-center'>
-                          
-                            </div>
-                            <div className="menu col-lg-4 col-sm-4">
+                            <div className="menu col-lg-8 col-sm-4">
                                 <div className={`${styles.nav} flex-center justify-content-end Textcolor`}>
                                         <div className={styles.el}>
                                             <NavLink to='/projects/townships'>
@@ -46,13 +43,13 @@ const Index = ({className}) => {
                                             </NavLink>
                                         </div>
                                         <div className={styles.el}>
-                                        <NavLink to='/projects/retail'>
-                                                RETAIL
+                                        <NavLink to='/projects/commercial'>
+                                                COMMERCIAL
                                             </NavLink>
                                         </div>
                                         <div className={styles.el}>
-                                        <NavLink to='/projects/offices'>
-                                                OFFICES
+                                        <NavLink to='/home-and-shoul'>
+                                                ABOUT US
                                             </NavLink>
                                         </div>
                                     <div className={styles.headerButtonContainer}>

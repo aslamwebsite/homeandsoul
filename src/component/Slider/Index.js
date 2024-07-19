@@ -46,7 +46,7 @@ const Index = ({ Data = [], parentClass }) => {
               disableOnInteraction: false,
             }}
             navigation={true}
-            modules={[Mousewheel, Autoplay, Pagination, Navigation, EffectFade]}
+            modules={[Mousewheel,  Pagination, Navigation, EffectFade]}
             grabCursor={true}
             loop={true}
             effect="fade"
@@ -59,21 +59,21 @@ const Index = ({ Data = [], parentClass }) => {
                     <div className={`projectbanner overflow-hidden ${isZoomIn ? 'zoom-in' : 'zoom-out'}`}>
                       {slide.imagePath ? (<><img
                         src={slide.imagePath}
-                        width="1740"
-                        height="822"
-                        alt=""
-                        className="desktop-show"
+                        width="1750"
+                        height="850"
+                        alt={slide.title}
+                        className="tabdesktop-show"
                       /> <img
                       src={slide.mobimgPath}
                       width="630"
                       height="800"
-                      alt=""
-                       className="mobile-show"
+                      alt={slide.title}
+                       className="tabmobile-show"
                     /></>) : (<img
                         src={Noimage}
-                        width="1740"
-                        height="822"
-                        alt=""
+                        width="1750"
+                        height="850"
+                        alt="Home and Soul"
                       />)}
                       
                     </div>

@@ -3,8 +3,8 @@
   --base-font-size: 19px;
   --base-line-height: 30px;
   --base-color: rgb(0 0 0 / 100%);
-  --bigFont: 56px;
-  --bigLineheight:66px;
+  --bigFont: 46px;
+  --bigLineheight:56px;
   --letter-spacing: 0.5px;
   --creativeslide-height: 80vh;
   --heading-font-family: 'bw-vivant-light';
@@ -13,6 +13,7 @@
   --white:#fff;
   --black:#000;
   --font-old--standard-tt: "Old Standard TT";
+  --sliderFont:'Montserrat';
   --grey: "#f1f2f2"
 }
 
@@ -118,7 +119,7 @@ a{
 
 .creativeslide.hsoul01 {
   left: 25%;
-  top: 50%;
+  top: 55%;
 }
 .creativeslide.hsoul02 {
   left: 25%;
@@ -130,7 +131,7 @@ a{
   font-size: var(--bigFont);
   line-height: var(--bigLineheight);  
   text-transform: uppercase;
-  font-family: 'bw-vivant-light';
+  font-family: var(--sliderFont);
   pointer-events: all;
   -webkit-text-fill-color: transparent;
     background-size: 200% 100%;
@@ -306,12 +307,7 @@ section {
   margin: 0;
   font-weight: 300;
 }
-.heading span {
-  font-family: 'Just Lovely Slanted';
-  text-transform: capitalize;
-  font-size: larger;
-  line-height: normal;
-}
+
 .theme-color {
   color: var(--red-color);
 }
@@ -1644,6 +1640,16 @@ button.proarrow {
   font-weight: 600;
   border-bottom: solid 1px currentColor;
 }
+.slideMenu::before {
+  content: '';
+  width: 1px;
+  height: 90%;
+  position: absolute;
+  background-color: #3a3a3a;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  top: 45%;
+}
 .slideMenu a.active {
   color: #838383 !important;
   border-bottom: solid 1px currentColor;
@@ -1767,6 +1773,12 @@ button.proarrow {
 .react-parallax-content .creativeslide h3 {
   padding: 0 10px;
 }
+.tabdesktop-show{
+  display: block !important;
+}
+.tabmobile-show{
+  display: none !important;
+}
 @media (max-width:1680px){
 
   .projectDetails .title-item {
@@ -1802,6 +1814,17 @@ button.proarrow {
 }
 }
 @media (max-width:1480px){
+  .downArrow .swiper-horizontal .swiper-button-prev, .downArrow .swiper-horizontal .swiper-button-next{
+    width: 25px;
+    height: 25px;
+  }
+  :root { 
+    --bigFont: 42px;
+    --bigLineheight:48px;
+  }
+  .creativeslide.hsoul01 {
+    left: 25%;
+}
   .react-parallax.numberCounter {
     height: auto;
     padding: 50px 0;
@@ -1982,9 +2005,7 @@ font-size: 50px;
 .logo{
   left: 10%;
 }
-.Heroslider .swiper-slide .projectbanner {
-    height: 80vh;
-}
+
 
 .Heroslider .swiper-slide .prologo img {
     height: auto;
@@ -2001,7 +2022,22 @@ font-size: 50px;
   display: block !important;
 }
 }
+@media (max-width:768px){
+  
+.tabdesktop-show{
+  display: none !important;
+}
+.tabmobile-show{
+  display: block !important;
+}
+}
 @media (max-width:630px){
+  :root {
+    --bigFont: 32px;
+    --bigLineheight: 38px;
+    --base-font-size: 17px;
+    --base-line-height: 24px;
+}
   .footerForm .col-lg-4 {width: 100%;margin-bottom: 20px;}
 
   .modifiedinput .MuiOutlinedInput-root {
@@ -2056,5 +2092,35 @@ font-size: 50px;
 .footerbox {
     width: 40%;
     margin-top: 30px;
+}
+.prologo{
+  width: 150px;
+  height: 150px;
+}
+.logo {
+  width: 80px;
+}
+.Heroslider .swiper-slide .prologo img{
+  top: -10%;
+}
+}
+@media (max-width:480px){
+  :root {
+    --bigFont: 24px;
+    --bigLineheight: 30px;
+}
+.creativeslide.hsoul02, .creativeslide.hsoul01, .creativeslide.hsoul03 {
+  top: 5%;
+  right: 0;
+  left: 15%;
+}
+}
+@media (max-width:380px){
+  :root {
+    --bigFont: 24px;
+    --bigLineheight: 30px;
+}
+.creativeslide.hsoul02, .creativeslide.hsoul01, .creativeslide.hsoul03 {
+  top: 10%;
 }
 }

@@ -17,7 +17,7 @@ const Project = () => {
   const pathSegments = location.split('/');
   
   useEffect(() => {
-    const validCategories = ['townships', 'homes', 'retail', 'offices'];
+    const validCategories = ['townships', 'homes', 'commercial'];
 
     if (!validCategories.includes(cat.toLowerCase())) {
       setError(new Error('Invalid category'));
@@ -55,11 +55,8 @@ const Project = () => {
     case 'homes':
       title = 'Homes';
       break;
-    case 'retail':
-      title = 'Retail';
-      break;
-    case 'offices':
-      title = 'Offices';
+    case 'commercial':
+      title = 'Commercial';
       break;
     default:
       title = 'Projects';
