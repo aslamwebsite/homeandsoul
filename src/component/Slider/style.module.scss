@@ -58,23 +58,22 @@
       }
     }
   }
-  @media (max-width: 1680px) {
-    
- }
- @media (max-width: 1280px) {
-  .landing{
-    .homeslider {
-      .sliderdiv {
-        height: auto;
-    }
-  }
-}
-}
+ 
   @media (max-width: 630px) {
    
     .sliderdiv.vh-100 {
       height: 100%;
   }
+  .landing{
+    
+    .homeslider {
+
+      .sliderdiv {
+        width: 95%;
+        height: 85vh;
+    }
+  }
+}
  }
  @media (max-width: 480px) {
 

@@ -24,6 +24,7 @@ const NRI = () => {
       try {
         const response = await axios.get(`${BasePath}/nri.php`);
         setFaqData(response.data);
+        console.log(response.data);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching the data', error);

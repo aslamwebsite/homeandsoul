@@ -3,7 +3,6 @@ import ReactFullpage from '@fullpage/react-fullpage';
 import Slider from './component/Slider/Index';
 import Gallery from './component/Gallery/Index';
 import Contact from './component/Contact/Index';
-import LocationMap from './component/Location/Locationpop';
 import { BasePath } from './component/BasePath/Index';
 import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -16,7 +15,7 @@ const ProjectDetail = () => {
   const [error, setError] = useState(null);
   const [activeSection, setActiveSection] = useState(0);
   const { slug } = useParams();
-  const fullpageApiRef = useRef(null);
+  const fullpageApiRef = useRef(null);  
   const location = window.location.href;
   const pathSegments = location.split('/');
   const BredCat = pathSegments[4];
@@ -78,6 +77,7 @@ const ProjectDetail = () => {
     imagePath: projectDetails.banner.bannerPath,
     logo: projectDetails.banner.logo,
     title: projectDetails.banner.bannerHeading,
+    mobimgPath: projectDetails.banner.mbannerPath,
   }] : [], [projectDetails]);
 
   const renderSection = (section, sectionNumber) => {
@@ -171,7 +171,7 @@ const ProjectDetail = () => {
                       <div className='col-12 float-start quickTabs flex-center gap-25'>
                         <a onClick={() => fullpageApi.moveSectionDown()}><span>Brochure</span></a>
                         {projectDetails.floor_plans && 
-                        <a href={projectDetails.floor_plans} target='_blank'><span>Floor Plan</span></a>
+                        <a href={projectDetails.floor_plans} target='_blank'><span>Floor Plans</span></a>
                       }
                         <Link 
                           to={`/construction/${slug}`} 
@@ -182,7 +182,7 @@ const ProjectDetail = () => {
                       </div>
                       {projectDetails.rera_number && 
                         <div className='col-12 float-start quickTabsrera wrap quickTabs'>
-                          <span>HARERA Registration No. {projectDetails.rera_number}</span>
+                          <span>{projectDetails.rera_number}</span>
                         </div>
                       }
                     </div>

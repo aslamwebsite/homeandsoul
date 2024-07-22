@@ -114,6 +114,13 @@
 }
 }
 @media (max-width: 1200px) {
+    .headerButtonContainer {
+        .button {
+            width: 60px;
+            height: 40px;
+            margin: 15px 10px;
+        }
+    }
     .header {
           .nav {
   
@@ -123,12 +130,28 @@
       }
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 990px) {
+    
     .headerButtonContainer {
-        .button {
-            width: 60px;
-            height: 40px;
-            margin: 15px 10px;
+        position: relative;
+        z-index: 12;
+    
+        .burger {
+            width: 100%;
+            position: relative;
+            z-index: 1;
+    
+            &::after,
+            &::before {
+                content: "";
+                width: 80%;
+            }
+    
         }
     }
+}
+@media (max-width:630px){
+    .header {
+        height: 80px;          
+  }
 }

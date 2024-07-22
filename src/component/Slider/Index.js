@@ -5,7 +5,7 @@ import styles from './style.module.scss';
 import { motion } from 'framer-motion';
 import Noimage from '../../images/noimage.jpg'
 
-const Index = ({ Data = [], parentClass }) => {
+const Index = ({ Data = [], parentClass, mobHeight }) => {
   const slideData = Data;
   const [isZoomIn, setIsZoomIn] = useState(true);
   const sectionRef = useRef();
@@ -46,7 +46,7 @@ const Index = ({ Data = [], parentClass }) => {
               disableOnInteraction: false,
             }}
             navigation={true}
-            modules={[Mousewheel,  Autoplay, Pagination, Navigation, EffectFade]}
+            modules={[Mousewheel, Autoplay, Pagination, Navigation, EffectFade]}
             grabCursor={true}
             loop={true}
             effect="fade"
@@ -55,20 +55,20 @@ const Index = ({ Data = [], parentClass }) => {
             {slideData.map((slide, index) => (
               <SwiperSlide key={index}>
                 <div className="swiperslider position-relative col-12 float-start">
-                  <div className={styles.sliderdiv}>
+                <div className={`${styles.sliderdiv} ${mobHeight}`}>
                     <div className={`projectbanner overflow-hidden ${isZoomIn ? 'zoom-in' : 'zoom-out'}`}>
                       {slide.imagePath ? (<><img
                         src={slide.imagePath}
                         width="1750"
                         height="850"
-                        alt={slide.title}
-                        className="tabdesktop-show"
+                        alt={slide.title.replace(/<\/?[^>]+(>|$)/g, "")}
+                        className="desktop-show"
                       /> <img
                       src={slide.mobimgPath}
                       width="630"
                       height="800"
-                      alt={slide.title}
-                       className="tabmobile-show"
+                      alt={slide.title.replace(/<\/?[^>]+(>|$)/g, "")}
+                       className="mobile-show"
                     /></>) : (<img
                         src={Noimage}
                         width="1750"

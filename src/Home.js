@@ -56,7 +56,7 @@ export default function Home() {
       <AnimatePresence mode='wait'>
         {loading && <Preloader />}
       </AnimatePresence>  
-       {pageData.homeBanner && <Slider Data={pageData.homeBanner}/>}
+       {pageData.homeBanner && <Slider Data={pageData.homeBanner} mobHeight={'height_auto'}/>}
          {pageData.aboutUs && <Paragraph Data={pageData.aboutUs}/>}
         {pageData.number && <Counter Data={pageData.number}/>}
         {pageData.projectsData && <Projects Data={pageData.projectsData}/>}

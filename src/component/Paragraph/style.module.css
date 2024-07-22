@@ -41,14 +41,11 @@
       }
   }
   @media (max-width:480px){
-    .paragraph{
-      font-size: 26px;
-      line-height: 30px;
-      }
+    
   }
   @media (max-width:360px){
     .paragraph{
-      font-size: 20px;
-      line-height: 24px;
+      font-size: 26px;
+      line-height: 30px;
       }
   }

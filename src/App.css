@@ -633,7 +633,7 @@ input[type='radio']:checked+label>em {
 .m-0,
 .Gallerybox .title span,
 .aboutUs .title span,
-.tabs .title span {
+.tabs .title span, .Upcomingimg.w-100 {
   margin: 0;
 }
 
@@ -1763,7 +1763,6 @@ button.proarrow {
 .Heroslider .swiper-slide img,
 .projectbanner {
   height: 100%;
-  object-fit: cover;
 }
 
 *,
@@ -2057,6 +2056,7 @@ button.proarrow {
   border-right: solid 1px #c3c3c3;
   position: relative;
   cursor: pointer;
+  white-space: nowrap;
 }
 .commercialProject li:before {
   content: '';
@@ -2112,7 +2112,7 @@ button.proarrow {
 
   .prologoHeader {
     width: 220px;
-    top: 3%;
+    top: 2%;
   }
 
   .details p span {
@@ -2350,17 +2350,62 @@ button.proarrow {
 }
 
 @media (max-width:992px) {
+  .commercialProject li{
+    padding: 0 25px;
+  }
+  .projectslider.col-lg-12 figure.snip0016 img {
+    height: 320px;
+    object-fit: cover;
+}
+  .details {
+    display: grid;
+    justify-content: center;
+    max-height: 50vh;
+}
+.quickTabsrera.quickTabs span{
+  width: 90%;
+  font-size: 16px;
+  line-height: 26px;
+  
+}
+.quickTabs span{
+  padding: 20px 20px;
+}
+.detailHeading,
+.detailContent, .quickTabs span  {
+    width: 100%;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+
+.quickTabs {flex-wrap: wrap;}
+
+
+.quickTabs a {
+    width: 90%;
+}
+
+.quickTabsrera {
+    position: static;
+}
+  .layerafter:after {
+    height: 250px;
+    bottom: -10%;
+}
+.Heroslider .swiper-slide-active .prologo {
+  bottom: -80px;
+}
+  .height_auto {
+    height: auto !important;
+}
   .row {
     --bs-gutter-x: 0;
     width: 100%;
 }
-.heading {
-  display: grid;
+.gap-25 {
+  gap: 15px;
 }
-  .Heroslider .swiper-slide img {
-    height: 100%;
-    object-fit: cover;
-  }
   .homeSoulAccordion p, .MuiTypography-root p, .MuiTypography-root ul li{
     font-size: 17px;
     line-height: 24px;
@@ -2402,7 +2447,7 @@ button.proarrow {
 }
 
 @media (max-width:768px) {
-
+ 
   [custom="5"],
   [custom="6"],
   [custom="7"],
@@ -2454,11 +2499,11 @@ button.proarrow {
   }
 
   .sideLogo {
-    width: 100px;
+    width: 200px;
     height: 200px;
     left: inherit;
-    right: 10%;
-  }
+    right: -25%;
+}
 
   .footerbox p {
     font-size: 17px;
@@ -2467,6 +2512,41 @@ button.proarrow {
 }
 
 @media (max-width:630px) {
+  .proDetail .transformRemove{
+    padding-top: 80px !important;
+}
+.projects .p-100 {
+  padding: 0 0 35px 0;
+}
+
+.projects .p-100 span {
+  margin: 0;
+}
+  .proGallery{
+    align-items: baseline;
+    margin-top: 20vh;
+  }
+  .detailHeading, .detailContent, .quickTabs span{
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+  .downArrow .swiper-horizontal .swiper-button-prev, .downArrow .swiper-horizontal .swiper-button-next{
+    width: 35px;
+    height: 35px;
+    bottom: 3% !important;
+  }
+  .Heroslider .swiper-slide-active .prologo {
+    bottom: -45px;
+}
+.Herosection .Heroslider .swiper-slide-active .prologo{
+  bottom: -25px;
+}
+  .projectscroll{
+    height: 87vh;
+  }
+  .projectDetails{
+    top: 80px;
+  }
   :root {
     --bigFont: 32px;
     --bigLineheight: 38px;
@@ -2475,12 +2555,10 @@ button.proarrow {
     --heading-font-size: 36px;
     --heading-line-height: 40px;
   }
-
-  .footerForm .col-lg-4 {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
+  .details p span:before {
+    height: 12px;
+}
+  
   .modifiedinput .MuiOutlinedInput-root {
     width: 100%;
   }
@@ -2547,9 +2625,36 @@ button.proarrow {
   .header.sticky .logo {
     width: 50px;
   }
+  .details p span:before {
+    transform: inherit;
+    top: 5px;
+}
+.Herosection .Heroslider .swiper-slide .creativeslide {
+  top: 15%;
+  left: inherit;
+  right: 2%;
+}
+.projectscroll .galleryslider img {
+  height: 350px;
+}
+.react-parallax.parallaxBanner img.react-parallax-bgimage {
+  object-fit: cover;
+}
 }
 
 @media (max-width:480px) {
+  
+  .prologoHeader {
+    width: 140px;
+    max-width: 140px;
+}
+  .projectslider{
+    width: 100%;
+    margin: 0;
+  }
+  .projects{
+    padding-top: 0;
+  }
   .countercount .plussign {
     font-size: 30px;
 }
@@ -2614,15 +2719,12 @@ button.proarrow {
     right: 0;
     left: 15%;
   }
-  [custom="5"], [custom="6"], [custom="7"], [custom="8"], [custom="9"] {
-    font-size: 11px;
-    line-height: 16px;
-    font-family: var(--font-family);
-    letter-spacing: 1px;
-    opacity: 0.8;
-    margin-bottom: 0 !important;
-    margin-right: 8px;
-  }
+  .quickTabsrera.wrap.quickTabs {
+    margin-top: 20px;
+}
+.Heroslider .swiper-slide .prologo img {
+  top: -15%;
+}
 }
 
 @media (max-width:380px) {
@@ -2635,5 +2737,14 @@ button.proarrow {
   .creativeslide.hsoul01,
   .creativeslide.hsoul03 {
     top: 10%;
+  }
+  [custom="5"], [custom="6"], [custom="7"], [custom="8"], [custom="9"] {
+    font-size: 13px;
+    line-height: 16px;
+    font-family: var(--font-family);
+    letter-spacing: 1px;
+    opacity: 0.8;
+    margin-bottom: 0 !important;
+    margin-right: 8px;
   }
 }

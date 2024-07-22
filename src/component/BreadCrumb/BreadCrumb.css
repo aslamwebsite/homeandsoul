@@ -35,12 +35,15 @@
 @media (max-width:980px){
     .pagebreadcumb ul li {
         font-size: 11px;
+        white-space: nowrap;
     }
 }
 @media (max-width:680px){
    
-    .pagebreadcumb ul li{
+    .pagebreadcumb ul li {
         padding-right: 15px;
+        font-size: 10px;
+        line-height: 12px;
     }
     .pagebreadcumb ul li a:after{
         right: -10px;
@@ -48,6 +51,11 @@
 }
 @media (max-width:420px){
     .pagebreadcumb ul {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .projectDetails .flex-center.col-12 {
+        width: 100%;
         flex-wrap: wrap;
     }
 }

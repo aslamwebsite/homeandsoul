@@ -87,7 +87,7 @@ const Project = () => {
       <WebContainer _parentClass={'projects p-100 pt-0'}>
         <Title firstHeading={title} grandClass={'m-0'} />
         {cat.toLowerCase() === 'commercial' && (
-          <div className='col-12 float-start commercialProject'>
+          <div className='col-12 float-start commercialProject desktop-show'>
             <div className='tabs'>
               <ul className="flex-center">
                 {Object.entries(sections).map(([sectionKey, sectionTitle]) => (

@@ -10,7 +10,6 @@ const ContactPage = () => {
   const [pageData, setpageData] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -53,8 +52,15 @@ const ContactPage = () => {
         <div className="container position-relative">
           <div className="creativeslide">
             <h3 className="heading bigFont text-start text-black">
-              EXPECT <span>Exceptional</span>
             </h3>
+            {pageData.bannerImage.length > 0 && pageData.bannerImage[0].title ? (
+              <h3
+                className="heading bigFont text-start"
+                dangerouslySetInnerHTML={{ __html: pageData.bannerImage[0].title }}
+              />
+            ) : (
+              <h3 className="heading bigFont text-start">Title Not Available</h3>
+            )}
           </div>
         </div>
       </Parallax>
