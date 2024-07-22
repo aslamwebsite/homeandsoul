@@ -17,7 +17,10 @@ const Index = ({ Data }) => {
     return (
         <>
             <WebContainer _parentClass={'aboutUs position-relative p-100 m-0'}>
-                <Title firstHeading={Data.title} grandClass={'position-relative showTextcont'}/>
+            <div className={`title flex-center col-12 float-start flex-wrap text-center position-relative showTextcont`}>
+          <span className={`col-12 float-start`}>{Data.title}</span>
+           
+        </div>
                 <p
                     ref={container}
                     className={styles.paragraph}
