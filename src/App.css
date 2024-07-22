@@ -2090,6 +2090,9 @@ button.proarrow {
 .projectslider.col-lg-12{
   width: 100%;
 }
+.constructionUpdates .galleryimg {
+  border: solid 1px #ededed;
+}
 @media (max-width:1680px) {
 
   .projectDetails .title-item {

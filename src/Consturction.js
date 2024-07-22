@@ -1,90 +1,94 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Webcontainer from "./component/WebContainer/Index";
 import Title from "./component/Title/Index";
-import Gallery from "./component/Gallery/Gallery";
 import "./component/Gallery/Gallery.css";
-import Gallery01 from './images/noimage.jpg';
-import Gallery02 from './images/noimage.jpg';
 import Container from "./component/Container/Index";
 import BreadCrumb from './component/BreadCrumb/Index'
 import { useParams } from "react-router-dom";
+import LightGallery from "lightgallery/react";
+import axios from "axios";
+// Import styles
+import "lightgallery/css/lightgallery.css";
+import "lightgallery/css/lg-zoom.css";
+import "lightgallery/css/lg-thumbnail.css";
+// Import plugins
+import lgThumbnail from "lightgallery/plugins/thumbnail";
+import lgZoom from "lightgallery/plugins/zoom";
+import { BasePath } from './component/BasePath/Index';
 
-
-const galleryData = [
-  { imageUrl: Gallery01, thumbnailUrl: Gallery01, titleData: 'Constuctions Updates', datemonth: 'Jan 2024' },
-  { imageUrl: Gallery02, thumbnailUrl: Gallery02, titleData: 'Constuctions Updates', datemonth: 'Jan 2024' },
-  { imageUrl: Gallery02, thumbnailUrl: Gallery02, titleData: 'Constuctions Updates', datemonth: 'Jan 2024' },
-  { imageUrl: Gallery02, thumbnailUrl: Gallery02, titleData: 'Constuctions Updates', datemonth: 'Feb 2024' },
-  { imageUrl: Gallery02, thumbnailUrl: Gallery02, titleData: 'Constuctions Updates', datemonth: 'Mar 2024' },
-  { imageUrl: Gallery02, thumbnailUrl: Gallery02, titleData: 'Constuctions Updates', datemonth: 'Apr 2024' },
-  { imageUrl: Gallery02, thumbnailUrl: Gallery02, titleData: 'Constuctions Updates', datemonth: 'May 2021' },
-  { imageUrl: Gallery02, thumbnailUrl: Gallery02, titleData: 'Constuctions Updates', datemonth: 'Jun 2022' },
-  { imageUrl: Gallery02, thumbnailUrl: Gallery02, titleData: 'Constuctions Updates', datemonth: 'Jan 2023' },
-  { imageUrl: Gallery01, thumbnailUrl: Gallery01, titleData: 'Constuctions Updates', datemonth: 'Jan 2024' },
-  { imageUrl: Gallery02, thumbnailUrl: Gallery02, titleData: 'Constuctions Updates', datemonth: 'Jan 2024' },
-  { imageUrl: Gallery02, thumbnailUrl: Gallery02, titleData: 'Constuctions Updates', datemonth: 'Jan 2024' },
-  { imageUrl: Gallery02, thumbnailUrl: Gallery02, titleData: 'Constuctions Updates', datemonth: 'Feb 2024' },
-  { imageUrl: Gallery02, thumbnailUrl: Gallery02, titleData: 'Constuctions Updates', datemonth: 'Mar 2024' },
-  { imageUrl: Gallery02, thumbnailUrl: Gallery02, titleData: 'Constuctions Updates', datemonth: 'Apr 2024' },
-  { imageUrl: Gallery02, thumbnailUrl: Gallery02, titleData: 'Constuctions Updates', datemonth: 'May 2021' },
-  { imageUrl: Gallery02, thumbnailUrl: Gallery02, titleData: 'Constuctions Updates', datemonth: 'Jun 2022' },
-  { imageUrl: Gallery02, thumbnailUrl: Gallery02, titleData: 'Constuctions Updates', datemonth: 'Jan 2023' }
-];
 
 const Construction = () => {
-    const { slug } = useParams();
+  const { slug } = useParams();
+  const [pageData, setPageData] = useState(null);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const [selectedCategory, setSelectedCategory] = useState('Constuctions Updates');
-  const [activeCategory, setActiveCategory] = useState('Constuctions Updates');
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BasePath}/construction_updates.php?url=${slug}`);
+        setPageData(response.data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-  const categories = [...new Set(galleryData.map(item => item.titleData))];
+    fetchData();
+  }, [slug]);
 
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category);
-    setActiveCategory(category);
-  };
+  if (isLoading) {
+    return <div className="preloader"></div>;
+  }
 
-  const filteredGalleryData = galleryData.filter(
-    (item) => item.titleData === selectedCategory
-  );
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
-  const uniqueMonths = [
-    ...new Set(
-      galleryData.map((item) => {
-        const date = new Date(item.datemonth);
-        return date.toLocaleString("default", { month: "short" }).toUpperCase();
-      })
-    ),
-  ];
+  if (!pageData || !pageData.images || pageData.images.length === 0) {
+    return <div>No data available</div>;
+  }
 
-  const uniqueYears = [
-    ...new Set(
-      galleryData.map((item) => {
-        const date = new Date(item.datemonth);
-        return date.getFullYear().toString();
-      })
-    ),
-  ];
+  const galleryData = pageData.images.map((image) => ({
+    imageUrl: image.actual,
+    thumbnailUrl: image.thumbnail,
+    titleData: pageData.title || 'Construction Updates',
+  }));
+
   const formattedSlug = slug.replace(/-/g, ' ');
+
   return (
     <>
-    <Container _parentClass={'m-0'}>
-        <BreadCrumb pageName={`${slug}`} pageChildName={'Construction Updates'} pageUrl={`/projects/homes/${slug}`}/>
-    </Container>
+      <Container _parentClass={'m-0'}>
+        <BreadCrumb pageName={`${slug}`} pageChildName={'Construction Updates'} pageUrl={`/projects/homes/${slug}`} />
+      </Container>
       <Webcontainer _parentClass={"constructionUpdates"}>
         <Title
           secondHeading={formattedSlug}
-          firstHeading={"Construction Updates"}
+          firstHeading={pageData.title}
           childClass={'textFormat'}
         />
-
-          <Gallery
-            gallery_data={filteredGalleryData}
-            photoGallery={true}
-            photoTabs={true}
-            uniqueMonths={uniqueMonths}
-            uniqueYears={uniqueYears}
-          />
+        <div className="col-12 float-start">
+          <LightGallery
+            onInit={() => {
+              console.log("LightGallery onInit callback");
+            }}
+            speed={500}
+            plugins={[lgThumbnail, lgZoom]}
+          >
+            {galleryData.map((galData, index) => (
+              <a key={index} href={galData.imageUrl}>
+                <div className="galleryimg">
+                  <img
+                    src={galData.imageUrl}
+                    alt={`${galData.titleData}`}
+                  />
+                </div>
+              </a>
+            ))}
+          </LightGallery>
+        </div>
       </Webcontainer>
     </>
   );

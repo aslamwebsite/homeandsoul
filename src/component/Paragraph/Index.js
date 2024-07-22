@@ -2,7 +2,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import React, { useRef } from 'react';
 import styles from './style.module.css';
 import WebContainer from '../WebContainer/Index';
-import Title from '../Title/Index';
 import { Link } from 'react-router-dom';
 
 const Index = ({ Data }) => {
