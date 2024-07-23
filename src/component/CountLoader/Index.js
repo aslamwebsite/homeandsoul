@@ -38,9 +38,9 @@ const Index = ({ Data }) => {
     >
       <Container _parentClass={'m-0'}>
         <Title firstHeading={'H&S GROUP IN NUMBERS'} parentClass={'text-white'} />
-        <div className={`numberrow col-12 float-start flex-center justify-content-evenly pt-5 position-relative`}>
+        <div className={`numberrow col-12 float-start flex-center justify-content-evenly pt-5 position-relative ${isMobile ? 'mobile-view' : ''}`}>
           {countersData && Array.isArray(countersData) && countersData.map((counter, index) => (
-            <div key={index} className="numbercolumn primary-color">
+            <div key={index} className={`numbercolumn primary-color ${isMobile ? 'mobile-column' : ''}`}>
               {counter.startValue !== undefined && counter.endValue !== undefined ? (
                 <div className="countercount d-flex justify-content-center">
                   <Counter
