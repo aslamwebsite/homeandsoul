@@ -31,7 +31,9 @@
   @media (max-width:992px){
     .paragraph{
       font-size: 30px;
-      line-height: 38px;
+      line-height: 42px;
+      text-align: center;
+      justify-content: center;
      
         .word{
           position: relative;
@@ -41,7 +43,10 @@
       }
   }
   @media (max-width:480px){
-    
+    .paragraph{
+      font-size: 28px;
+      line-height: 36px;
+      }
   }
   @media (max-width:360px){
     .paragraph{
