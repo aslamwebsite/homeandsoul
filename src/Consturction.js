@@ -46,15 +46,8 @@ const Construction = () => {
     return <div>Error: {error.message}</div>;
   }
 
-  if (!pageData || !pageData.images || pageData.images.length === 0) {
-    return <div>No data available</div>;
-  }
+ 
 
-  const galleryData = pageData.images.map((image) => ({
-    imageUrl: image.actual,
-    thumbnailUrl: image.thumbnail,
-    titleData: pageData.title || 'Construction Updates',
-  }));
 
   const formattedSlug = slug.replace(/-/g, ' ');
 
@@ -69,7 +62,11 @@ const Construction = () => {
           firstHeading={pageData.title}
           childClass={'textFormat'}
         />
+        
         <div className="col-12 float-start">
+        {pageData.images.length === 0 ? (
+  <div className="error-message text-center">Construction Images not available !</div>
+) : (
           <LightGallery
             onInit={() => {
               console.log("LightGallery onInit callback");
@@ -77,17 +74,18 @@ const Construction = () => {
             speed={500}
             plugins={[lgThumbnail, lgZoom]}
           >
-            {galleryData.map((galData, index) => (
-              <a key={index} href={galData.imageUrl}>
+            {pageData.images.map((galData, index) => (
+              <a key={index} href={galData.actual}>
                 <div className="galleryimg">
                   <img
-                    src={galData.imageUrl}
-                    alt={`${galData.titleData}`}
+                    src={galData.thumbnail}
+                    alt={`${pageData.project_name}`}
                   />
                 </div>
               </a>
             ))}
           </LightGallery>
+)}
         </div>
       </Webcontainer>
     </>

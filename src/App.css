@@ -1814,7 +1814,7 @@ button.proarrow {
   color: var(--white);
   text-transform: capitalize;
   font-size: 15px;
-  letter-spacing: 0.5spx;
+  letter-spacing: 1px;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -2093,6 +2093,17 @@ button.proarrow {
 .constructionUpdates .galleryimg {
   border: solid 1px #ededed;
 }
+.lg-content button {
+  width: 50px;
+  height: 50px;
+}
+.error-message {
+  color: red;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
 @media (max-width:1680px) {
 
   .projectDetails .title-item {
@@ -2283,12 +2294,6 @@ button.proarrow {
 
   .projectDetails {
     top: 100px;
-  }
-
-  .projectDetails .title-item {
-    font-size: 11px;
-    line-height: 30px;
-    letter-spacing: 2px;
   }
 
   .sideLogo {

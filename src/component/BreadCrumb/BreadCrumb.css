@@ -4,16 +4,17 @@
 }
 .pagebreadcumb ul li {
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 1px;
-    padding-right: 25px;
+    padding-right: 20px;
     color: #013989;
     list-style: none;
+    white-space: nowrap;
 }
 .pagebreadcumb ul li a:after {
     content: ">";
     position: absolute;
-    right: -15px;
+    right: -12px;
     font-family: monospace;
 }
 .pagebreadcumb ul li a {
@@ -21,29 +22,26 @@
     color: #535353;
     font-weight: 600;
 }
-@media (max-width:1380px) {
+@media (max-width:1480px) {
     .pagebreadcumb ul li {
-        font-size: 11px;
-        line-height: 30px;
-        letter-spacing: 2px;
-      }
-      
-.pagebreadcumb ul li{
-    letter-spacing: 1px;
-  }
+        font-size: 10px;
+        line-height: 24px;
+        padding-right: 5px;
+        margin-right: 20px;
+    }
+}
+@media (max-width:1380px) {
+          
+
 }
 @media (max-width:980px){
-    .pagebreadcumb ul li {
-        font-size: 11px;
-        white-space: nowrap;
-    }
+    
 }
 @media (max-width:680px){
    
     .pagebreadcumb ul li {
         padding-right: 15px;
-        font-size: 10px;
-        line-height: 12px;
+            line-height: 12px;
     }
     .pagebreadcumb ul li a:after{
         right: -10px;

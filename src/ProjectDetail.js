@@ -88,6 +88,7 @@ const ProjectDetail = () => {
       <div className="section" key={sectionNumber}>
         <div className='projectscroll first-stn'>
           <img src={image || Noimage} alt={heading || "Placeholder"} />
+          {(description.length === 0 || description[0] === '') ? ( null ) : (
           <div className='projectscont'>
             <div className="details flex-center">
               <div className='detailHeading'>
@@ -98,6 +99,7 @@ const ProjectDetail = () => {
               </div>
             </div>
           </div>
+        )}
         </div>
       </div>
     );
