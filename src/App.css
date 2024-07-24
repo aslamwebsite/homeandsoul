@@ -2439,9 +2439,7 @@ button.proarrow {
     margin-top: 30px;
   }
 
-  .downArrow .swiper-button-next {
-    left: 17%;
-  }
+
   .react-parallax {
     height: 220px;
 }
@@ -2637,24 +2635,28 @@ button.proarrow {
     transform: inherit;
     top: 5px;
 }
-.Herosection .Heroslider .swiper-slide .creativeslide {
-  top: 15%;
-  left: inherit;
-  right: 2%;
-}
+
 .projectscroll .galleryslider img {
   height: 350px;
 }
 .react-parallax.parallaxBanner img.react-parallax-bgimage {
   object-fit: cover;
 }
+figure.snip0016 p, figure.snip00161 p, figure.snip0016 h3, figure.snip0016 h4 {
+  width: 100%;
+  text-align: center;
+}
+.Herosection .Heroslider .swiper-slide .creativeslide {
+  top: 20vh;
+}
 }
 
 @media (max-width:480px) {
   
   .prologoHeader {
-    width: 140px;
-    max-width: 140px;
+    width: 170px;
+    max-width: 170px;
+    top: 1%;
 }
   .projectslider{
     width: 100%;
@@ -2663,9 +2665,7 @@ button.proarrow {
   .projects{
     padding-top: 0;
   }
-  .countercount .plussign {
-    font-size: 30px;
-}
+  
   .wrap {
     margin-top: 30px;
 }
@@ -2730,9 +2730,7 @@ button.proarrow {
   .quickTabsrera.wrap.quickTabs {
     margin-top: 20px;
 }
-.Heroslider .swiper-slide .prologo img {
-  top: -15%;
-}
+
 }
 
 @media (max-width:380px) {

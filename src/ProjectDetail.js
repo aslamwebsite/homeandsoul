@@ -138,7 +138,7 @@ const ProjectDetail = () => {
             <ReactFullpage.Wrapper>
               <div className="section">
                 <div className='projectscroll first-stn align-items-end d-flex Herosection'>
-                  <Slider Data={sliderData} />
+                  <Slider Data={sliderData} mobHeight={'projectSliderwith'}/>
                 </div>
               </div>
 

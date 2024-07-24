@@ -60,14 +60,13 @@
     .numbercolumn {
         width: 60%;
         margin: 0;
+        padding-top: 10px;
     }
     
 .numberrow {
     row-gap: 20px;
 }
-}
-@media (max-width:480px){
- 
+
 .countercont p{
     width: 100%;
     text-align: center;
@@ -81,4 +80,10 @@
     font-size: 40px;
     line-height: 50px;
   }
+  .countercount .plussign {
+    font-size: 20px;
+}
+}
+@media (max-width:480px){
+ 
 }

@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import LightGallery from "lightgallery/react";
-// Import styles
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
-// Import plugins
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 import "../Gallery/Gallery.css";
@@ -22,13 +20,7 @@ const Gallery = ({
   const [selectedYear, setSelectedYear] = useState(uniqueYears[0]);
   const [monthsWithData, setMonthsWithData] = useState(uniqueMonths);
   const [yearsWithData, setYearsWithData] = useState(uniqueYears);
-
-  useEffect(() => {
-    if (galleryRef.current) {
-      console.log("Gallery ref current:", galleryRef.current);
-      console.log("LightGallery has been initialized");
-    }
-  }, []);
+  const [noDataMessage, setNoDataMessage] = useState('');
 
   useEffect(() => {
     const months = uniqueMonths.filter((month) => {
@@ -45,11 +37,7 @@ const Gallery = ({
     setMonthsWithData(months);
 
     if (!months.includes(selectedMonth)) {
-      if (months.length > 0) {
-        setSelectedMonth(months[0]);
-      } else {
-        alert(`No data available for the year ${selectedYear}`);
-      }
+      setSelectedMonth(months.length > 0 ? months[0] : '');
     }
   }, [selectedYear, uniqueMonths, gallery_data, selectedMonth]);
 
@@ -64,11 +52,7 @@ const Gallery = ({
     setYearsWithData(years);
 
     if (!years.includes(selectedYear)) {
-      if (years.length > 0) {
-        setSelectedYear(years[0]);
-      } else {
-        alert(`No data available for the selected category`);
-      }
+      setSelectedYear(years.length > 0 ? years[0] : '');
     }
   }, [uniqueYears, gallery_data, selectedYear]);
 
@@ -80,6 +64,14 @@ const Gallery = ({
     const year = date.getFullYear().toString();
     return month === selectedMonth && year === selectedYear;
   });
+
+  useEffect(() => {
+    if (!filteredData.length) {
+      setNoDataMessage(`No data available for ${selectedMonth} ${selectedYear}`);
+    } else {
+      setNoDataMessage('');
+    }
+  }, [filteredData, selectedMonth, selectedYear]);
 
   return (
     <div className="column9">
@@ -121,11 +113,10 @@ const Gallery = ({
         </div>
       )}
       <div className="lightGallerybox" ref={galleryRef}>
-        {photoGallery ? (
+        {noDataMessage ? (
+          <p>{noDataMessage}</p>
+        ) : photoGallery ? (
           <LightGallery
-            onInit={() => {
-              console.log("LightGallery onInit callback");
-            }}
             speed={500}
             plugins={[lgThumbnail, lgZoom]}
           >
@@ -133,7 +124,7 @@ const Gallery = ({
               <a key={index} href={galData.imageUrl}>
                 <div className="galleryimg">
                   <img
-                    src={galData.imageUrl}
+                    src={galData.thumbnailUrl}
                     alt={`${galData.titleData} ${galData.news_paperName}`}
                   />
                 </div>
