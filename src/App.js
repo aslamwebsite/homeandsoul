@@ -33,7 +33,7 @@ function App() {
         <HeaderWithCondition />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/home-and-shoul" element={<AboutHS />} />
+          <Route exact path="/home-and-soul" element={<AboutHS />} />
           <Route exact path="/projects" element={<Project />} />
           <Route exact path="/projects/:cat" element={<Project />} />
           <Route exact path="/projects/:cat/:slug" element={<ProjectDetail />} />

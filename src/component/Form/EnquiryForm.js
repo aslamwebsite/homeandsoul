@@ -115,7 +115,7 @@ const EnquiryForm = () => {
                     <div className="col-lg-3 col-12 flex-center">
                     <button _class={"secondarybtn"}
                         isSubmit={true}
-                        _disable={isSubmitting}>Sumit</button>
+                        _disable={isSubmitting}>Submit</button>
                     </div>
                   </div>
                 </div>

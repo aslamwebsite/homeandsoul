@@ -294,7 +294,7 @@ const AboutHS = () => {
     return (
         <>
             <Slider Data={pageData.homeBanner} mobHeight={'height_auto'} parentClass={'manageText'} />
-            <Container _parentClass="m-0">
+            <Container _parentClass="m-0 position-relative">
                 <BreadCrumb pageName="Home and Soul" />
             </Container>
             <Overview Data={pageData.overview} />

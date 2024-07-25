@@ -48,7 +48,7 @@ const Index = ({className}) => {
                                             </NavLink>
                                         </div>
                                         <div className={styles.el}>
-                                        <NavLink to='/home-and-shoul'>
+                                        <NavLink to='/home-and-soul'>
                                                 ABOUT US
                                             </NavLink>
                                         </div>
