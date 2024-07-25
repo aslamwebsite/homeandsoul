@@ -19,7 +19,6 @@ const ProjectDetail = () => {
   const location = window.location.href;
   const pathSegments = location.split('/');
   const BredCat = pathSegments[4];
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -151,7 +150,7 @@ const ProjectDetail = () => {
               {renderSection(projectDetails?.section7, 7)}
 
               {projectDetails?.gallery && projectDetails.gallery.length > 0 && (
-                <div className="section">
+                <div className="section projectGallery">
                   <div className='projectscroll d-flex align-items-end flex-wrap'>
                     <div className='col-12 float-start proGallery'>
                       <div className='title flex-center'>

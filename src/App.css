@@ -8,7 +8,7 @@
   --letter-spacing: 0.5px;
   --creativeslide-height: 80vh;
   --heading-font-family: 'bw-vivant-light';
-  --heading-font-size: 2.8125vw;
+  --heading-font-size: 2.5vw;
   --heading-line-height: 3.3333vw;
   --white: #fff;
   --black: #000;
@@ -344,7 +344,7 @@ section {
 
 .heading {
   color: var(--heading-color);
-  font-family: 'bw-vivant-light';
+  font-family: var(--sliderFont);
   font-size: var(--heading-font-size);
   line-height: var(--heading-line-height);
   position: relative;
@@ -2180,6 +2180,9 @@ button.proarrow {
   stroke-linejoin: round;
   stroke-width: 2px
 }
+.tabs {
+  border-bottom: solid 1px #d5d5d5;
+}
 @media (max-width:1680px) {
 
   .projectDetails .title-item {
@@ -2625,6 +2628,15 @@ button.proarrow {
 }
 
 @media (max-width:630px) {
+ 
+.footerForm button {
+  width: 100%;
+  margin-top: 15px;
+  line-height: 56px;
+}
+  .projectSliderwith {
+    width: 100% !important;
+}
   .QuoteIcon svg {
     width: 120px;
     height: 120px;
@@ -2661,9 +2673,7 @@ button.proarrow {
 .Herosection .Heroslider .swiper-slide-active .prologo{
   bottom: -25px;
 }
-  .projectscroll{
-    height: 87vh;
-  }
+
   .projectDetails{
     top: 80px;
   }
@@ -2715,7 +2725,7 @@ button.proarrow {
 
   .footerForm .col-lg-4 {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   .modifiedinput .MuiOutlinedInput-root,
@@ -2761,12 +2771,35 @@ figure.snip0016 p, figure.snip00161 p, figure.snip0016 h3, figure.snip0016 h4 {
   text-align: center;
 }
 .Herosection .Heroslider .swiper-slide .creativeslide {
-  top: 20vh;
+  top: 20%;
+  width: auto;
 }
 }
 
 @media (max-width:480px) {
-  
+ 
+  .details{
+    gap:10px
+  }
+  .details p {
+    row-gap: 1px;
+}
+.details p span {
+  font-size: 14px;
+  line-height: 20px;
+}
+.projectscroll {
+  height: 87vh;
+}
+.details h4{
+  text-align: left;
+}
+.projectscroll img {
+  height: 62vh;
+}
+.projectscont {
+  background: #000;
+}
   .prologoHeader {
     width: 170px;
     max-width: 170px;
@@ -2838,7 +2871,7 @@ figure.snip0016 p, figure.snip00161 p, figure.snip0016 h3, figure.snip0016 h4 {
   .creativeslide.hsoul01,
   .creativeslide.hsoul03 {
     top: 5%;
-    right: 0;
+    right: inherit;
     left: 15%;
   }
   .quickTabsrera.wrap.quickTabs {
