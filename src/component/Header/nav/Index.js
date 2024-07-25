@@ -13,7 +13,7 @@ const navItems = [
   },
   {
     title: "About Us",
-    href: "/home-and-shoul",
+    href: "/home-and-soul",
   },
   {
     title: "Townships",
@@ -97,9 +97,7 @@ const Nav = ({ setIsActive, toggleMenu, isActive }) => {
               </li>
             ))}
             </ul>
-              {/* <ul className={styles.subChildmenu}>
-                <li><NavLink to='/contact-us' onClick={(e) => handleSubChildClick(e, '/contact-us')}>Contact Us</NavLink></li>
-              </ul> */}
+             
           </div>
         </div>
         <div className='sideLogo'>
