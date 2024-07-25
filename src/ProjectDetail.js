@@ -29,6 +29,7 @@ const ProjectDetail = () => {
           setError(response.data.error);
         } else {
           setProjectDetails(response.data);
+          console.log(response.data);
         }
       } catch (error) {
         setError(error.message);
@@ -99,7 +100,7 @@ const ProjectDetail = () => {
       <div className="section" key={sectionNumber}>
         <div className='projectscroll first-stn'>
           <img 
-            src={isMobile ? (section.mobimgPath || image || Noimage) : (image || Noimage)} 
+            src={isMobile ? (section.mimage || image || Noimage) : (image || Noimage)} 
             alt={heading || "Placeholder"} 
           />
           {(description.length === 0 || description[0] === '') ? null : (
