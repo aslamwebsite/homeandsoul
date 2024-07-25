@@ -10,19 +10,21 @@ import { RiYoutubeFill } from "react-icons/ri";
 import { Link, useLocation } from 'react-router-dom';
 import EnquiryForm from '../Form/EnquiryForm';
 
-const Index = () => {
+const Index = ({Data}) => {
     const currentYear = new Date().getFullYear();
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
         target: container,
         offset: ["start end", "end end"]
     });
+   
     const combinedClassNames = `${styles.contact} transformRemove`;
 
     const x = useTransform(scrollYProgress, [0, 1], [0, 100]);
     const y = useTransform(scrollYProgress, [0, 1], [-500, 0]);
 
     const location = useLocation();
+    const slug = location.pathname;
     const isSlugPage = location.pathname.startsWith('/projects/') && location.pathname.split('/').length === 4;
     const titleDivision = isSlugPage ? (
         <div className="title text-center float-start col-12">
@@ -54,15 +56,36 @@ const Index = () => {
                                     <div className={styles.nav}>
                                         <div className="footerbox">
                                             <span className='call'></span>
-                                            <p className='col-12 float-start m-0'> <a href='tel:+918447000360' >+91 8447000360</a></p>
+                                            <p className='col-12 float-start m-0'> <a href='tel:+919999980055' >+91 9999980055</a></p>
                                         </div>
                                         <div className="footerbox">
                                             <span className='map'></span>
-                                            <p className='col-12 float-start m-0'> GH-B3, Jaypee Greens Sports <br />City, SDZ, Dankaur, Greater<br /> Noida, Gautam Buddha Nagar<br /> Uttar Pradesh, 201301</p>
+                                            <p className='col-12 float-start m-0'>
+        {slug.includes('/project') ? (
+          Data && Data.trim() ? (
+            <p dangerouslySetInnerHTML={{ __html: Data }} className='m-0'/>
+          ) : (
+            <>
+              GH-B3, Jaypee Greens Sports <br />
+              City, SDZ, Dankaur, Greater<br />
+              Noida, Gautam Buddha Nagar<br />
+              Uttar Pradesh, 201301
+            </>
+          )
+        ) : (
+          <>
+            GH-B3, Jaypee Greens Sports <br />
+            City, SDZ, Dankaur, Greater<br />
+            Noida, Gautam Buddha Nagar<br />
+            Uttar Pradesh, 201301
+          </>
+        )}
+      </p>
+                                            
                                         </div>
                                         <div className="footerbox">
                                             <span className='email'></span>
-                                            <p className='col-12 float-start m-0'> <a href='mailto:crm@homeandsoul.in'>crm@homeandsoul.in</a></p>
+                                            <p className='col-12 float-start m-0'> <a href='mailto:info@homeandsoul.in'>info@homeandsoul.in</a></p>
                                         </div>
                                         <div className="footerbox">
                                             <div className="col-12 float">

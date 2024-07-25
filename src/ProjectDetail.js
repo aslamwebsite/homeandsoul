@@ -191,7 +191,7 @@ const ProjectDetail = () => {
                 </div>
               </div>
               <div className="section proDetail">
-                <Contact />
+                <Contact Data={projectDetails.address}/>
               </div>
             </ReactFullpage.Wrapper>
           );
