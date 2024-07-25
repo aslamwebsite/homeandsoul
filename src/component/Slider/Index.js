@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useState, useEffect, useRef } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Mousewheel, Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
-import styles from './style.module.scss';
 import { motion } from 'framer-motion';
-import Noimage from '../../images/noimage.jpg'
+import Noimage from '../../images/noimage.jpg';
+import styles from './style.module.scss';
 
 const Index = ({ Data = [], parentClass, mobHeight }) => {
-  const slideData = Data;
   const [isZoomIn, setIsZoomIn] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
   const sectionRef = useRef();
   let classCounter = 1; 
 
@@ -18,14 +18,21 @@ const Index = ({ Data = [], parentClass, mobHeight }) => {
   };
 
   const toggleZoomClass = () => {
-    setIsZoomIn((prev) => !prev);
+    setIsZoomIn(prev => !prev);
+  };
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 767);
   };
 
   useEffect(() => {
     const intervalId = setInterval(toggleZoomClass, 5000);
-    return () => clearInterval(intervalId);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      clearInterval(intervalId);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
-
 
   return (
     <section className={`position-relative layerafter m-0 ${parentClass}`}>
@@ -52,35 +59,23 @@ const Index = ({ Data = [], parentClass, mobHeight }) => {
             effect="fade"
             className="mySwiper"
           >
-            {slideData.map((slide, index) => (
+            {Data.map((slide, index) => (
               <SwiperSlide key={index}>
                 <div className="swiperslider position-relative col-12 float-start">
-                <div className={`${styles.sliderdiv} ${mobHeight}`}>
+                  <div className={`${styles.sliderdiv} ${mobHeight}`}>
                     <div className={`projectbanner overflow-hidden ${isZoomIn ? 'zoom-in' : 'zoom-out'}`}>
-                      {slide.imagePath ? (<><img
-                        src={slide.imagePath}
-                        width="1750"
-                        height="850"
+                      {/* Check if mobile image is available, otherwise fallback to desktop image */}
+                      <img
+                        src={isMobile ? (slide.mobimgPath || slide.imagePath || Noimage) : (slide.imagePath || Noimage)}
+                        width={isMobile ? 630 : 1750}
+                        height={isMobile ? 800 : 850}
                         alt={slide.title.replace(/<\/?[^>]+(>|$)/g, "")}
-                        className="desktop-show"
-                      /> <img
-                      src={slide.mobimgPath}
-                      width="630"
-                      height="800"
-                      alt={slide.title.replace(/<\/?[^>]+(>|$)/g, "")}
-                       className="mobile-show"
-                    /></>) : (<img
-                        src={Noimage}
-                        width="1750"
-                        height="850"
-                        alt="Home and Soul"
-                      />)}
-                      
+                      />
                     </div>
                     {slide.logo && 
-                    <div className="prologo flex-center">
-                      <img src={slide.logo} alt='Prologo' />
-                    </div>
+                      <div className="prologo flex-center">
+                        <img src={slide.logo} alt='Prologo' />
+                      </div>
                     }
                   </div>
                   <div className={`creativeslide ${getNextClass()}`}>

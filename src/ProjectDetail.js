@@ -14,6 +14,7 @@ const ProjectDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeSection, setActiveSection] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
   const { slug } = useParams();
   const fullpageApiRef = useRef(null);  
   const location = window.location.href;
@@ -58,6 +59,17 @@ const ProjectDetail = () => {
     }
   };
 
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 767);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const sectionTitles = useMemo(() => [
     "Overview",
     projectDetails?.section1?.heading,
@@ -86,19 +98,22 @@ const ProjectDetail = () => {
     return (
       <div className="section" key={sectionNumber}>
         <div className='projectscroll first-stn'>
-          <img src={image || Noimage} alt={heading || "Placeholder"} />
-          {(description.length === 0 || description[0] === '') ? ( null ) : (
-          <div className='projectscont'>
-            <div className="details flex-center">
-              <div className='detailHeading'>
-                <h4>{heading}</h4>
-              </div>
-              <div className='detailContent'>
-                <p>{description.map((desc, index) => <span key={index}>{desc}</span>)}</p>
+          <img 
+            src={isMobile ? (section.mobimgPath || image || Noimage) : (image || Noimage)} 
+            alt={heading || "Placeholder"} 
+          />
+          {(description.length === 0 || description[0] === '') ? null : (
+            <div className='projectscont'>
+              <div className="details flex-center">
+                <div className='detailHeading'>
+                  <h4>{heading}</h4>
+                </div>
+                <div className='detailContent'>
+                  <p>{description.map((desc, index) => <span key={index}>{desc}</span>)}</p>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
         </div>
       </div>
     );
