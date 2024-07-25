@@ -15,7 +15,7 @@ const Index = ({ Data }) => {
     };
 
     window.addEventListener('resize', handleResize);
-    handleResize(); // Check screen size on initial load
+    handleResize(); 
 
     return () => {
       window.removeEventListener('resize', handleResize);

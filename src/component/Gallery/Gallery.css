@@ -67,6 +67,8 @@
 .lightcont {
     background: #f1f2f2;
     padding: 15px;
+    margin-bottom:10px;
+    text-align: center;
 }
 .lightcont h5{
     font-weight: normal;

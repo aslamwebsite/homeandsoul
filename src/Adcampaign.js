@@ -7,7 +7,7 @@ import "./component/Gallery/Gallery.css";
 import { BasePath } from './component/BasePath/Index';
 import { NavLink } from "react-router-dom";
 
-const Media = () => {
+const Adcampaign = () => {
   const [pageData, setpageData] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -16,7 +16,7 @@ const Media = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${BasePath}/media_gallery.php?cat=pressrelease`);
+        const response = await axios.get(`${BasePath}/media_gallery.php?cat=adcampaign`);
         setpageData(response.data);
         console.log(response.data);
       } 
@@ -58,12 +58,12 @@ const Media = () => {
 
   return (
     <Webcontainer _parentClass={"media"}>
-      <Title secondHeading={'Press Release'} firstHeading={"Media & News"} />
+      <Title secondHeading={'Ad Campaign'} firstHeading={"Media & News"} />
       <div className="row">
         <div className="column3">
           <ul className="medianavbar">
-            <li className="active"><NavLink to='/media'>Press Release</NavLink></li>
-            <li><NavLink to='/media/ad-campaign'>Ad Campaign</NavLink></li>
+          <li><NavLink to='/media'>Press Release</NavLink></li>
+          <li  className="active"><NavLink to='/media/ad-campaign'>Ad Campaign</NavLink></li>
           </ul>
         </div>
         <Gallery
@@ -78,4 +78,4 @@ const Media = () => {
   );
 };
 
-export default Media;
+export default Adcampaign;

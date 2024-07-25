@@ -2104,13 +2104,92 @@ button.proarrow {
   text-align: center;
   margin-top: 20px;
 }
+.manageText .creativeslide.hsoul01 {
+  top: inherit;
+  bottom: 14vh;
+  left: inherit;
+  right: 25vw;
+}
+.QuoteIcon {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  opacity: 0.1;
+}
+
+.QuoteIcon svg {
+  width: 200px;
+  height: 200px;
+}
+.QuoteText .textEffect {
+  width: 100%;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 44px;
+  line-height: 50px;
+  font-family: 'Bw Vivant ExtLt';
+}
+.title.titleText{
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.infographics .circle {
+  width: 140px;
+  height: 140px;
+  border: 1px solid #ededed;
+  border-radius: 100%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.infographics .circle span {
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+}
+.infographics .slick-dots {
+  bottom: -20%
+}
+.slick-dots li button,
+.slick-dots li {
+  margin: 0;
+}
+
+.circlecont h4, .circlecont p {
+  margin: 0;
+}
+
+.circlecont h4 {
+  font-size: 26px;
+  line-height: 40px;
+}
+
+.circlecont p {
+  width: 80%;
+  margin: auto;
+  line-height: normal;
+  font-size: large;
+}
+.cls-2 {
+  fill: none;
+  stroke: #000;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px
+}
 @media (max-width:1680px) {
 
   .projectDetails .title-item {
     font-size: 13px;
     line-height: 40px;
   }
-
+  .QuoteText .textEffect{
+    font-size: 38px;
+    line-height: 46px;
+  }
   :root {
     --bigFont: 40px;
     --bigLineheight: 46px;
@@ -2142,7 +2221,10 @@ button.proarrow {
 }
 
 @media (max-width:1480px) {
-
+  .QuoteText .textEffect{
+    font-size: 32px;
+    line-height: 38px;
+  }
   :root {
     --bigFont: 42px;
     --bigLineheight: 48px;
@@ -2235,6 +2317,15 @@ button.proarrow {
     width: 220px;
     height: 220px;
   }
+.circlecont h4 {
+    font-size: 19px;
+    line-height: 30px;
+}
+
+.circlecont p {
+    font-size: medium;
+    width: 90%;
+}
 }
 
 @media (max-width:1380px) {
@@ -2300,6 +2391,11 @@ button.proarrow {
     width: 300px;
     height: 300px;
   }
+  
+.QuoteText .textEffect {
+  font-size: 28px;
+  line-height: 40px;
+}
 }
 
 @media (max-width:1280px) {
@@ -2358,6 +2454,17 @@ button.proarrow {
 }
 
 @media (max-width:992px) {
+  .aboutContext .col-lg-6, .aboutContext .col-lg-5 {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+}
+
+.aboutContext .col-lg-5 .title.titleText {text-align: center;}
+
+.react-parallax-content .row.flex-center.justify-content-between {
+    row-gap: 50px;
+}
   .commercialProject li{
     padding: 0 25px;
   }
@@ -2518,6 +2625,13 @@ button.proarrow {
 }
 
 @media (max-width:630px) {
+  .QuoteIcon svg {
+    width: 120px;
+    height: 120px;
+}
+.manageText .creativeslide.hsoul01 {
+  right: 10vw;
+}
   .proDetail .transformRemove{
     padding-top: 80px !important;
 }
@@ -2730,7 +2844,10 @@ figure.snip0016 p, figure.snip00161 p, figure.snip0016 h3, figure.snip0016 h4 {
   .quickTabsrera.wrap.quickTabs {
     margin-top: 20px;
 }
-
+.QuoteText .textEffect {
+  font-size: 24px;
+  line-height: 30px;
+}
 }
 
 @media (max-width:380px) {

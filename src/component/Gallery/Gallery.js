@@ -130,10 +130,10 @@ const Gallery = ({
                 </div>
                 <div className="lightcont">
                   <h4 className="m-0 heading5 fw-600 mb-2">
-                    {galData.titleData}
+                    {galData.news_paperName}
                   </h4>
                   <h5 className="m-0">
-                    {galData.news_paperName}
+                    {galData.datemonth}
                   </h5>
                 </div>
               </a>

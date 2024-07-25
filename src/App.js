@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import "aos/dist/aos.css";
 import Aos from "aos";
 import './App.css';
@@ -17,6 +19,7 @@ import ContactPage from "./ContactPage";
 import Media from "./Media";
 import AboutHS from "./AboutHS";
 import Construction from "./Consturction";
+import Adcampaign from "./Adcampaign";
 
 function App() {
   useEffect(() => {
@@ -38,6 +41,7 @@ function App() {
           <Route exact path="/:slug" element={<Content />} />
           <Route exact path="/nri" element={<NRI/>} />
           <Route exact path="/media" element={<Media/>} />
+          <Route exact path="/media/ad-campaign" element={<Adcampaign/>} />
           <Route exact path="/contact-us" element={<ContactPage/>} />
           <Route path="*" element={<Error />} />
         </Routes>

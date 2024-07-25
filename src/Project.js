@@ -162,7 +162,7 @@ const Project = () => {
                         <figcaption>
                           <h3>{project.name}</h3>
                           <p>{project.location}</p>
-                          <p className='desktop-show'>Know More</p>
+                            <p className='desktop-show'>Know More</p>
                         </figcaption>
                       </figure>
                     </a>

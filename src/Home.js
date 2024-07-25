@@ -32,6 +32,7 @@ export default function Home() {
       try {
         const response = await axios.get(`${BasePath}/home.php`);
         setpageData(response.data);
+        console.log(response.data);
       } 
      
       catch (error) {
