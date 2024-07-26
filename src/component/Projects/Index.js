@@ -25,7 +25,7 @@ const Index = ({ Data }) => {
   return (
     <>
       <Container _parentClass={'homeParent'}>
-        <Title firstHeading={'Featured Products'} grandClass={'titlePosition'} />
+        <Title firstHeading={'Featured Products'} grandClass={'titlePosition changePositionResposniive'} />
         {Data.map((project, index) => (
           <div
             className='projects col-12 float-start position-relative'

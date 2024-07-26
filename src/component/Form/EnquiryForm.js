@@ -14,14 +14,27 @@ const ContactSchema = Yup.object().shape({
     .required("Phone is required"),
 });
 
-const EnquiryForm = () => {
+const EnquiryForm = ({
+  downloadRequested,
+  setDownloadRequested,
+  downloadType,
+  slug,
+}) => {
   const [alertProps, setAlertProps] = useState(null);
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
+      const formData = {
+        ...values,
+        downloadType: downloadRequested ? downloadType : null,
+        slug: slug ? slug : null,
+      };
+      console.log("these are the value of the form", values);
+      console.log("these are the value of the form", formData);
+
       const response = await axios.post(
         `${BasePath}/contact_submit.php`,
-        values,
+        formData,
         {
           headers: { "Content-Type": "application/json" },
         }
@@ -35,6 +48,12 @@ const EnquiryForm = () => {
           message: "Your enquiry has been submitted successfully!",
         });
         resetForm();
+        setDownloadRequested(false);
+
+        if (downloadRequested && response.data.filePath) {
+          window.open(response.data.filePath, "_blank");
+          setDownloadRequested(false);
+        }
       } else {
         setAlertProps({
           status: "error",
@@ -52,77 +71,82 @@ const EnquiryForm = () => {
       setSubmitting(false);
     }
   };
+
   return (
     <>
       {alertProps && (
         <AlertComponent {...alertProps} onClose={() => setAlertProps(null)} />
       )}
-        <div className="col-lg-9 col-12 m-auto">
-          <Formik
-            initialValues={{ name: "", email: "", phone: "" }}
-            validationSchema={ContactSchema}
-            onSubmit={handleSubmit}
-          >
-            {({ errors, touched, isSubmitting, status }) => (
-              <Form>
-                <div className="row">
-                  <div className="col-lg-4 ">
-                    <Field name="name">
-                      {({ field }) => (
-                        <TextField
-                          {...field}
-                          label="Name"
-                          className="modifiedinput"
-                          fullWidth
-                          required
-                          error={touched.name && errors.name}
-                          helperText={touched.name && errors.name}
-                        />
-                      )}
-                    </Field>
-                  </div>
-                  <div className="col-lg-4 ">
-                    <Field name="email">
-                      {({ field }) => (
-                        <TextField
-                          {...field}
-                          label="Email"
-                          className="modifiedinput"
-                          fullWidth
-                          required
-                          error={touched.email && errors.email}
-                          helperText={touched.email && errors.email}
-                        />
-                      )}
-                    </Field>
-                  </div>
-                  <div className="col-lg-4 ">
-                    <Field name="phone">
-                      {({ field }) => (
-                        <TextField
-                          {...field}
-                          label="Phone"
-                          className="modifiedinput"
-                          fullWidth
-                          required
-                          error={touched.phone && errors.phone}
-                          helperText={touched.phone && errors.phone}
-                        />
-                      )}
-                    </Field>
-                  </div>
-                  <div className="col-12 flex-center mt-5 text-center">
-                    <div className="col-lg-3 col-12 flex-center">
-                    <button _class={"secondarybtn"}
-                        isSubmit={true}
-                        _disable={isSubmitting}>Submit</button>
-                    </div>
+      <div className="col-lg-9 col-12 m-auto">
+        <Formik
+          initialValues={{ name: "", email: "", phone: "" }}
+          validationSchema={ContactSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ errors, touched, isSubmitting }) => (
+            <Form>
+              <div className="row">
+                <div className="col-lg-4 ">
+                  <Field name="name">
+                    {({ field }) => (
+                      <TextField
+                        {...field}
+                        label="Name"
+                        className="modifiedinput"
+                        fullWidth
+                        required
+                        error={touched.name && errors.name}
+                        helperText={touched.name && errors.name}
+                      />
+                    )}
+                  </Field>
+                </div>
+                <div className="col-lg-4 ">
+                  <Field name="email">
+                    {({ field }) => (
+                      <TextField
+                        {...field}
+                        label="Email"
+                        className="modifiedinput"
+                        fullWidth
+                        required
+                        error={touched.email && errors.email}
+                        helperText={touched.email && errors.email}
+                      />
+                    )}
+                  </Field>
+                </div>
+                <div className="col-lg-4 ">
+                  <Field name="phone">
+                    {({ field }) => (
+                      <TextField
+                        {...field}
+                        label="Phone"
+                        className="modifiedinput"
+                        fullWidth
+                        required
+                        error={touched.phone && errors.phone}
+                        helperText={touched.phone && errors.phone}
+                      />
+                    )}
+                  </Field>
+                </div>
+                <div className="col-12 flex-center mt-5 text-center">
+                  <div className="col-lg-3 col-12 flex-center">
+                    <button
+                      className="secondarybtn"
+                      type="submit"
+                      disabled={isSubmitting}
+                    >
+                      {downloadRequested ? "Download" : "Submit"}
+                    </button>
                   </div>
                 </div>
-              </Form>
-            )}
-          </Formik>
-        </div>
+              </div>
+            </Form>
+          )}
+        </Formik>
+      </div>
     </>
   );
 };
