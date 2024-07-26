@@ -57,7 +57,7 @@ const ProjectDetail = () => {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      console.log("Key pressed:", event.key);
+      // console.log("Key pressed:", event.key);
     };
 
     document.addEventListener("keydown", handleKeyDown);
@@ -265,6 +265,8 @@ const ProjectDetail = () => {
                   setDownloadRequested={setDownloadRequested}
                   downloadType={downloadType}
                   _slug={slug}
+                  phone={projectDetails.phone} // dynamic address
+                  address={projectDetails.address}
                 />
               </div>
             </ReactFullpage.Wrapper>

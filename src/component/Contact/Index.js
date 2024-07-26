@@ -16,6 +16,8 @@ const Index = ({
   setDownloadRequested,
   downloadType,
   _slug,
+  address, // dynamic address
+  phone, // dynamic phone number
 }) => {
   const currentYear = new Date().getFullYear();
   const container = useRef(null);
@@ -90,28 +92,21 @@ const Index = ({
                       <span className="call"></span>
                       <p className="col-12 float-start m-0">
                         {" "}
-                        <a href="tel:+919999980055">+91 9999980055</a>
+                        {phone ? (
+                          <a href={`tel:${phone}`}>{phone}</a>
+                        ) : (
+                          <a href="tel:+919999980055">+91 99999 80055</a>
+                        )}
                       </p>
                     </div>
                     <div className="footerbox">
                       <span className="map"></span>
                       <p className="col-12 float-start m-0">
-                        {slug.includes("/project") ? (
-                          Data && Data.trim() ? (
-                            <p
-                              dangerouslySetInnerHTML={{ __html: Data }}
-                              className="m-0"
-                            />
-                          ) : (
-                            <>
-                              GH-B3, Jaypee Greens Sports <br />
-                              City, SDZ, Dankaur, Greater
-                              <br />
-                              Noida, Gautam Buddha Nagar
-                              <br />
-                              Uttar Pradesh, 201301
-                            </>
-                          )
+                        {address && address.trim() ? (
+                          <p
+                            dangerouslySetInnerHTML={{ __html: address }}
+                            className="m-0"
+                          />
                         ) : (
                           <>
                             GH-B3, Jaypee Greens Sports <br />

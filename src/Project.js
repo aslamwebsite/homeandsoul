@@ -7,6 +7,7 @@ import { BasePath } from "./component/BasePath/Index";
 import Noimage from "./images/noimage.jpg";
 import BreadCrumb from "./component/BreadCrumb/Index";
 import Container from "./component/Container/Index";
+import Contact from "./component/Contact/Index";
 
 const Project = () => {
   const [pageData, setPageData] = useState({});
@@ -85,7 +86,7 @@ const Project = () => {
       <Container _parentClass={"m-0"}>
         <BreadCrumb pageName={title} />
       </Container>
-      <WebContainer _parentClass={"projects p-100 pt-0"}>
+      <WebContainer _parentClass={"projects  pt-0"}>
         <Title firstHeading={title} grandClass={"m-0"} />
         {cat.toLowerCase() === "commercial" && (
           <div className="col-12 float-start commercialProject desktop-show">
@@ -202,6 +203,9 @@ const Project = () => {
           </div>
         )}
       </WebContainer>
+      <div className="section proDetail">
+        <Contact />
+      </div>
     </>
   );
 };

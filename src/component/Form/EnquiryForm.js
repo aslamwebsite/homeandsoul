@@ -29,8 +29,8 @@ const EnquiryForm = ({
         downloadType: downloadRequested ? downloadType : null,
         slug: slug ? slug : null,
       };
-      console.log("these are the value of the form", values);
-      console.log("these are the value of the form", formData);
+      // console.log("these are the value of the form", values);
+      // console.log("these are the value of the form", formData);
 
       const response = await axios.post(
         `${BasePath}/contact_submit.php`,
