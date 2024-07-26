@@ -232,10 +232,12 @@ const ProjectDetail = () => {
                         </h3>
                       </div>
                       <div className="col-12 float-start quickTabs flex-center gap-25">
-                        <a onClick={() => handleDownloadClick("brochure")}>
-                          <span>Brochure</span>
-                        </a>
-                        {projectDetails.floor_plans && (
+                        {projectDetails.brochure !== "" && (
+                          <a onClick={() => handleDownloadClick("brochure")}>
+                            <span>Brochure</span>
+                          </a>
+                        )}
+                        {projectDetails.floor_plans !== "" && (
                           <a onClick={() => handleDownloadClick("floor_plans")}>
                             <span>Floor Plans</span>
                           </a>

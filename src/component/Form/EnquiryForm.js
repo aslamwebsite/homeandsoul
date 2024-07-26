@@ -40,7 +40,7 @@ const EnquiryForm = ({
         }
       );
 
-      console.log("response from the api", response.data);
+      console.log("response from the api", response);
 
       if (response.status === 200) {
         setAlertProps({
