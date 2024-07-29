@@ -147,7 +147,7 @@ const ProjectDetail = () => {
             <div className="projectscont">
               <div className="details flex-center">
                 <div className='detailHeading'>
-                  <h4>{heading}</h4>
+                  <h2>{heading}</h2>
                 </div>
                 <div className="detailContent">
                   <p>
