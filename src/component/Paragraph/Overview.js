@@ -8,7 +8,7 @@ const Overview = ({Data}) => {
             data-aos-duration="500"
             data-aos-once="true"
             data-aos-easing="ease-in-sine">
-        <span className="col-12 float-start">{Data.title}</span>
+        <h2 className="col-12 float-start">{Data.title}</h2>
     </div>
     <div className='aboutContext' data-aos="fade-up"
             data-aos-offset="200"

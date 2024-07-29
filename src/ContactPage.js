@@ -51,11 +51,9 @@ const ContactPage = () => {
       >
         <div className="container position-relative">
           <div className="creativeslide">
-            <h3 className="heading bigFont text-start text-black">
-            </h3>
             {pageData.bannerImage.length > 0 && pageData.bannerImage[0].title ? (
-              <h3
-                className="heading bigFont text-start"
+              <h1
+                className="heading bigFont text-start blackText"
                 dangerouslySetInnerHTML={{ __html: pageData.bannerImage[0].title }}
               />
             ) : (

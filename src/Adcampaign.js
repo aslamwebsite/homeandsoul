@@ -57,12 +57,15 @@ const Adcampaign = () => {
 
   return (
     <Webcontainer _parentClass={"media"}>
-      <Title secondHeading={'Ad Campaign'} firstHeading={"Media & News"} />
+      <div className="title flex-center col-12 float-start flex-wrap text-center position-relative showTextcont">
+        <h1 className="col-12 float-start subTitle">{'Media & News'}</h1>
+        <h2 className="heading bigFont text-black col-12 float-start">{'Ad Campaign'}</h2>
+    </div>
       <div className="row">
         <div className="column3">
           <ul className="medianavbar">
-          <li><NavLink to='/media'>Press Release</NavLink></li>
-          <li  className="active"><NavLink to='/media/ad-campaign'>Ad Campaign</NavLink></li>
+          <li><NavLink to='/media'><h3>Press Release</h3></NavLink></li>
+          <li  className="active"><NavLink to='/media/ad-campaign'><h3>Ad Campaign</h3></NavLink></li>
           </ul>
         </div>
         <Gallery

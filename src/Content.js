@@ -68,7 +68,7 @@ const Content = () => {
                 <Parallax bgImage={bannerImage.imagePath} strength={getStrengthValue()} className="flex-center col-12 float-start parallaxBanner">
                     <div className='container position-relative'>
                         <div className="creativeslide">
-                            <h3 className="heading bigFont text-start" dangerouslySetInnerHTML={{ __html: bannerImage.title }} />
+                            <h1 className="heading bigFont text-start blackText" dangerouslySetInnerHTML={{ __html: bannerImage.title }} />
                         </div>
                     </div>
                 </Parallax>
@@ -77,7 +77,11 @@ const Content = () => {
                 <BreadCrumb pageName={slug} />
             </Container>
             <WebContainer _parentClass={`m-0 p-100 ${careerCustomClass}`}>
-                <Title firstHeading={subheading} secondHeading={heading} grandClass="customMargin" />
+                {/* <Title firstHeading={subheading} secondHeading={heading} grandClass="customMargin" /> */}
+                <div className="title flex-center col-12 float-start flex-wrap text-center position-relative showTextcont customMargin">
+        <h2 className="col-12 float-start subTitle">{subheading}</h2>
+        <h3 className="heading bigFont text-black col-12 float-start">{heading}</h3>
+    </div>
                 <div className="col-12 float-start pb-5">
                     <div className="pageContent">
                         {isContentEmpty ? (

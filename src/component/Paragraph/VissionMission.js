@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Counter from "../CountLoader/Loader";
-import Container from "../Container/Index";
+import React from "react";
 import "../CountLoader/Counter.css";
 import bannerImage from '../../images/Vission-banner.webp';
 import { Parallax } from 'react-parallax';

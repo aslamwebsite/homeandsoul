@@ -4,7 +4,7 @@ const Index = ({firstHeading,secondHeading,parentClass,childClass, grandClass}) 
   return (
     <>
      <div className={`title flex-center col-12 float-start flex-wrap text-center ${grandClass}`}>
-            {firstHeading && <span className={`col-12 float-start ${parentClass}`} data-aos="zoom-in"
+            {firstHeading && <span className={`col-12 float-start subTitle ${parentClass}`} data-aos="zoom-in"
           data-aos-offset="100"
           data-aos-duration="500"
           data-aos-once="true"

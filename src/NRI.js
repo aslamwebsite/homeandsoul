@@ -60,8 +60,8 @@ const NRI = () => {
         <div className="container position-relative">
           <div className="creativeslide">
             {faqData.bannerImage.length > 0 && faqData.bannerImage[0].title ? (
-              <h3
-                className="heading bigFont text-start"
+              <h1
+                className="heading bigFont text-start blackText"
                 dangerouslySetInnerHTML={{ __html: faqData.bannerImage[0].title }}
               />
             ) : (
@@ -74,7 +74,11 @@ const NRI = () => {
         <BreadCrumb pageName="NRI" />
       </Container>
       <WebContainer _parentClass="nriSection bgcolor m-0 p-100">
-        <Title firstHeading="Home & Soul" secondHeading="Right Time To Turn To India" />
+        {/* <Title firstHeading="" secondHeading="" /> */}
+        <div className="title flex-center col-12 float-start flex-wrap text-center position-relative showTextcont">
+        <h2 className="col-12 float-start subTitle m-0">{'Home & Soul'}</h2>
+        <h3 className="heading bigFont text-black col-12 float-start">{'Right Time To Turn To India'}</h3>
+    </div>
         <div className="col-12 float-start Accordion">
           {faqData.nris.length > 0 ? (
             faqData.nris.map((item) => (

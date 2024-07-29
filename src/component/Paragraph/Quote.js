@@ -2,7 +2,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import React, { useRef } from 'react';
 import styles from './style.module.css';
 import WebContainer from '../WebContainer/Index';
-import { Link } from 'react-router-dom';
 import QuoteIcon from '../../images/Svg/QuoteIcon';
 
 const Quote = ({ Data }) => {
