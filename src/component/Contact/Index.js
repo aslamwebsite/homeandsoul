@@ -10,240 +10,118 @@ import { RiYoutubeFill } from "react-icons/ri";
 import { Link, useLocation } from "react-router-dom";
 import EnquiryForm from "../Form/EnquiryForm";
 
-const Index = ({
-  Data,
-  downloadRequested,
-  setDownloadRequested,
-  downloadType,
-  _slug,
-  address,
-  phone,
-}) => {
-  const currentYear = new Date().getFullYear();
-  const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "end end"],
-  });
-
-  const handleFormSubmit = async (responseData) => {
-    if (responseData.filePath) {
-      window.open(responseData.filePath, "_blank");
-    }
-    setDownloadRequested(false);
-  };
-
-  const combinedClassNames = `${styles.contact} transformRemove`;
+const Index = ({Data}) => {
+    const currentYear = new Date().getFullYear();
+    const container = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: container,
+        offset: ["start end", "end end"]
+    });
+   
+    const combinedClassNames = `${styles.contact} transformRemove`;
 
   const x = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const y = useTransform(scrollYProgress, [0, 1], [-500, 0]);
 
-  const location = useLocation();
-  const slug = location.pathname;
-  const isSlugPage =
-    location.pathname.startsWith("/projects/") &&
-    location.pathname.split("/").length === 4;
-  const titleDivision = isSlugPage ? (
-    <div className="title text-center float-start col-12">
-      {downloadRequested ?
-        <span>
-          FILL THE FORM TO DOWNLOAD
-        </span>
-        :
-        <>
-          <span>
-            Talk to us
-          </span>
-          <p className="m-0 lh-1">
-            For excellent real estate ownership and <br />
-            investment opportunities
-          </p>
-        </>
-      }
-    </div>
-  ) : (
-    <div className="title text-center float-start col-12">
-      <span>Talk to us</span>
-      <p className="m-0 lh-1">
-        For excellent real estate ownership and <br />
-        investment opportunities
-      </p>
-    </div>
-  );
+    const location = useLocation();
+    const slug = location.pathname;
+    const isSlugPage = location.pathname.startsWith('/projects/') && location.pathname.split('/').length === 4;
+    const titleDivision = isSlugPage ? (
+        <div className="title text-center float-start col-12">
+            <span>FILL THE FORM TO DOWNLOAD</span>
+        </div>
+    ) : (
+        <div className="title text-center float-start col-12">
+            <span>Talk to us</span>
+            <p className='m-0 lh-1'>For excellent real estate ownership and <br />investment opportunities</p>
+        </div>
+    );
 
-  return (
-    <>
-      <footer
-        className="col-12 float-start overflow-hidden"
-        data-aos="fade-in"
-        data-aos-offset="200"
-        data-aos-duration="500"
-        data-aos-once="true"
-        data-aos-easing="ease-in-sine"
-      >
-        <motion.div
-          style={{ y }}
-          ref={container}
-          className={combinedClassNames}
-        >
-          <div className="container">
-            {titleDivision}
-            <div className="col-lg-11 m-auto">
-              <div className={styles.body}>
-                <div className="col-lg-9 m-auto footerForm">
-                  <EnquiryForm
-                    downloadRequested={downloadRequested}
-                    setDownloadRequested={setDownloadRequested}
-                    downloadType={downloadType}
-                    slug={_slug}
-                  />
-                </div>
-                <div className={styles.title}>
-                  <div className={styles.nav}>
-                    <div className="footerbox">
-                      <span className="call"></span>
-                      <p className="col-12 float-start m-0">
-                        {" "}
-                        {phone ? (
-                          <a href={`tel:${phone}`}>{phone}</a>
-                        ) : (
-                          <a href="tel:+919999980055">+91 99999 80055</a>
-                        )}
-                      </p>
+    return (
+        <>
+            <footer className='col-12 float-start overflow-hidden' data-aos="fade-in"
+                data-aos-offset="200"
+                data-aos-duration="500"
+                data-aos-once="true"
+                data-aos-easing="ease-in-sine">
+                <motion.div style={{ y }} ref={container} className={combinedClassNames}>
+                    <div className="container">
+                        {titleDivision}
+                        <div className='col-lg-11 m-auto'>
+                            <div className={styles.body}>
+                                <div className='col-lg-9 m-auto footerForm'>
+                                    <EnquiryForm />
+                                </div>
+                                <div className={styles.title}>
+                                    <div className={styles.nav}>
+                                        <div className="footerbox">
+                                            <span className='call'></span>
+                                            <p className='col-12 float-start m-0'> <a href='tel:+919999980055' >+91 9999980055</a></p>
+                                        </div>
+                                        <div className="footerbox">
+                                            <span className='map'></span>
+                                            <p className='col-12 float-start m-0'>
+        {slug.includes('/project') ? (
+          Data && Data.trim() ? (
+            <p dangerouslySetInnerHTML={{ __html: Data }} className='m-0'/>
+          ) : (
+            <>
+              GH-B3, Jaypee Greens Sports <br />
+              City, SDZ, Dankaur, Greater<br />
+              Noida, Gautam Buddha Nagar<br />
+              Uttar Pradesh, 201301
+            </>
+          )
+        ) : (
+          <>
+            GH-B3, Jaypee Greens Sports <br />
+            City, SDZ, Dankaur, Greater<br />
+            Noida, Gautam Buddha Nagar<br />
+            Uttar Pradesh, 201301
+          </>
+        )}
+      </p>
+                                            
+                                        </div>
+                                        <div className="footerbox">
+                                            <span className='email'></span>
+                                            <p className='col-12 float-start m-0'> <a href='mailto:info@homeandsoul.in'>info@homeandsoul.in</a></p>
+                                        </div>
+                                        <div className="footerbox">
+                                            <div className="col-12 float">
+                                                <p className='m-0'>Follow us today!</p>
+                                                <ul className='d-flex p-0'>
+                                                    <li><a href='https://www.facebook.com/HomeAndSoulIN' target='_blank' rel="noreferrer"><Magnetic><span><BiLogoFacebook /></span></Magnetic></a></li>
+                                                    <li><a href='https://twitter.com/Home_and_Soul' target='_blank' rel="noreferrer"><Magnetic><span><RiTwitterXLine /></span></Magnetic></a></li>
+                                                    <li><a href='https://www.linkedin.com/company/homeandsoul/' target='_blank' rel="noreferrer"><Magnetic><span><FaLinkedinIn /></span></Magnetic></a></li>
+                                                    <li><a href='https://www.instagram.com/homeandsoulin' target='_blank' rel="noreferrer"><Magnetic><span><RiInstagramLine /></span></Magnetic></a></li>
+                                                    <li><a href='https://www.youtube.com/channel/UCwqwdgrB6KKyiBHXwirCnTA' target='_blank' rel="noreferrer"><Magnetic><span><RiYoutubeFill /></span></Magnetic></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={styles.info}>
+                                    <div>
+                                        <p>
+                                            &copy; {currentYear} | All Right Reserved | Home & Soul | <Link to='/privacy-policy'>Privacy & Policy</Link> | <Link to='/disclaimer'> Disclaimer</Link>
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <span>
+                                            <Magnetic>
+                                                <p><a href='https://triverseadvertising.com/' target='_blank' rel="noreferrer">site : triverse</a></p>
+                                            </Magnetic>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className="footerbox">
-                      <span className="map"></span>
-                      <p className="col-12 float-start m-0">
-                        {address && address.trim() ? (
-                          <p
-                            dangerouslySetInnerHTML={{ __html: address }}
-                            className="m-0"
-                          />
-                        ) : (
-                          <>
-                            GH-B3, Jaypee Greens Sports <br />
-                            City, SDZ, Dankaur, Greater
-                            <br />
-                            Noida, Gautam Buddha Nagar
-                            <br />
-                            Uttar Pradesh, 201301
-                          </>
-                        )}
-                      </p>
-                    </div>
-                    <div className="footerbox">
-                      <span className="email"></span>
-                      <p className="col-12 float-start m-0">
-                        <a href="mailto:crm@homeandsoul.in">
-                          crm@homeandsoul.in
-                        </a>
-                      </p>
-                    </div>
-                    <div className="footerbox">
-                      <div className="col-12 float">
-                        <p className="m-0">Follow us today!</p>
-                        <ul className="d-flex p-0">
-                          <li>
-                            <a
-                              href="https://www.facebook.com/HomeAndSoulIN"
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              <Magnetic>
-                                <span>
-                                  <BiLogoFacebook />
-                                </span>
-                              </Magnetic>
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="https://twitter.com/Home_and_Soul"
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              <Magnetic>
-                                <span>
-                                  <RiTwitterXLine />
-                                </span>
-                              </Magnetic>
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="https://www.linkedin.com/company/homeandsoul/"
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              <Magnetic>
-                                <span>
-                                  <FaLinkedinIn />
-                                </span>
-                              </Magnetic>
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="https://www.instagram.com/homeandsoulin"
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              <Magnetic>
-                                <span>
-                                  <RiInstagramLine />
-                                </span>
-                              </Magnetic>
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="https://www.youtube.com/channel/UCwqwdgrB6KKyiBHXwirCnTA"
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              <Magnetic>
-                                <span>
-                                  <RiYoutubeFill />
-                                </span>
-                              </Magnetic>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.info}>
-                  <div>
-                    <p>
-                      &copy; {currentYear} | All Right Reserved | Home & Soul |{" "}
-                      <Link to="/privacy-policy">Privacy & Policy</Link> |{" "}
-                      <Link to="/disclaimer"> Disclaimer</Link>
-                    </p>
-                  </div>
-                  <div>
-                    <span>
-                      <Magnetic>
-                        <p>
-                          <a
-                            href="https://triverseadvertising.com/"
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            site : triverse
-                          </a>
-                        </p>
-                      </Magnetic>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </footer>
-    </>
-  );
-};
+                </motion.div>
+            </footer>
+        </>
+    );
+}
 
 export default Index;

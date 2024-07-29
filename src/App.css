@@ -174,9 +174,9 @@ img {
   -webkit-background-clip: text;
 }
 
-.Herosection .creativeslide h1, .creativeslide.hsoul02 h2,
-.Herosection .Heroslider .swiper-slide .creativeslide h2,
-.react-parallax-content .creativeslide h2, .creativeslide h1.blackText {
+.creativeslide.hsoul02 h3,
+.Herosection .Heroslider .swiper-slide .creativeslide h3,
+.react-parallax-content .creativeslide h3 {
   background-image: linear-gradient(
     90deg,
     var(--black),
@@ -646,9 +646,9 @@ input[type="radio"]:checked + label > em {
 }
 
 .m-0,
-.Gallerybox .subTitle, .title span,
-.aboutUs .subTitle, .title span,
-.tabs .subTitle, .title span,
+.Gallerybox .title span,
+.aboutUs .title span,
+.tabs .title span,
 .Upcomingimg.w-100 {
   margin: 0;
 }
@@ -2198,17 +2198,6 @@ button.proarrow {
 .tabs {
   border-bottom: solid 1px #d5d5d5;
 }
-.text-uppercase{
-  text-transform: uppercase;
-}
-.fw-300{
-  font-weight: 300;
-}
-.medianavbar li h3 {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-}
 @media (max-width: 1680px) {
   .projectDetails .title-item {
     font-size: 13px;
@@ -2241,7 +2230,7 @@ button.proarrow {
     line-height: 20px;
   }
 
-  .subTitle, .title span {
+  .title span {
     font-size: 17px;
     line-height: 22px;
   }
@@ -2730,7 +2719,7 @@ button.proarrow {
     right: 2%;
   }
 
-  .creativeslide.hsoul02 h2 {
+  .creativeslide.hsoul02 h3 {
     background-image: linear-gradient(
       90deg,
       var(--white),
@@ -2825,7 +2814,7 @@ button.proarrow {
   .projectscroll {
     height: 87vh;
   }
-  .details h4, .details h2 {
+  .details h4 {
     text-align: left;
   }
   .projectscroll img {

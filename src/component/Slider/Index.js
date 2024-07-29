@@ -84,6 +84,10 @@ const Index = ({ Data = [], parentClass, mobHeight }) => {
                           isZoomIn ? "zoom-in" : "zoom-out"
                         }`}
                       >
+<<<<<<< HEAD
+=======
+                        {/* Check if mobile image is available, otherwise fallback to desktop image */}
+>>>>>>> c580429ee8cf2d47970c2d9a46498a71944133aa
                         <img
                           src={
                             isMobile
@@ -102,6 +106,7 @@ const Index = ({ Data = [], parentClass, mobHeight }) => {
                       )}
                     </div>
                     <div className={`creativeslide ${getNextClass()}`}>
+<<<<<<< HEAD
                       {index === 0 ? (
                         <h1
                           className="heading bigFont text-start text-white text-uppercase"
@@ -113,6 +118,12 @@ const Index = ({ Data = [], parentClass, mobHeight }) => {
                           dangerouslySetInnerHTML={{ __html: slide.title }}
                         ></h2>
                       )}
+=======
+                      <h3
+                        className="heading bigFont text-start text-black"
+                        dangerouslySetInnerHTML={{ __html: slide.title }}
+                      ></h3>
+>>>>>>> c580429ee8cf2d47970c2d9a46498a71944133aa
                     </div>
                   </Link>
                 </div>

@@ -25,7 +25,11 @@ const Index = ({ Data }) => {
   return (
     <>
       <Container _parentClass={'homeParent'}>
+<<<<<<< HEAD
         <Title firstHeading={'Featured Projects'} grandClass={'titlePosition changePositionResposniive'} />
+=======
+        <Title firstHeading={'Featured Products'} grandClass={'titlePosition changePositionResposniive'} />
+>>>>>>> c580429ee8cf2d47970c2d9a46498a71944133aa
         {Data.map((project, index) => (
           <div
             className='projects col-12 float-start position-relative'

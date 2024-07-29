@@ -146,8 +146,8 @@ const ProjectDetail = () => {
           {description.length === 0 || description[0] === "" ? null : (
             <div className="projectscont">
               <div className="details flex-center">
-                <div className="detailHeading">
-                  <h2>{heading}</h2>
+                <div className='detailHeading'>
+                  <h4>{heading}</h4>
                 </div>
                 <div className="detailContent">
                   <p>
@@ -211,10 +211,10 @@ const ProjectDetail = () => {
 
               {projectDetails?.gallery && projectDetails.gallery.length > 0 && (
                 <div className="section projectGallery">
-                  <div className="projectscroll d-flex align-items-end flex-wrap">
-                    <div className="col-12 float-start proGallery">
-                      <div className="title flex-center"> 
-                        <h3 className="subTitle">Gallery</h3>
+                  <div className='projectscroll d-flex align-items-end flex-wrap'>
+                    <div className='col-12 float-start proGallery'>
+                      <div className='title flex-center'>
+                        <span className='m-0'>Gallery</span>
                       </div>
                       <Gallery Data={projectDetails.gallery} />
                     </div>
